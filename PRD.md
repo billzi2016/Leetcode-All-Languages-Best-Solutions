@@ -410,6 +410,7 @@ logs/{run_datetime}/failures.jsonl
 - Ollama client 使用 Python `ollama` 库，不使用 `requests`。
 - Ollama smoke test：用 `hello` 分别测试 `low`、`medium`、`high` 三种 think 模式能被本机 Ollama 识别。
 - Ollama 调用参数测试：确认单次语言生成的最大输出限制为 100k tokens。
+- CLI 参数测试：支持一次指定多个题号，例如 `--frontend-ids 1 2 4`。
 - LeetCode 1 / 2 / 4 必须有正式流程测试，分别覆盖 Easy、Medium、Hard：
   - LeetCode 1 `Two Sum` -> `easy/1-100/0001-two-sum.md`
   - LeetCode 2 `Add Two Numbers` -> `medium/1-100/0002-add-two-numbers.md`

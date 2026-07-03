@@ -55,10 +55,34 @@ PYTHONPATH=src python -m unittest discover -s tests
 PYTHONPATH=src python scripts/generate_solutions.py --only-frontend-id 1
 ```
 
+一次生成 LeetCode 1 / 2 / 4：
+
+```bash
+PYTHONPATH=src python scripts/generate_solutions.py --frontend-ids 1 2 4
+```
+
 生成某个难度：
 
 ```bash
 PYTHONPATH=src python scripts/generate_solutions.py --difficulty Easy
+```
+
+生成 Medium：
+
+```bash
+PYTHONPATH=src python scripts/generate_solutions.py --difficulty Medium
+```
+
+生成 Hard：
+
+```bash
+PYTHONPATH=src python scripts/generate_solutions.py --difficulty Hard
+```
+
+生成全部难度：
+
+```bash
+PYTHONPATH=src python scripts/generate_solutions.py
 ```
 
 输出目录示例：
@@ -74,4 +98,3 @@ hard/1-100/0004-median-of-two-sorted-arrays.md
 - `PRD.md`: 产品需求和实现约束
 - `PROJECT_STRUCTURE.md`: 项目结构、模块职责、SOLID/DRY 和测试规划
 - `dataset/dataset.md`: 数据集来源和字段说明
-

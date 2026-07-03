@@ -34,6 +34,7 @@
 │   ├── test_resume.py              # 断点续跑检测测试
 │   ├── test_logger.py              # stdout/stderr/failures 日志分流测试
 │   ├── test_ollama_client.py       # ollama 库调用、think 模式和 100k 限制测试
+│   ├── test_cli.py                 # CLI 参数解析测试
 │   ├── test_generator.py           # 主流程调度测试
 │   └── test_e2e_selected.py        # LeetCode 1/2/4 正式流程和跳过行为测试
 ├── logs/                           # 运行日志，不提交 Git
@@ -72,6 +73,7 @@
 - Ollama client 使用 Python `ollama` 库，不使用 `requests`。
 - Ollama client 能用 `hello` smoke test 验证 `low`、`medium`、`high` 三种 think 模式。
 - Ollama client 调用参数包含 100k tokens 最大输出限制。
+- CLI 支持一次指定多个题号，例如 `--frontend-ids 1 2 4`。
 - LeetCode 1 / 2 / 4 的正式生成流程：从 dataset 读取真实题目，分别覆盖 Easy、Medium、Hard，走完整生成链路并产出对应 `.md`。
 - LeetCode 1 / 2 / 4 已生成后的跳过行为：第二次运行应识别目标 `.md` 已完整存在，并正常跳过，不重复调用模型。
 

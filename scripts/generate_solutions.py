@@ -22,6 +22,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate LeetCode all-language solutions.")
     parser.add_argument("--root", type=Path, default=Path.cwd(), help="Project root path.")
     parser.add_argument("--only-frontend-id", help="Generate only one LeetCode frontend id, such as 1.")
+    parser.add_argument("--frontend-ids", nargs="+", help="Generate multiple LeetCode frontend ids, such as 1 2 4.")
     parser.add_argument(
         "--difficulty",
         choices=DIFFICULTY_ORDER,
@@ -41,12 +42,19 @@ def main() -> int:
     generator = SolutionGenerator(client, logger, paths.output_root)
 
     try:
+        requested_ids = []
         if args.only_frontend_id:
-            problem = find_by_frontend_id(questions, args.only_frontend_id)
-            if problem is None:
-                logger.error(f"Cannot find frontend_id={args.only_frontend_id}")
-                return 1
-            generator.generate_problem(problem)
+            requested_ids.append(args.only_frontend_id)
+        if args.frontend_ids:
+            requested_ids.extend(args.frontend_ids)
+
+        if requested_ids:
+            for frontend_id in requested_ids:
+                problem = find_by_frontend_id(questions, frontend_id)
+                if problem is None:
+                    logger.error(f"Cannot find frontend_id={frontend_id}")
+                    continue
+                generator.generate_problem(problem)
             return 0
 
         difficulties = [args.difficulty] if args.difficulty else list(DIFFICULTY_ORDER)
@@ -59,4 +67,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
