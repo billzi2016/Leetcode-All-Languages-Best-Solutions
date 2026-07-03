@@ -32,7 +32,9 @@ nav:
       - Overview: en/index.md
       - LeetCode: en/leetcode.md
       - Languages: en/languages.md
-      - Ollama Workflow: en/ollama.md
+      - Ollama and Compute Nodes: en/ollama.md
+      - Ollama Install: en/ollama-install.md
+      - Agent Generation Flow: en/agent.md
       - MkDocs: en/mkdocs.md
       - GitHub Actions: en/github-actions.md
       - End-to-End Workflow: en/workflow.md
@@ -43,7 +45,9 @@ nav:
       - 总览: cn/index.md
       - LeetCode: cn/leetcode.md
       - 支持语言: cn/languages.md
-      - Ollama 流程: cn/ollama.md
+      - Ollama 和计算节点: cn/ollama.md
+      - Ollama 安装: cn/ollama-install.md
+      - Agent 生成流程: cn/agent.md
       - MkDocs: cn/mkdocs.md
       - GitHub Actions: cn/github-actions.md
       - 端到端流程: cn/workflow.md
