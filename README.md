@@ -124,7 +124,7 @@ Generate LeetCode 1 / 2 / 4 in one run:
 PYTHONPATH=src python scripts/generate_solutions.py --frontend-ids 1 2 4
 ```
 
-Generate one difficulty:
+Generate Easy:
 
 ```bash
 PYTHONPATH=src python scripts/generate_solutions.py --difficulty Easy
@@ -154,7 +154,22 @@ Generate all solutions in a background tmux session:
 scripts/tmux_all.sh
 ```
 
-This script runs `python -m pip install -r requirements.txt` before starting the `leetcode-all` tmux session. Missing dependencies therefore fail in the foreground instead of causing a silent background generation failure.
+Generate one difficulty in a background tmux session:
+
+```bash
+scripts/tmux_easy.sh
+scripts/tmux_medium.sh
+scripts/tmux_hard.sh
+```
+
+These tmux scripts run `python -m pip install -r requirements.txt` before starting their tmux sessions. Missing dependencies therefore fail in the foreground instead of causing a silent background generation failure.
+
+Default session names:
+
+- `scripts/tmux_all.sh`: `leetcode-all`
+- `scripts/tmux_easy.sh`: `leetcode-easy`
+- `scripts/tmux_medium.sh`: `leetcode-medium`
+- `scripts/tmux_hard.sh`: `leetcode-hard`
 
 Inspect and attach to the background task:
 

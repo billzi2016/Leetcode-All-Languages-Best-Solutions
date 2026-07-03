@@ -124,7 +124,7 @@ PYTHONPATH=src python scripts/generate_solutions.py --only-frontend-id 1
 PYTHONPATH=src python scripts/generate_solutions.py --frontend-ids 1 2 4
 ```
 
-生成某个难度：
+生成 Easy：
 
 ```bash
 PYTHONPATH=src python scripts/generate_solutions.py --difficulty Easy
@@ -154,7 +154,22 @@ PYTHONPATH=src python scripts/generate_solutions.py
 scripts/tmux_all.sh
 ```
 
-这个脚本会先执行 `python -m pip install -r requirements.txt`，再启动名为 `leetcode-all` 的 tmux session。这样依赖缺失会先在当前终端暴露，而不是让后台生成任务静默失败。
+使用 tmux 后台按难度生成：
+
+```bash
+scripts/tmux_easy.sh
+scripts/tmux_medium.sh
+scripts/tmux_hard.sh
+```
+
+这些 tmux 脚本都会先执行 `python -m pip install -r requirements.txt`，再启动对应的 tmux session。这样依赖缺失会先在当前终端暴露，而不是让后台生成任务静默失败。
+
+默认 session 名：
+
+- `scripts/tmux_all.sh`: `leetcode-all`
+- `scripts/tmux_easy.sh`: `leetcode-easy`
+- `scripts/tmux_medium.sh`: `leetcode-medium`
+- `scripts/tmux_hard.sh`: `leetcode-hard`
 
 查看和进入后台任务：
 

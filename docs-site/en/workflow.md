@@ -48,18 +48,24 @@ The generator splits prompts into three layers so identical content stays near t
 
 Do not rebuild every request as a completely different block of mixed problem data, language requirements, and output rules. That reduces reuse and makes failures harder to diagnose.
 
-## Full Generation With tmux
+## Background Generation With tmux
 
-`scripts/tmux_all.sh` is the long-running full-generation entry point. It installs the root `requirements.txt` first, then starts a tmux session.
+The tmux scripts are entry points for long-running generation jobs. `scripts/tmux_all.sh` generates all difficulties; `scripts/tmux_easy.sh`, `scripts/tmux_medium.sh`, and `scripts/tmux_hard.sh` generate Easy, Medium, and Hard respectively. Each script installs the root `requirements.txt` first, then starts the corresponding tmux session.
 
 ```mermaid
 flowchart TD
-    A[Run scripts/tmux_all.sh] --> B[Enter repository root]
+    A[Run a tmux script] --> B[Enter repository root]
     B --> C[python -m pip install -r requirements.txt]
-    C --> D[Start tmux session: leetcode-all]
-    D --> E[Run generate_solutions.py]
-    E --> F[Inspect with tmux attach]
-    E --> G[Write logs under logs/datetime]
+    C --> D{Script type}
+    D -->|tmux_all.sh| E[Run all difficulties: leetcode-all]
+    D -->|tmux_easy.sh| F[Run Easy: leetcode-easy]
+    D -->|tmux_medium.sh| G[Run Medium: leetcode-medium]
+    D -->|tmux_hard.sh| H[Run Hard: leetcode-hard]
+    E --> I[Inspect with tmux attach]
+    F --> I
+    G --> I
+    H --> I
+    I --> J[Write logs under logs/datetime]
 ```
 
 Dependency installation happens before tmux starts so environment failures appear in the current terminal. The actual generation then runs in the background.
@@ -68,9 +74,18 @@ Common commands:
 
 ```bash
 scripts/tmux_all.sh
+scripts/tmux_easy.sh
+scripts/tmux_medium.sh
+scripts/tmux_hard.sh
 tmux ls
 tmux attach -t leetcode-all
+tmux attach -t leetcode-easy
+tmux attach -t leetcode-medium
+tmux attach -t leetcode-hard
 tmux kill-session -t leetcode-all
+tmux kill-session -t leetcode-easy
+tmux kill-session -t leetcode-medium
+tmux kill-session -t leetcode-hard
 tmux kill-server
 ```
 

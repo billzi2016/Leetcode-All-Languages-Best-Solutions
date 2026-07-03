@@ -48,18 +48,24 @@ flowchart TD
 
 不要把题目、语言、输出格式要求每次拼成完全不同的一大段文本。那样会降低复用，也会让失败排查变困难。
 
-## tmux 全量生成
+## tmux 后台生成
 
-`scripts/tmux_all.sh` 是面向长时间全量生成的入口。它会先安装根目录 `requirements.txt`，再启动 tmux session。
+tmux 脚本是面向长时间生成任务的入口。`scripts/tmux_all.sh` 生成全部难度；`scripts/tmux_easy.sh`、`scripts/tmux_medium.sh`、`scripts/tmux_hard.sh` 分别生成 Easy、Medium、Hard。每个脚本都会先安装根目录 `requirements.txt`，再启动对应的 tmux session。
 
 ```mermaid
 flowchart TD
-    A[执行 scripts/tmux_all.sh] --> B[进入仓库根目录]
+    A[执行 tmux 脚本] --> B[进入仓库根目录]
     B --> C[python -m pip install -r requirements.txt]
-    C --> D[启动 tmux session: leetcode-all]
-    D --> E[运行 generate_solutions.py]
-    E --> F[屏幕查看 tmux attach]
-    E --> G[日志落盘到 logs/日期时间]
+    C --> D{脚本类型}
+    D -->|tmux_all.sh| E[运行全部难度: leetcode-all]
+    D -->|tmux_easy.sh| F[运行 Easy: leetcode-easy]
+    D -->|tmux_medium.sh| G[运行 Medium: leetcode-medium]
+    D -->|tmux_hard.sh| H[运行 Hard: leetcode-hard]
+    E --> I[屏幕查看 tmux attach]
+    F --> I
+    G --> I
+    H --> I
+    I --> J[日志落盘到 logs/日期时间]
 ```
 
 依赖安装放在 tmux 启动之前，是为了让缺依赖这类环境问题直接出现在当前终端；真正的生成任务再进入后台运行。
@@ -68,9 +74,18 @@ flowchart TD
 
 ```bash
 scripts/tmux_all.sh
+scripts/tmux_easy.sh
+scripts/tmux_medium.sh
+scripts/tmux_hard.sh
 tmux ls
 tmux attach -t leetcode-all
+tmux attach -t leetcode-easy
+tmux attach -t leetcode-medium
+tmux attach -t leetcode-hard
 tmux kill-session -t leetcode-all
+tmux kill-session -t leetcode-easy
+tmux kill-session -t leetcode-medium
+tmux kill-session -t leetcode-hard
 tmux kill-server
 ```
 
