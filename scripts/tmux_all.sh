@@ -6,6 +6,8 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 cd "$ROOT_DIR"
 
+python -m pip install -r requirements.txt
+
 tmux new-session -d -s "$SESSION_NAME" \
   "PYTHONPATH=src python scripts/generate_solutions.py"
 
