@@ -32,6 +32,7 @@
 │   ├── test_markdown_writer.py     # 输出路径、文件名和 Markdown 格式测试
 │   ├── test_resume.py              # 断点续跑检测测试
 │   ├── test_logger.py              # stdout/stderr/failures 日志分流测试
+│   ├── test_ollama_client.py       # ollama 库调用、think 模式和 100k 限制测试
 │   ├── test_generator.py           # 主流程调度测试
 │   └── test_e2e_two_sum.py         # LeetCode 1 正式流程和跳过行为测试
 ├── logs/                           # 运行日志，不提交 Git
@@ -67,6 +68,9 @@
 - 断点续跑对完整题目和缺失语言的判断。
 - stdout/stderr/failures 三类日志分流。
 - retry 3 次失败后记录日志并继续处理下一个题目的行为。
+- Ollama client 使用 Python `ollama` 库，不使用 `requests`。
+- Ollama client 能用 `hello` smoke test 验证 `low`、`medium`、`high` 三种 think 模式。
+- Ollama client 调用参数包含 100k tokens 最大输出限制。
 - LeetCode 1 `Two Sum` 的正式生成流程：从 dataset 读取真实题目，走完整生成链路，产出 `easy/1-100/0001-two-sum.md`。
 - LeetCode 1 已生成后的跳过行为：第二次运行应识别目标 `.md` 已完整存在，并正常跳过，不重复调用模型。
 
