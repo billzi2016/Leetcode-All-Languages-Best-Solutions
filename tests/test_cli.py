@@ -5,6 +5,7 @@ from __future__ import annotations
 import unittest
 from unittest.mock import patch
 
+from scripts.audit_missing_solutions import parse_args as parse_audit_args
 from scripts.generate_solutions import parse_args
 
 
@@ -18,6 +19,18 @@ class CliTest(unittest.TestCase):
             args = parse_args()
 
         self.assertEqual(["1", "2", "4"], args.frontend_ids)
+
+    def test_parse_audit_missing_solutions_args(self) -> None:
+        """查缺补漏脚本应支持按难度和题号筛选。"""
+
+        with patch(
+            "sys.argv",
+            ["audit_missing_solutions.py", "--difficulty", "Hard", "--frontend-ids", "4", "10"],
+        ):
+            args = parse_audit_args()
+
+        self.assertEqual("Hard", args.difficulty)
+        self.assertEqual(["4", "10"], args.frontend_ids)
 
 
 if __name__ == "__main__":

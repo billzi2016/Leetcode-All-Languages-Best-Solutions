@@ -193,6 +193,16 @@ Generate all difficulties:
 PYTHONPATH=src python scripts/generate_solutions.py
 ```
 
+Audit generated Markdown without calling the model:
+
+```bash
+PYTHONPATH=src python scripts/audit_missing_solutions.py
+PYTHONPATH=src python scripts/audit_missing_solutions.py --difficulty Hard
+PYTHONPATH=src python scripts/audit_missing_solutions.py --frontend-ids 4 10
+```
+
+The audit script prints a read-only report. It does not call Ollama, does not write files, and does not repair Markdown by itself. Run `scripts/generate_solutions.py` after the audit when you want the generator to perform the minimal backfill.
+
 Generate all solutions in a background tmux session:
 
 ```bash
@@ -272,3 +282,7 @@ Resume detection is based on the target Markdown file for each problem.
 - Hard uses language-level resume. The generator reads the existing language sections from the problem Markdown, skips languages that are already present, and writes the file after each newly generated language.
 - If a Hard run stops or fails while generating Kotlin, the next run keeps the earlier sections such as Cpp, Java, and Python, then resumes from the missing Kotlin section instead of restarting the problem from Cpp.
 - Each run also repairs old malformed output when possible. A file that only contains Kotlin is treated as missing the earlier languages and will be backfilled; a complete file with languages in the wrong order is rewritten into the dataset language order without calling the model.
+
+## Implementation Principles
+
+The generator follows SOLID and DRY principles in the core workflow. Dataset loading, prompt construction, model calls, resume detection, audit reporting, logging, and Markdown writing live in separate modules with narrow responsibilities. Markdown parsing rules are centralized so resume, audit, and repair behavior use the same definition of a completed language section.

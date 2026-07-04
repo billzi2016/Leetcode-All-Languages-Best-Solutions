@@ -118,6 +118,22 @@ If a Hard run stops while generating Kotlin, the next run keeps earlier sections
 
 The same scan repairs old malformed output when it can do so safely. A file that only contains Kotlin is treated as missing the earlier language sections and is backfilled on the next run. A complete file with languages in the wrong order is rewritten into the dataset language order without calling the model.
 
+## Audit Script
+
+`scripts/audit_missing_solutions.py` provides a read-only missing-output report. It uses the same dataset paths and Markdown parsing rules as the generator, but it does not call Ollama, write files, or repair Markdown by itself.
+
+```bash
+PYTHONPATH=src python scripts/audit_missing_solutions.py
+PYTHONPATH=src python scripts/audit_missing_solutions.py --difficulty Hard
+PYTHONPATH=src python scripts/audit_missing_solutions.py --frontend-ids 4 10
+```
+
+The script prints `OK` and exits with code `0` when every scanned problem is complete. If it finds missing languages or repairable order issues, it prints one line per affected problem and exits with code `1`.
+
+## SOLID and DRY
+
+The workflow keeps separate responsibilities in separate modules: dataset loading, prompt construction, model calls, resume checks, audit reporting, logging, and Markdown writing are not mixed into one script. Markdown parsing is centralized so resume, audit, and repair paths share the same definition of a completed language section.
+
 ## Logs and Failure Handling
 
 ```mermaid

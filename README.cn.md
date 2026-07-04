@@ -193,6 +193,16 @@ PYTHONPATH=src python scripts/generate_solutions.py --difficulty Hard
 PYTHONPATH=src python scripts/generate_solutions.py
 ```
 
+只扫描已有 Markdown，不调用模型：
+
+```bash
+PYTHONPATH=src python scripts/audit_missing_solutions.py
+PYTHONPATH=src python scripts/audit_missing_solutions.py --difficulty Hard
+PYTHONPATH=src python scripts/audit_missing_solutions.py --frontend-ids 4 10
+```
+
+查缺补漏脚本只打印只读报告。它不会调用 Ollama，不会写文件，也不会自己修复 Markdown。需要真正补齐时，再运行 `scripts/generate_solutions.py`，由生成器按最小补跑策略处理。
+
 使用 tmux 后台生成全部题解：
 
 ```bash
@@ -272,3 +282,7 @@ prompt 分为三层，以最大化复用和缓存命中：
 - Hard 按语言粒度续跑。生成器会先读取该题 Markdown 中已有的语言代码块，跳过已经存在的语言；每生成完一个新的缺失语言，就把已有语言和新语言一起写回文件。
 - 如果 Hard 在生成 Kotlin 时中断或失败，下次运行会保留这道题里已经写好的 Cpp、Java、Python 等语言，并从缺失的 Kotlin 继续，而不是从这道题的 Cpp 重新开始。
 - 每次运行也会尽量修复旧版异常输出。如果某个文件只剩 Kotlin，会被视为缺失前面的语言并自动补齐；如果完整文件只是语言顺序错了，会在不调用模型的情况下按数据集语言顺序重写。
+
+## 实现原则
+
+生成器核心流程遵循 SOLID 和 DRY 原则。数据集读取、prompt 构造、模型调用、断点续跑判断、查缺补漏报告、日志记录和 Markdown 写入分别放在职责明确的模块里。Markdown 解析规则集中维护，确保 resume、audit 和 repair 对“一个语言是否完成”的判断完全一致。

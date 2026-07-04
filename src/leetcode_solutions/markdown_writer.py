@@ -8,6 +8,7 @@ from __future__ import annotations
 import os
 import re
 from collections import OrderedDict
+from dataclasses import dataclass
 from pathlib import Path
 
 from .dataset_loader import frontend_id_as_int
@@ -34,6 +35,15 @@ LANGUAGE_FENCES = {
     "erlang": "erlang",
     "elixir": "elixir",
 }
+
+
+@dataclass(frozen=True)
+class ExistingSolutionSection:
+    """已有 Markdown 中一个有效语言代码块。"""
+
+    heading: str
+    language: str | None
+    code: str
 
 
 def bucket_name(frontend_id: int) -> str:
@@ -103,71 +113,23 @@ def write_problem(path: Path, problem: dict, solutions: dict[str, str]) -> None:
 def read_existing_languages(path: Path) -> set[str]:
     """读取已有 Markdown 文件里带非空代码块的语言标题。"""
 
-    if not path.exists():
-        return set()
-    text = path.read_text(encoding="utf-8")
-    languages: set[str] = set()
-    heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
-    for index, match in enumerate(heading_matches):
-        section_start = match.end()
-        section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
-        section = text[section_start:section_end]
-        code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
-        if code_match and code_match.group(1).strip():
-            languages.add(match.group(1))
-    return languages
+    return {section.heading for section in _read_existing_sections(path, [])}
 
 
 def read_existing_language_order(path: Path, languages: list[str]) -> list[str]:
     """按文件中出现顺序读取带非空代码块的语言 key。"""
 
-    if not path.exists():
-        return []
-
-    text = path.read_text(encoding="utf-8")
-    heading_to_language = {language_heading(language): language for language in languages}
-    existing_order: list[str] = []
-    heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
-
-    for index, match in enumerate(heading_matches):
-        language = heading_to_language.get(match.group(1))
-        if language is None:
-            continue
-
-        section_start = match.end()
-        section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
-        section = text[section_start:section_end]
-        code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
-        if code_match and code_match.group(1).strip():
-            existing_order.append(language)
-
-    return existing_order
+    return [section.language for section in _read_existing_sections(path, languages) if section.language is not None]
 
 
 def read_existing_solutions(path: Path, languages: list[str]) -> OrderedDict[str, str]:
     """按预期语言顺序读取已有 Markdown 里的代码块。"""
 
-    if not path.exists():
-        return OrderedDict()
-
-    text = path.read_text(encoding="utf-8")
-    heading_to_language = {language_heading(language): language for language in languages}
-    parsed: dict[str, str] = {}
-    heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
-
-    for index, match in enumerate(heading_matches):
-        heading = match.group(1)
-        language = heading_to_language.get(heading)
-        if language is None:
-            continue
-
-        section_start = match.end()
-        section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
-        section = text[section_start:section_end]
-        code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
-        if code_match and code_match.group(1).strip():
-            parsed[language] = code_match.group(1).rstrip()
-
+    parsed = {
+        section.language: section.code
+        for section in _read_existing_sections(path, languages)
+        if section.language is not None
+    }
     return OrderedDict((language, parsed[language]) for language in languages if language in parsed)
 
 
@@ -175,3 +137,32 @@ def order_solutions(languages: list[str], solutions: dict[str, str]) -> OrderedD
     """按数据集语言顺序排列已有和新生成的代码。"""
 
     return OrderedDict((language, solutions[language]) for language in languages if language in solutions)
+
+
+def _read_existing_sections(path: Path, languages: list[str]) -> list[ExistingSolutionSection]:
+    """解析已有 Markdown 中所有带非空代码块的语言 section。"""
+
+    if not path.exists():
+        return []
+
+    text = path.read_text(encoding="utf-8")
+    heading_to_language = {language_heading(language): language for language in languages}
+    sections: list[ExistingSolutionSection] = []
+    heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
+
+    for index, match in enumerate(heading_matches):
+        heading = match.group(1)
+        section_start = match.end()
+        section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
+        section = text[section_start:section_end]
+        code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
+        if code_match and code_match.group(1).strip():
+            sections.append(
+                ExistingSolutionSection(
+                    heading=heading,
+                    language=heading_to_language.get(heading),
+                    code=code_match.group(1).rstrip(),
+                )
+            )
+
+    return sections
