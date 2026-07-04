@@ -8,6 +8,7 @@ from pathlib import Path
 
 from leetcode_solutions.markdown_writer import (
     bucket_name,
+    language_heading,
     order_solutions,
     problem_output_path,
     read_existing_language_order,
@@ -44,6 +45,56 @@ class MarkdownWriterTest(unittest.TestCase):
         self.assertIn("## Python3", text)
         self.assertIn("```python", text)
         self.assertEqual({"Python3"}, languages)
+
+    def test_sql_shell_and_pythondata_headings_and_fences(self) -> None:
+        """数据库、Shell 和 Python Data 题应使用准确标题和代码块语法。"""
+
+        problem = {"frontend_id": "175", "difficulty": "Easy", "problem_slug": "combine-two-tables", "title": "Combine Two Tables"}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "easy/0101-0200/0175-combine-two-tables.md"
+            write_problem(
+                path,
+                problem,
+                {
+                    "mysql": "SELECT * FROM Person;",
+                    "pythondata": "import pandas as pd",
+                    "bash": "awk '{print $1}' file.txt",
+                },
+            )
+            text = path.read_text(encoding="utf-8")
+            languages = read_existing_languages(path)
+
+        self.assertIn("## MySQL", text)
+        self.assertIn("## PythonData", text)
+        self.assertIn("## Bash", text)
+        self.assertIn("```sql", text)
+        self.assertIn("```python", text)
+        self.assertIn("```bash", text)
+        self.assertEqual({"MySQL", "PythonData", "Bash"}, languages)
+
+    def test_legacy_database_headings_are_still_readable(self) -> None:
+        """旧文件中的简单首字母大写标题不应被新标题规则判成缺失。"""
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "easy/0101-0200/0175-combine-two-tables.md"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                "# 0175. Combine Two Tables\n\n"
+                "## Mysql\n\n"
+                "```mysql\n"
+                "SELECT * FROM Person;\n"
+                "```\n\n"
+                "## Pythondata\n\n"
+                "```python\n"
+                "import pandas as pd\n"
+                "```\n",
+                encoding="utf-8",
+            )
+            order = read_existing_language_order(path, ["mysql", "pythondata"])
+
+        self.assertEqual("MySQL", language_heading("mysql"))
+        self.assertEqual("PythonData", language_heading("pythondata"))
+        self.assertEqual(["mysql", "pythondata"], order)
 
     def test_read_existing_solutions_preserves_language_order(self) -> None:
         """已有 Markdown 代码块应按数据集语言顺序读回。"""

@@ -33,6 +33,18 @@ MIN_LANGUAGE_SIZE = 30
 MAD_MULTIPLIER = 8.0
 MIN_ABSOLUTE_CHARS = 2_000
 MIN_ABSOLUTE_LINES = 80
+NON_ALGORITHM_LANGUAGES = {
+    "Bash",
+    "MSSQL",
+    "MySQL",
+    "Mysql",
+    "OracleSQL",
+    "Oraclesql",
+    "PostgreSQL",
+    "Postgresql",
+    "PythonData",
+    "Pythondata",
+}
 
 NATURAL_LANGUAGE_PATTERNS = (
     re.compile(r"^\s*(time|space)\s+complexity\s*[:：]", re.IGNORECASE | re.MULTILINE),
@@ -221,14 +233,38 @@ def make_baseline(scope: str, blocks: list[CodeBlock]) -> Baseline:
     return Baseline(scope, len(blocks), median_chars, mad_chars, median_lines, mad_lines)
 
 
-def choose_baseline(block: CodeBlock, by_group: dict[tuple[str, str], list[CodeBlock]], by_language: dict[str, list[CodeBlock]], all_blocks: list[CodeBlock], min_group_size: int, min_language_size: int) -> Baseline:
+def is_non_algorithm_language(language: str) -> bool:
+    """判断代码块语言是否属于 SQL、Shell 或 Python Data 这类非传统算法题。
+
+    参数：
+        language: Markdown 二级标题中的语言名。
+
+    返回：
+        bool: 非传统算法语言返回 True。
+    """
+
+    return language in NON_ALGORITHM_LANGUAGES
+
+
+def choose_baseline(
+    block: CodeBlock,
+    by_group: dict[tuple[str, str], list[CodeBlock]],
+    by_language: dict[str, list[CodeBlock]],
+    algorithm_blocks: list[CodeBlock],
+    non_algorithm_blocks: list[CodeBlock],
+    all_blocks: list[CodeBlock],
+    min_group_size: int,
+    min_language_size: int,
+) -> Baseline:
     """为某个代码块选择最合适的动态基线。
 
     参数：
         block: 待审计代码块。
         by_group: `(difficulty, language)` 到样本列表的映射。
         by_language: `language` 到样本列表的映射。
-        all_blocks: 全部样本。
+        algorithm_blocks: 普通算法语言样本。
+        non_algorithm_blocks: SQL、Shell、Python Data 等非传统算法语言样本。
+        all_blocks: 全部样本，用于极端情况下兜底。
         min_group_size: 使用难度+语言基线的最低样本数。
         min_language_size: 使用语言基线的最低样本数。
 
@@ -243,6 +279,12 @@ def choose_baseline(block: CodeBlock, by_group: dict[tuple[str, str], list[CodeB
     language_blocks = by_language[block.language]
     if len(language_blocks) >= min_language_size:
         return make_baseline(block.language, language_blocks)
+
+    if is_non_algorithm_language(block.language) and non_algorithm_blocks:
+        return make_baseline("non_algorithm_global", non_algorithm_blocks)
+
+    if not is_non_algorithm_language(block.language) and algorithm_blocks:
+        return make_baseline("algorithm_global", algorithm_blocks)
 
     return make_baseline("global", all_blocks)
 
@@ -266,16 +308,22 @@ def repeated_line_ratio(code: str) -> float:
     return (len(meaningful) - len(unique)) / len(meaningful)
 
 
-def natural_language_markers(code: str) -> list[str]:
+def natural_language_markers(code: str, language: str) -> list[str]:
     """查找代码块中疑似解释性文本或 Markdown 残留。
 
     参数：
         code: 代码文本。
+        language: Markdown 二级标题中的语言名。SQL、Shell 和 Python Data
+            会保留 Markdown 残留检查，但不使用普通算法代码的英文解释
+            marker，避免数据库字段名、注释或查询别名造成误报。
 
     返回：
         list[str]: 命中的 marker 列表。
     """
 
+    if is_non_algorithm_language(language):
+        markdown_only_patterns = NATURAL_LANGUAGE_PATTERNS[-2:]
+        return [pattern.pattern for pattern in markdown_only_patterns if pattern.search(code)]
     return [pattern.pattern for pattern in NATURAL_LANGUAGE_PATTERNS if pattern.search(code)]
 
 
@@ -298,9 +346,21 @@ def audit_blocks(blocks: list[CodeBlock], min_group_size: int, min_language_size
         by_group[(block.difficulty, block.language)].append(block)
         by_language[block.language].append(block)
 
+    algorithm_blocks = [block for block in blocks if not is_non_algorithm_language(block.language)]
+    non_algorithm_blocks = [block for block in blocks if is_non_algorithm_language(block.language)]
+
     findings: list[Finding] = []
     for block in blocks:
-        baseline = choose_baseline(block, by_group, by_language, blocks, min_group_size, min_language_size)
+        baseline = choose_baseline(
+            block,
+            by_group,
+            by_language,
+            algorithm_blocks,
+            non_algorithm_blocks,
+            blocks,
+            min_group_size,
+            min_language_size,
+        )
         char_limit = baseline.char_limit(mad_multiplier)
         line_limit = baseline.line_limit(mad_multiplier)
         too_many_chars = block.chars >= MIN_ABSOLUTE_CHARS and block.chars > char_limit
@@ -318,7 +378,7 @@ def audit_blocks(blocks: list[CodeBlock], min_group_size: int, min_language_size
                 )
             )
 
-        markers = natural_language_markers(block.code)
+        markers = natural_language_markers(block.code, block.language)
         if markers:
             findings.append(
                 Finding(

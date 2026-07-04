@@ -25,9 +25,11 @@ from .dataset_loader import frontend_id_as_int
 
 
 LANGUAGE_FENCES = {
+    "bash": "bash",
     "cpp": "cpp",
     "python": "python",
     "python3": "python",
+    "pythondata": "python",
     "golang": "go",
     "javascript": "javascript",
     "typescript": "typescript",
@@ -44,6 +46,18 @@ LANGUAGE_FENCES = {
     "racket": "racket",
     "erlang": "erlang",
     "elixir": "elixir",
+    "mysql": "sql",
+    "mssql": "sql",
+    "oraclesql": "sql",
+    "postgresql": "sql",
+}
+
+SPECIAL_LANGUAGE_HEADINGS = {
+    "mysql": "MySQL",
+    "mssql": "MSSQL",
+    "oraclesql": "OracleSQL",
+    "postgresql": "PostgreSQL",
+    "pythondata": "PythonData",
 }
 
 
@@ -112,6 +126,30 @@ def language_heading(language: str) -> str:
     返回：
         str: 写入 Markdown 的标题文本。少数语言需要特殊大小写，例如
         `cpp` 写成 `Cpp`，`python3` 写成 `Python3`。
+    """
+
+    if language == "cpp":
+        return "Cpp"
+    if language == "python3":
+        return "Python3"
+    if language in SPECIAL_LANGUAGE_HEADINGS:
+        return SPECIAL_LANGUAGE_HEADINGS[language]
+    return language[:1].upper() + language[1:]
+
+
+def legacy_language_heading(language: str) -> str:
+    """返回早期标题规则下的语言名，用于兼容已经生成的旧 Markdown。
+
+    参数：
+        language: dataset `code_snippets` 中的语言 key。
+
+    返回：
+        str: 旧实现使用的简单首字母大写标题，例如 `Mysql`、`Pythondata`。
+
+    说明：
+        新文件会写更准确的 `MySQL`、`PythonData` 等标题；但历史文件可能
+        已经使用旧标题。读取时同时接受新旧标题，可以避免一次标题美化让
+        审计脚本误判旧文件缺失语言。
     """
 
     if language == "cpp":
@@ -263,7 +301,10 @@ def _read_existing_sections(path: Path, languages: list[str]) -> list[ExistingSo
         return []
 
     text = path.read_text(encoding="utf-8")
-    heading_to_language = {language_heading(language): language for language in languages}
+    heading_to_language = {}
+    for language in languages:
+        heading_to_language[language_heading(language)] = language
+        heading_to_language[legacy_language_heading(language)] = language
     sections: list[ExistingSolutionSection] = []
     heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
 

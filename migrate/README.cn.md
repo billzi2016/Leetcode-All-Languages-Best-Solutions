@@ -59,3 +59,32 @@ python migrate/rename_bucket_dirs.py --apply
 ```
 
 这个迁移逻辑刻意和生成器分开。生成器只负责按新规则写新路径；历史目录需要调整时，用这个脚本单独处理。
+
+## `normalize_markdown_language_sections.py`
+
+规范化老版本生成器写出的数据库、Shell 和 Python Data 题解 Markdown 标题与代码块 fence。
+
+这是一个历史输出的后处理整理工具。适合在老版本生成器已经跑完之后使用，尤其是远程机器或集群暂时不方便立刻更新生成器代码时。它刻意不放进常规生成流程，避免为了整理旧输出而中断已经在跑的长任务。
+
+示例：
+
+| 旧格式 | 新格式 |
+| --- | --- |
+| `## Mysql` | `## MySQL` |
+| <code>```mysql</code> | <code>```sql</code> |
+| `## Pythondata` | `## PythonData` |
+| <code>```pythondata</code> | <code>```python</code> |
+
+只预览，不修改：
+
+```bash
+python migrate/normalize_markdown_language_sections.py
+```
+
+实际写回文件：
+
+```bash
+python migrate/normalize_markdown_language_sections.py --apply
+```
+
+这个脚本只改 Markdown 标题和代码块语言标签，不改题解代码内容，也不会调用模型。
