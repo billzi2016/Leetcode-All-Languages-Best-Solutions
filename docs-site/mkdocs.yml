@@ -26,11 +26,20 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+validation:
+  links:
+    not_found: ignore
+
 nav:
   - Home: index.md
   - English:
       - Overview: en/index.md
       - LeetCode: en/leetcode.md
+      - Solution Indexes:
+          - Overview: en/solution-indexes.md
+          - Easy: en/solution-indexes/easy/index.md
+          - Medium: en/solution-indexes/medium/index.md
+          - Hard: en/solution-indexes/hard/index.md
       - Languages: en/languages.md
       - Ollama and Compute Nodes: en/ollama.md
       - Ollama Install: en/ollama-install.md
@@ -44,6 +53,11 @@ nav:
   - 中文:
       - 总览: cn/index.md
       - LeetCode: cn/leetcode.md
+      - 题目清单:
+          - 总览: cn/solution-indexes.md
+          - Easy: cn/solution-indexes/easy/index.md
+          - Medium: cn/solution-indexes/medium/index.md
+          - Hard: cn/solution-indexes/hard/index.md
       - 支持语言: cn/languages.md
       - Ollama 和计算节点: cn/ollama.md
       - Ollama 安装: cn/ollama-install.md

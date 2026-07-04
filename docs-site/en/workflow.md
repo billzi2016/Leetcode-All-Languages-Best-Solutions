@@ -120,12 +120,18 @@ The same scan repairs old malformed output when it can do so safely. A file that
 
 ## Audit Script
 
-`scripts/audit_missing_solutions.py` provides a read-only missing-output report. It uses the same dataset paths and Markdown parsing rules as the generator, but it does not call Ollama, write files, or repair Markdown by itself.
+`migrate/audit_missing_solutions.py` provides a read-only missing-output report. It uses the same dataset paths and Markdown parsing rules as the generator, but it does not call Ollama, write files, or repair Markdown by itself.
 
 ```bash
-PYTHONPATH=src python scripts/audit_missing_solutions.py
-PYTHONPATH=src python scripts/audit_missing_solutions.py --difficulty Hard
-PYTHONPATH=src python scripts/audit_missing_solutions.py --frontend-ids 4 10
+PYTHONPATH=src python migrate/audit_missing_solutions.py
+PYTHONPATH=src python migrate/audit_missing_solutions.py --difficulty Hard
+PYTHONPATH=src python migrate/audit_missing_solutions.py --frontend-ids 4 10
+```
+
+`migrate/audit_suspicious_solutions.py` is also read-only. It writes a local Markdown report for suspicious code blocks, such as unusually long outputs or Markdown/explanation text left inside code fences. The report is ignored by Git.
+
+```bash
+PYTHONPATH=src python migrate/audit_suspicious_solutions.py
 ```
 
 The script prints `OK` and exits with code `0` when every scanned problem is complete. If it finds missing languages or repairable order issues, it prints one line per affected problem and exits with code `1`.
