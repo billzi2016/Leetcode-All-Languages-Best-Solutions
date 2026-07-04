@@ -101,12 +101,21 @@ def write_problem(path: Path, problem: dict, solutions: dict[str, str]) -> None:
 
 
 def read_existing_languages(path: Path) -> set[str]:
-    """读取已有 Markdown 文件里的语言标题。"""
+    """读取已有 Markdown 文件里带非空代码块的语言标题。"""
 
     if not path.exists():
         return set()
     text = path.read_text(encoding="utf-8")
-    return set(re.findall(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
+    languages: set[str] = set()
+    heading_matches = list(re.finditer(r"^##\s+(.+?)\s*$", text, flags=re.MULTILINE))
+    for index, match in enumerate(heading_matches):
+        section_start = match.end()
+        section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
+        section = text[section_start:section_end]
+        code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
+        if code_match and code_match.group(1).strip():
+            languages.add(match.group(1))
+    return languages
 
 
 def read_existing_solutions(path: Path, languages: list[str]) -> OrderedDict[str, str]:
@@ -130,7 +139,7 @@ def read_existing_solutions(path: Path, languages: list[str]) -> OrderedDict[str
         section_end = heading_matches[index + 1].start() if index + 1 < len(heading_matches) else len(text)
         section = text[section_start:section_end]
         code_match = re.search(r"```[^\n]*\n(.*?)\n```", section, flags=re.DOTALL)
-        if code_match:
+        if code_match and code_match.group(1).strip():
             parsed[language] = code_match.group(1).rstrip()
 
     return OrderedDict((language, parsed[language]) for language in languages if language in parsed)

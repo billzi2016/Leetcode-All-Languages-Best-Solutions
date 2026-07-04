@@ -54,6 +54,31 @@ class MarkdownWriterTest(unittest.TestCase):
         self.assertEqual("cpp code", solutions["cpp"])
         self.assertEqual("python code", solutions["python3"])
 
+    def test_existing_language_requires_non_empty_code_block(self) -> None:
+        """只有标题或空代码块不应被当作已完成语言。"""
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "hard/1-100/0004-median-of-two-sorted-arrays.md"
+            path.parent.mkdir(parents=True)
+            path.write_text(
+                "# 0004. Median of Two Sorted Arrays\n\n"
+                "## Cpp\n\n"
+                "```cpp\n"
+                "\n"
+                "```\n\n"
+                "## Kotlin\n\n"
+                "## Java\n\n"
+                "```java\n"
+                "class Solution {}\n"
+                "```\n",
+                encoding="utf-8",
+            )
+            languages = read_existing_languages(path)
+            solutions = read_existing_solutions(path, ["cpp", "kotlin", "java"])
+
+        self.assertEqual({"Java"}, languages)
+        self.assertEqual(["java"], list(solutions.keys()))
+
 
 if __name__ == "__main__":
     unittest.main()

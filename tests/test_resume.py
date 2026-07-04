@@ -23,7 +23,24 @@ class ResumeTest(unittest.TestCase):
             self.assertTrue(is_problem_complete(path, ["python3"]))
             self.assertEqual(["cpp"], missing_languages(path, ["python3", "cpp"]))
 
+    def test_incomplete_sections_are_missing(self) -> None:
+        """空代码块或只有标题的语言必须继续重跑。"""
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "0004-median-of-two-sorted-arrays.md"
+            path.write_text(
+                "# 0004. Median of Two Sorted Arrays\n\n"
+                "## Cpp\n\n"
+                "```cpp\n"
+                "\n"
+                "```\n\n"
+                "## Kotlin\n\n",
+                encoding="utf-8",
+            )
+
+            self.assertFalse(is_problem_complete(path, ["cpp", "kotlin"]))
+            self.assertEqual(["cpp", "kotlin"], missing_languages(path, ["cpp", "kotlin"]))
+
 
 if __name__ == "__main__":
     unittest.main()
-
