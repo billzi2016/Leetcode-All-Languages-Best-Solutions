@@ -104,13 +104,13 @@ LLM 不可以：
 经过本地参考解确认的样例应写入：
 
 ```text
-validate-pro/cases/
+Leetcode-QC/validate-pro/cases/
 ```
 
 建议结构：
 
 ```text
-validate-pro/cases/
+Leetcode-QC/validate-pro/cases/
   0001-two-sum.json
   0002-add-two-numbers.json
   0020-valid-parentheses.json
@@ -144,9 +144,9 @@ validate-pro/cases/
 最终报告格式延续当前 `validate/` 风格：
 
 ```text
-validate-pro/reports/easy.csv
-validate-pro/reports/medium.csv
-validate-pro/reports/hard.csv
+Leetcode-QC/validate-pro/reports/easy.csv
+Leetcode-QC/validate-pro/reports/medium.csv
+Leetcode-QC/validate-pro/reports/hard.csv
 ```
 
 CSV 每一行是一道题。每个语言列只使用：
@@ -518,17 +518,18 @@ MAX_TREE_NODES = 200
 建议结构：
 
 ```text
-validate-pro/
-  docs/
-    PRD.md
-    PRD.cn.md
-  README.md
-  README.cn.md
-  Dockerfile
-  requirements.txt
-  generate_cases.py
-  run_validation.py
-  cases/
+Leetcode-QC/
+  validate-pro/
+    specs/
+      PRD.md
+      PRD.cn.md
+    README.md
+    README.cn.md
+    Dockerfile
+    requirements.txt
+    generate_cases.py
+    run_validation.py
+    cases/
   reports/
   src/
     adapters/
@@ -562,32 +563,32 @@ validate-pro/
 为单题生成样例：
 
 ```bash
-python validate-pro/generate_cases.py --frontend-id 1
+python Leetcode-QC/validate-pro/generate_cases.py --frontend-id 1
 ```
 
 为多题生成样例：
 
 ```bash
-python validate-pro/generate_cases.py --frontend-ids 1 2 20 121
+python Leetcode-QC/validate-pro/generate_cases.py --frontend-ids 1 2 20 121
 ```
 
 按难度生成样例：
 
 ```bash
-python validate-pro/generate_cases.py --difficulty Easy
+python Leetcode-QC/validate-pro/generate_cases.py --difficulty Easy
 ```
 
 使用已保留样例运行验证：
 
 ```bash
-python validate-pro/run_validation.py
+python Leetcode-QC/validate-pro/run_validation.py
 ```
 
 Docker 入口：
 
 ```bash
-docker compose -f validate-pro/compose.yaml build
-docker compose -f validate-pro/compose.yaml run --rm validate-pro
+docker compose -f Leetcode-QC/validate-pro/compose.yaml build
+docker compose -f Leetcode-QC/validate-pro/compose.yaml run --rm validate-pro
 ```
 
 ## 13. 运行控制
@@ -622,7 +623,7 @@ docker compose -f validate-pro/compose.yaml run --rm validate-pro
 
 Python 参考解才是判定权威。一个样例只有经过本地确定性验证后，才能进入验证集合。
 
-ReAct trace 对探索有用，但它不是可信输出。只有 final answer 中的严格 JSON 可以进入解析器，而且只有经过参考解验证的 JSON 才能进入 `validate-pro/cases/`。
+ReAct trace 对探索有用，但它不是可信输出。只有 final answer 中的严格 JSON 可以进入解析器，而且只有经过参考解验证的 JSON 才能进入 `Leetcode-QC/validate-pro/cases/`。
 
 Docker runner 应该：
 

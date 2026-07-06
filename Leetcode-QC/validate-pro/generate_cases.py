@@ -32,7 +32,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Generate validate-pro retained cases.")
     parser.add_argument("--repo-root", type=Path, default=Path.cwd(), help="Repository root path.")
     parser.add_argument("--dataset", type=Path, default=Path("dataset/merged_problems.json"), help="Dataset path.")
-    parser.add_argument("--cases-dir", type=Path, default=Path("validate-pro/cases"), help="Retained case output directory.")
+    parser.add_argument("--cases-dir", type=Path, default=Path("Leetcode-QC/validate-pro/cases"), help="Retained case output directory.")
     parser.add_argument("--difficulty", choices=["Easy", "Medium", "Hard"], help="Generate cases for one difficulty.")
     parser.add_argument("--frontend-ids", nargs="+", help="Generate cases for selected frontend ids.")
     parser.add_argument("--min-cases", type=int, default=10, help="Minimum retained cases per supported problem.")

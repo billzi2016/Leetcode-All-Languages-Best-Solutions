@@ -27,7 +27,7 @@ RUN apt-get update \
 
 WORKDIR /workspace
 
-COPY validate/requirements.txt /tmp/validate-requirements.txt
+COPY Leetcode-QC/validate/requirements.txt /tmp/validate-requirements.txt
 RUN pip install --no-cache-dir -r /tmp/validate-requirements.txt
 
-CMD ["python", "validate/run_validation.py", "--repo-root", "/workspace"]
+CMD ["python", "Leetcode-QC/validate/run_validation.py", "--repo-root", "/workspace"]

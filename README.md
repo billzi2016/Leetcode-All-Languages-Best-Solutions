@@ -157,26 +157,47 @@ The tests include formal-flow coverage for LeetCode 1 / 2 / 4, covering Easy, Me
 
 ## Validate Generated Solutions
 
-`validate/` provides a containerized validation environment for generated Markdown solutions. It reads examples from `dataset/merged_problems.json`, extracts solution code blocks, compiles or runs supported language sections, and writes CSV matrices by difficulty:
+The validation system is organized under `Leetcode-QC/`. It has three layers, from lightweight static checks to deeper generated-case differential validation.
+
+### Layer 1: Static Audits
+
+`migrate/audit_missing_solutions.py` and `migrate/audit_suspicious_solutions.py` scan generated Markdown without running solution code. They check for missing language sections, repairable ordering issues, suspiciously long code blocks, Markdown leftovers, and repeated output.
+
+### Layer 2: Baseline Docker Validation
+
+`Leetcode-QC/validate/` is the fast Docker validation layer. It reads official examples from `dataset/merged_problems.json`, extracts generated solution code blocks, compiles or runs supported language sections, and writes CSV matrices by difficulty:
 
 ```text
-validate/reports/easy.csv
-validate/reports/medium.csv
-validate/reports/hard.csv
+Leetcode-QC/validate/reports/easy.csv
+Leetcode-QC/validate/reports/medium.csv
+Leetcode-QC/validate/reports/hard.csv
 ```
 
 Build and run:
 
 ```bash
-docker compose -f validate/compose.yaml build
-docker compose -f validate/compose.yaml run --rm validate
+docker compose -f Leetcode-QC/validate/compose.yaml build
+docker compose -f Leetcode-QC/validate/compose.yaml run --rm validate
 ```
 
-Validation tools are layered:
+### Layer 3: Validate Pro Differential Validation
 
-- `migrate/audit_missing_solutions.py` and `migrate/audit_suspicious_solutions.py` scan generated Markdown for missing language sections, repairable ordering issues, suspiciously long code blocks, Markdown leftovers, and repeated output.
-- `validate/` is the fast Docker validation layer. It runs dataset examples and writes compact CSV matrices.
-- `validate-pro/` is the extended differential-testing design. It uses `gpt-oss:120b` to propose additional edge cases, verifies those cases with Python reference solvers, stores retained cases as JSON, and then runs a larger Docker validation set. It is a deeper layer, not a replacement for `validate/`.
+`Leetcode-QC/validate-pro/` is the extended differential validation layer. Differential validation means the project does not only trust one generated solution: it asks `gpt-oss:120b` to design more edge-case candidates, uses local Python reference solvers to calculate the expected answers, stores only verified cases as JSON, and then runs a larger Docker validation set against the generated solutions.
+
+Validate Pro entry points:
+
+```bash
+docker compose -f Leetcode-QC/validate-pro/compose.yaml build
+docker compose -f Leetcode-QC/validate-pro/compose.yaml run --rm validate-pro
+docker compose -f Leetcode-QC/validate-pro/compose.yaml run --rm generate-cases
+```
+
+Validate Pro documentation:
+
+- `Leetcode-QC/validate-pro/specs/PRD.md`
+- `Leetcode-QC/validate-pro/specs/PRD.cn.md`
+
+`Leetcode-QC/validate-pro/` is a deeper validation layer, not a replacement for `Leetcode-QC/validate/`.
 
 ## Generate Problems
 
@@ -270,12 +291,14 @@ tmux kill-server
 
 ## Documentation
 
-- `docs/PRD.md`: Product requirements and implementation constraints
-- `docs/PRD.cn.md`: Chinese version of the PRD
-- `docs/PROJECT_STRUCTURE.md`: Project structure, module responsibilities, SOLID/DRY, and test plan
-- `docs/PROJECT_STRUCTURE.cn.md`: Chinese version of the project structure document
+- `specs/PRD.md`: Product requirements and implementation constraints
+- `specs/PRD.cn.md`: Chinese version of the PRD
+- `specs/PROJECT_STRUCTURE.md`: Project structure, module responsibilities, SOLID/DRY, and test plan
+- `specs/PROJECT_STRUCTURE.cn.md`: Chinese version of the project structure document
 - `dataset/dataset.md`: Dataset source and field documentation
 - `dataset/dataset.cn.md`: Chinese version of the dataset documentation
+- `Leetcode-QC/validate-pro/specs/PRD.md`: Validate Pro controlled-AI differential validation design
+- `Leetcode-QC/validate-pro/specs/PRD.cn.md`: Chinese version of the Validate Pro design
 
 ## Prompt Reuse Strategy
 

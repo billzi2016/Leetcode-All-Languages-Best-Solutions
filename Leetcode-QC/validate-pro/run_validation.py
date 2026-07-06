@@ -16,8 +16,8 @@ def parse_args() -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(description="Validate generated solutions with validate-pro retained cases.")
     parser.add_argument("--repo-root", type=Path, default=Path.cwd(), help="Repository root path.")
-    parser.add_argument("--cases-dir", type=Path, default=Path("validate-pro/cases"), help="Retained case directory.")
-    parser.add_argument("--reports-dir", type=Path, default=Path("validate-pro/reports"), help="CSV report directory.")
+    parser.add_argument("--cases-dir", type=Path, default=Path("Leetcode-QC/validate-pro/cases"), help="Retained case directory.")
+    parser.add_argument("--reports-dir", type=Path, default=Path("Leetcode-QC/validate-pro/reports"), help="CSV report directory.")
     parser.add_argument("--work-dir", type=Path, default=None, help="Optional persistent work directory.")
     parser.add_argument("--timeout", type=float, default=10.0, help="Compile/run timeout per language and problem.")
     return parser.parse_args()
@@ -30,9 +30,9 @@ def resolve_path(repo_root: Path, path: Path) -> Path:
 
 
 def load_base_validator(repo_root: Path):
-    """Load `validate/run_validation.py` as a module without requiring package changes."""
+    """Load the baseline validator as a module without requiring package changes."""
 
-    validator_path = repo_root / "validate" / "run_validation.py"
+    validator_path = repo_root / "Leetcode-QC" / "validate" / "run_validation.py"
     spec = importlib.util.spec_from_file_location("base_validate_run_validation", validator_path)
     if spec is None or spec.loader is None:
         raise RuntimeError(f"cannot load base validator: {validator_path}")

@@ -17,8 +17,8 @@ class RunValidationBridgeTest(unittest.TestCase):
 
         with tempfile.TemporaryDirectory() as tmp:
             repo = Path(tmp)
-            validate_dir = repo / "validate"
-            validate_dir.mkdir()
+            validate_dir = repo / "Leetcode-QC" / "validate"
+            validate_dir.mkdir(parents=True)
             (validate_dir / "run_validation.py").write_text(
                 "from dataclasses import dataclass\n"
                 "@dataclass\n"
@@ -53,4 +53,3 @@ class RunValidationBridgeTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

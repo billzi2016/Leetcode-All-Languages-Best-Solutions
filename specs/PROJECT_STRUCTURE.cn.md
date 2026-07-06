@@ -8,7 +8,7 @@
 .
 ├── README.md
 ├── README.cn.md
-├── docs/
+├── specs/
 │   ├── PRD.md
 │   ├── PRD.cn.md
 │   ├── PROJECT_STRUCTURE.md

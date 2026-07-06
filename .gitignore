@@ -14,8 +14,8 @@ docs-site-build/
 
 # Local maintenance and validation reports
 migrate/suspicious_solutions_report.md
-validate/reports/
-validate/work/
-validate-pro/cases/
-validate-pro/reports/
-validate-pro/work/
+Leetcode-QC/validate/reports/
+Leetcode-QC/validate/work/
+Leetcode-QC/validate-pro/cases/
+Leetcode-QC/validate-pro/reports/
+Leetcode-QC/validate-pro/work/

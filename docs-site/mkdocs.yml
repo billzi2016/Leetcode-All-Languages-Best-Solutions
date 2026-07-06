@@ -41,7 +41,9 @@ nav:
           - Medium: en/solution-indexes/Leetcode-Medium/index.md
           - Hard: en/solution-indexes/Leetcode-Hard/index.md
       - Languages: en/languages.md
-      - Validation: en/validation.md
+      - Validation:
+          - Overview: en/validation.md
+          - Validate Pro PRD: en/validate-pro-prd.md
       - Ollama and Compute Nodes: en/ollama.md
       - Ollama Install: en/ollama-install.md
       - Agent Generation Flow: en/agent.md
@@ -60,7 +62,9 @@ nav:
           - Medium: cn/solution-indexes/Leetcode-Medium/index.md
           - Hard: cn/solution-indexes/Leetcode-Hard/index.md
       - 支持语言: cn/languages.md
-      - 题解验证: cn/validation.md
+      - 题解验证:
+          - 总览: cn/validation.md
+          - Validate Pro 中文 PRD: cn/validate-pro-prd.md
       - Ollama 和计算节点: cn/ollama.md
       - Ollama 安装: cn/ollama-install.md
       - Agent 生成流程: cn/agent.md

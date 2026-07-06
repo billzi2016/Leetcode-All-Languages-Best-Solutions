@@ -76,25 +76,24 @@ The documentation-site source should be organized as:
 docs-site/
   mkdocs.yml
   requirements.txt
-  docs/
-    en/
-      index.md
-      leetcode.md
-      languages.md
-      ollama.md
-      mkdocs.md
-      github-actions.md
-      workflow.md
-      prd.md
-    cn/
-      index.md
-      leetcode.md
-      languages.md
-      ollama.md
-      mkdocs.md
-      github-actions.md
-      workflow.md
-      prd.md
+  en/
+    index.md
+    leetcode.md
+    languages.md
+    ollama.md
+    mkdocs.md
+    github-actions.md
+    workflow.md
+    prd.md
+  cn/
+    index.md
+    leetcode.md
+    languages.md
+    ollama.md
+    mkdocs.md
+    github-actions.md
+    workflow.md
+    prd.md
 ```
 
 The current planning files under `docs-site/en/` and `docs-site/cn/` can be used as the first draft content for that structure.

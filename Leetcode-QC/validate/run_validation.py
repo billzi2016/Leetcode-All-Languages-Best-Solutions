@@ -96,7 +96,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--reports-dir",
         type=Path,
-        default=Path("validate/reports"),
+        default=Path("Leetcode-QC/validate/reports"),
         help="CSV output directory, relative to repo root unless absolute.",
     )
     parser.add_argument(

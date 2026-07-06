@@ -35,9 +35,8 @@ The site should use English and Chinese folders:
 
 ```text
 docs-site/
-  docs/
-    en/
-    cn/
+  en/
+  cn/
 ```
 
 The two language trees should mirror each other as much as possible.
@@ -146,8 +145,8 @@ The MkDocs configuration should include:
 
 ```mermaid
 flowchart TD
-    A[docs-site/docs/en] --> C[MkDocs]
-    B[docs-site/docs/cn] --> C
+    A[docs-site/en] --> C[MkDocs]
+    B[docs-site/cn] --> C
     C --> D[site/ static output]
     D --> E[GitHub Actions artifact]
     E --> F[GitHub Pages]

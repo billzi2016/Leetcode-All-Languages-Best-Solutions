@@ -74,25 +74,24 @@ GitHub Actions 工作流需要自动构建和部署 MkDocs 文档站点。
 docs-site/
   mkdocs.yml
   requirements.txt
-  docs/
-    en/
-      index.md
-      leetcode.md
-      languages.md
-      ollama.md
-      mkdocs.md
-      github-actions.md
-      workflow.md
-      prd.md
-    cn/
-      index.md
-      leetcode.md
-      languages.md
-      ollama.md
-      mkdocs.md
-      github-actions.md
-      workflow.md
-      prd.md
+  en/
+    index.md
+    leetcode.md
+    languages.md
+    ollama.md
+    mkdocs.md
+    github-actions.md
+    workflow.md
+    prd.md
+  cn/
+    index.md
+    leetcode.md
+    languages.md
+    ollama.md
+    mkdocs.md
+    github-actions.md
+    workflow.md
+    prd.md
 ```
 
 当前 `docs-site/en/` 和 `docs-site/cn/` 下的规划文档可作为第一版内容。

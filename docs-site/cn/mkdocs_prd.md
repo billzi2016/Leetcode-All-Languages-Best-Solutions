@@ -35,9 +35,8 @@ MkDocs 站点需要帮助读者理解：
 
 ```text
 docs-site/
-  docs/
-    en/
-    cn/
+  en/
+  cn/
 ```
 
 两套语言结构应尽量镜像。
@@ -146,8 +145,8 @@ MkDocs 配置应包含：
 
 ```mermaid
 flowchart TD
-    A[docs-site/docs/en] --> C[MkDocs]
-    B[docs-site/docs/cn] --> C
+    A[docs-site/en] --> C[MkDocs]
+    B[docs-site/cn] --> C
     C --> D[site/ 静态输出]
     D --> E[GitHub Actions artifact]
     E --> F[GitHub Pages]

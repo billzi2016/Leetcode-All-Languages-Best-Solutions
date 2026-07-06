@@ -104,13 +104,13 @@ This makes the system AI-assisted but locally controlled. The retained test set 
 Validated generated cases should be written under:
 
 ```text
-validate-pro/cases/
+Leetcode-QC/validate-pro/cases/
 ```
 
 Suggested layout:
 
 ```text
-validate-pro/cases/
+Leetcode-QC/validate-pro/cases/
   0001-two-sum.json
   0002-add-two-numbers.json
   0020-valid-parentheses.json
@@ -144,9 +144,9 @@ Each case file should contain:
 The final report format should match the current `validate/` style:
 
 ```text
-validate-pro/reports/easy.csv
-validate-pro/reports/medium.csv
-validate-pro/reports/hard.csv
+Leetcode-QC/validate-pro/reports/easy.csv
+Leetcode-QC/validate-pro/reports/medium.csv
+Leetcode-QC/validate-pro/reports/hard.csv
 ```
 
 Each CSV row is a problem. Each language column is:
@@ -518,17 +518,18 @@ The budget should be adapter-specific. A brute-force reference may choose a smal
 Suggested structure:
 
 ```text
-validate-pro/
-  docs/
-    PRD.md
-    PRD.cn.md
-  README.md
-  README.cn.md
-  Dockerfile
-  requirements.txt
-  generate_cases.py
-  run_validation.py
-  cases/
+Leetcode-QC/
+  validate-pro/
+    specs/
+      PRD.md
+      PRD.cn.md
+    README.md
+    README.cn.md
+    Dockerfile
+    requirements.txt
+    generate_cases.py
+    run_validation.py
+    cases/
   reports/
   src/
     adapters/
@@ -562,32 +563,32 @@ validate-pro/
 Generate cases for one problem:
 
 ```bash
-python validate-pro/generate_cases.py --frontend-id 1
+python Leetcode-QC/validate-pro/generate_cases.py --frontend-id 1
 ```
 
 Generate cases for selected problems:
 
 ```bash
-python validate-pro/generate_cases.py --frontend-ids 1 2 20 121
+python Leetcode-QC/validate-pro/generate_cases.py --frontend-ids 1 2 20 121
 ```
 
 Generate cases for one difficulty:
 
 ```bash
-python validate-pro/generate_cases.py --difficulty Easy
+python Leetcode-QC/validate-pro/generate_cases.py --difficulty Easy
 ```
 
 Run validation using retained cases:
 
 ```bash
-python validate-pro/run_validation.py
+python Leetcode-QC/validate-pro/run_validation.py
 ```
 
 Docker entry:
 
 ```bash
-docker compose -f validate-pro/compose.yaml build
-docker compose -f validate-pro/compose.yaml run --rm validate-pro
+docker compose -f Leetcode-QC/validate-pro/compose.yaml build
+docker compose -f Leetcode-QC/validate-pro/compose.yaml run --rm validate-pro
 ```
 
 ## 13. Runtime Controls
@@ -622,7 +623,7 @@ The system should treat the LLM as an untrusted test-case proposer.
 
 The Python reference solver is the authority. A case only becomes part of the validation set after deterministic local verification.
 
-The ReAct trace is useful for exploration, but it is not trusted output. Only strict JSON from the final answer should enter the parser, and only reference-verified JSON should enter `validate-pro/cases/`.
+The ReAct trace is useful for exploration, but it is not trusted output. Only strict JSON from the final answer should enter the parser, and only reference-verified JSON should enter `Leetcode-QC/validate-pro/cases/`.
 
 The Docker runner should:
 
