@@ -1,0 +1,1 @@
+../../Leetcode-QC/validate/specs/PRD.cn.md

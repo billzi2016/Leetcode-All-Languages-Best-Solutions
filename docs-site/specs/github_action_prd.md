@@ -14,6 +14,11 @@ The workflow is not a generic CI pipeline. It is specifically for the LeetCode A
 
 The default source language for this PRD is English. The Chinese version lives at:
 
+- `docs-site/specs/github_action_prd.cn.md`
+
+The site exposes both versions through language-specific symlinks:
+
+- `docs-site/en/github_action_prd.md`
 - `docs-site/cn/github_action_prd.md`
 
 ## Project Context
@@ -76,6 +81,11 @@ The documentation-site source should be organized as:
 docs-site/
   mkdocs.yml
   requirements.txt
+  specs/
+    mkdocs_prd.md
+    mkdocs_prd.cn.md
+    github_action_prd.md
+    github_action_prd.cn.md
   en/
     index.md
     leetcode.md
@@ -83,6 +93,7 @@ docs-site/
     ollama.md
     mkdocs.md
     github-actions.md
+    github_action_prd.md
     workflow.md
     prd.md
   cn/
@@ -92,6 +103,7 @@ docs-site/
     ollama.md
     mkdocs.md
     github-actions.md
+    github_action_prd.md
     workflow.md
     prd.md
 ```

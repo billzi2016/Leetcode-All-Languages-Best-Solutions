@@ -5,6 +5,8 @@ repo_url: https://github.com/billzi2016/Leetcode-All-Languages-Best-Solutions
 repo_name: billzi2016/Leetcode-All-Languages-Best-Solutions
 docs_dir: .
 site_dir: ../docs-site-build
+exclude_docs: |
+  specs/
 
 theme:
   name: material
@@ -43,16 +45,26 @@ nav:
       - Languages: en/languages.md
       - Validation:
           - Overview: en/validation.md
+          - Quick Validate README: en/qc-validate-readme.md
+          - Quick Validate PRD: en/validate-prd.md
+          - Validate Pro README: en/qc-validate-pro-readme.md
           - Validate Pro PRD: en/validate-pro-prd.md
+          - Migration Tools README: en/migrate-readme.md
+      - Project Specs:
+          - Project PRD: en/project-prd.md
+          - Project Structure: en/project-structure.md
+          - Dataset: en/dataset.md
+          - Scripts: en/scripts-readme.md
       - Ollama and Compute Nodes: en/ollama.md
       - Ollama Install: en/ollama-install.md
       - Agent Generation Flow: en/agent.md
-      - MkDocs: en/mkdocs.md
-      - GitHub Actions: en/github-actions.md
       - End-to-End Workflow: en/workflow.md
-      - PRD: en/prd.md
-      - MkDocs Site PRD: mkdocs_prd.md
-      - GitHub Actions PRD: github_action_prd.md
+      - Site Specs:
+          - Site Overview: en/prd.md
+          - MkDocs Plan: en/mkdocs.md
+          - GitHub Actions Plan: en/github-actions.md
+          - MkDocs Site PRD: en/mkdocs_prd.md
+          - GitHub Actions PRD: en/github_action_prd.md
   - 中文:
       - 总览: cn/index.md
       - LeetCode: cn/leetcode.md
@@ -64,13 +76,23 @@ nav:
       - 支持语言: cn/languages.md
       - 题解验证:
           - 总览: cn/validation.md
+          - 快速验证 README: cn/qc-validate-readme.md
+          - 快速验证 PRD: cn/validate-prd.md
+          - Validate Pro README: cn/qc-validate-pro-readme.md
           - Validate Pro 中文 PRD: cn/validate-pro-prd.md
+          - 迁移工具 README: cn/migrate-readme.md
+      - 项目规格:
+          - 项目 PRD: cn/project-prd.md
+          - 项目结构: cn/project-structure.md
+          - 数据集: cn/dataset.md
+          - 脚本: cn/scripts-readme.md
       - Ollama 和计算节点: cn/ollama.md
       - Ollama 安装: cn/ollama-install.md
       - Agent 生成流程: cn/agent.md
-      - MkDocs: cn/mkdocs.md
-      - GitHub Actions: cn/github-actions.md
       - 端到端流程: cn/workflow.md
-      - PRD: cn/prd.md
-      - MkDocs 站点 PRD: cn/mkdocs_prd.md
-      - GitHub Actions PRD: cn/github_action_prd.md
+      - 站点规格:
+          - 站点总览: cn/prd.md
+          - MkDocs 规划: cn/mkdocs.md
+          - GitHub Actions 规划: cn/github-actions.md
+          - MkDocs 站点 PRD: cn/mkdocs_prd.md
+          - GitHub Actions PRD: cn/github_action_prd.md

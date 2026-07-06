@@ -15,6 +15,11 @@ The site should not be a generic placeholder. It should explain the actual proje
 
 The Chinese version lives at:
 
+- `docs-site/specs/mkdocs_prd.cn.md`
+
+The site exposes both versions through language-specific symlinks:
+
+- `docs-site/en/mkdocs_prd.md`
 - `docs-site/cn/mkdocs_prd.md`
 
 ## Site Goals
@@ -35,6 +40,11 @@ The site should use English and Chinese folders:
 
 ```text
 docs-site/
+  specs/
+    mkdocs_prd.md
+    mkdocs_prd.cn.md
+    github_action_prd.md
+    github_action_prd.cn.md
   en/
   cn/
 ```

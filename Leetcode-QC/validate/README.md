@@ -53,11 +53,19 @@ The CSV keeps the language columns declared by the dataset. The bundled executab
 
 Use `Leetcode-QC/validate/` for quick checks and `Leetcode-QC/validate-pro/` for deeper generated-case quality control.
 
+## Specs
+
+- `specs/PRD.md`
+- `specs/PRD.cn.md`
+
 ## File Tree
 
 ```text
 Leetcode-QC/
   validate/
+    specs/
+      PRD.md
+      PRD.cn.md
     compose.yaml
     Dockerfile
     README.md
