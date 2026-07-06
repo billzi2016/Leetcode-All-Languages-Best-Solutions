@@ -172,6 +172,12 @@ docker build -f validate/Dockerfile -t leetcode-solutions-validate .
 docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
 ```
 
+Validation tools are layered:
+
+- `migrate/audit_missing_solutions.py` and `migrate/audit_suspicious_solutions.py` scan generated Markdown for missing language sections, repairable ordering issues, suspiciously long code blocks, Markdown leftovers, and repeated output.
+- `validate/` is the fast Docker validation layer. It runs dataset examples and writes compact CSV matrices.
+- `validate-pro/` is the extended differential-testing design. It uses `gpt-oss:120b` to propose additional edge cases, verifies those cases with Python reference solvers, stores retained cases as JSON, and then runs a larger Docker validation set. It is a deeper layer, not a replacement for `validate/`.
+
 ## Generate Problems
 
 Generate LeetCode 1:

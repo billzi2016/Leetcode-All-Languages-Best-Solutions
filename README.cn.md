@@ -172,6 +172,12 @@ docker build -f validate/Dockerfile -t leetcode-solutions-validate .
 docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
 ```
 
+验证工具分为三层：
+
+- `migrate/audit_missing_solutions.py` 和 `migrate/audit_suspicious_solutions.py` 用来扫描已经生成的 Markdown，找缺失语言、可修复顺序异常、异常长代码块、Markdown 残留和重复输出。
+- `validate/` 是快速 Docker 验证层。它运行 dataset examples，并写出紧凑的 CSV 矩阵。
+- `validate-pro/` 是增强对数验证设计。它使用 `gpt-oss:120b` 额外生成边界样例候选，再用 Python 参考解校验这些样例，把保留下来的样例保存为 JSON，最后运行更大的 Docker 验证集合。它是更深一层的验证，不替代 `validate/`。
+
 ## 生成单题
 
 生成 LeetCode 1：

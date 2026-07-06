@@ -33,3 +33,15 @@ python validate/run_validation.py --repo-root .
 python validate/run_validation.py --repo-root . --dataset dataset/merged_problems.json
 python validate/run_validation.py --repo-root . --reports-dir validate/reports
 ```
+
+## 验证层级
+
+仓库使用三层互补的质量控制工具：
+
+| 层级 | 作用 | 输出 |
+| --- | --- | --- |
+| `migrate/` 审计 | 查找缺失语言、可修复顺序异常、异常长代码块、Markdown 残留和重复生成输出。 | 终端报告或被忽略的本地 Markdown 报告 |
+| `validate/` | 快速 Docker 验证，使用 `dataset/merged_problems.json` 中已有 examples。 | `validate/reports/easy.csv`、`medium.csv`、`hard.csv` |
+| `validate-pro/` | 增强对数验证设计。它让 `gpt-oss:120b` 额外生成边界样例候选，用 Python 参考解校验后保存 JSON，再运行更大的 Docker 验证集合。 | `validate-pro/cases/*.json` 和 `validate-pro/reports/*.csv` |
+
+`validate-pro/` 是更深一层的验证，不替代 `validate/`。

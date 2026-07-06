@@ -15,3 +15,7 @@ docs-site-build/
 # Local maintenance and validation reports
 migrate/suspicious_solutions_report.md
 validate/reports/
+validate/work/
+validate-pro/cases/
+validate-pro/reports/
+validate-pro/work/
