@@ -1,0 +1,10 @@
+services:
+  validate:
+    build:
+      context: ..
+      dockerfile: validate/Dockerfile
+    image: leetcode-solutions-validate
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+    command: ["python", "validate/run_validation.py", "--repo-root", "/workspace"]

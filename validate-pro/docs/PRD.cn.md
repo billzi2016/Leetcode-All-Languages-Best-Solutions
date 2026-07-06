@@ -519,8 +519,9 @@ MAX_TREE_NODES = 200
 
 ```text
 validate-pro/
-  PRD.md
-  PRD.cn.md
+  docs/
+    PRD.md
+    PRD.cn.md
   README.md
   README.cn.md
   Dockerfile
@@ -539,19 +540,22 @@ validate-pro/
     reference.py
     report.py
   tests/
-    test_dataset.py
-    test_markdown.py
-    test_prompt_builder.py
-    test_reference_adapters.py
-    test_case_generation.py
-    test_case_retention.py
-    test_report.py
-    test_cli.py
+    unit/
+      test_dataset.py
+      test_markdown.py
+      test_prompt_builder.py
+      test_reference_adapters.py
+      test_case_generation.py
+      test_case_retention.py
+      test_report.py
+      test_cli.py
+    integration/
+    smoke/
 ```
 
-`cases/` 和 `reports/` 应加入 Git 忽略，因为它们是生成产物。
+`cases/`、`reports/` 和 `work/` 应加入 Git 忽略，因为它们是生成产物。
 
-`tests/` 用于放置该模块的全部 unittest。validate-pro 的测试应覆盖 dataset 解析、prompt 构造、候选 JSON 解析、参考解 adapter、候选样例拒绝规则、保留样例持久化、CSV 报告生成和 CLI 参数解析。
+`tests/unit/` 用于放置该模块的全部 unittest。validate-pro 的测试应覆盖 dataset 解析、prompt 构造、候选 JSON 解析、参考解 adapter、候选样例拒绝规则、保留样例持久化、CSV 报告生成和 CLI 参数解析。
 
 ## 12. CLI 设计
 
@@ -582,8 +586,8 @@ python validate-pro/run_validation.py
 Docker 入口：
 
 ```bash
-docker build -f validate-pro/Dockerfile -t leetcode-validate-pro .
-docker run --rm -v "$PWD":/workspace leetcode-validate-pro
+docker compose -f validate-pro/compose.yaml build
+docker compose -f validate-pro/compose.yaml run --rm validate-pro
 ```
 
 ## 13. 运行控制
@@ -660,5 +664,5 @@ validate/run_validation.py
 - 在 Docker 中运行已生成 Markdown 题解；
 - 写出 `easy.csv`、`medium.csv`、`hard.csv`；
 - 所有生成样例和报告产物都不进入 Git；
-- 包含 `validate-pro/tests/` unittest 测试套件，覆盖解析器、adapter、样例生成、样例保留、报告和 CLI 行为；
+- 包含 `validate-pro/tests/unit/` unittest 测试套件，覆盖解析器、adapter、样例生成、样例保留、报告和 CLI 行为；
 - 保留当前 `validate/` 作为基础验证模块。

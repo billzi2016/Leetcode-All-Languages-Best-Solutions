@@ -22,7 +22,7 @@ validate/reports/hard.csv
 在仓库根目录执行：
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
+docker compose -f validate/compose.yaml build
 ```
 
 ## 运行
@@ -30,7 +30,7 @@ docker build -f validate/Dockerfile -t leetcode-solutions-validate .
 在仓库根目录执行：
 
 ```bash
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 默认输出到 `validate/reports/`。
@@ -57,6 +57,7 @@ CSV 会保留 dataset 声明的语言列。内置可执行 runner 覆盖 Python�
 
 ```text
 validate/
+  compose.yaml
   Dockerfile
   README.md
   README.cn.md

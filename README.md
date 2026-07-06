@@ -150,7 +150,7 @@ Dependencies:
 ## Run Tests
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests
+PYTHONPATH=src python -m unittest discover -s tests/unit
 ```
 
 The tests include formal-flow coverage for LeetCode 1 / 2 / 4, covering Easy, Medium, and Hard, and verify that a second run skips already generated files.
@@ -168,8 +168,8 @@ validate/reports/hard.csv
 Build and run:
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml build
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 Validation tools are layered:

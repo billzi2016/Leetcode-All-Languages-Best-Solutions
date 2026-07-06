@@ -17,13 +17,13 @@ Each CSV row is a problem. Each language column uses `1` for passed sample cases
 Build from the repository root:
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
+docker compose -f validate/compose.yaml build
 ```
 
 Run from the repository root:
 
 ```bash
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 ## Direct Command

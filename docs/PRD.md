@@ -397,7 +397,7 @@ Implementation must remain maintainable:
 
 ## Testing Requirements
 
-All unit tests live in `tests/` and use Python's standard `unittest` library.
+All unit tests live in `tests/unit/` and use Python's standard `unittest` library.
 
 Use `python` for Python commands. Do not write `python3` in docs or script instructions.
 
@@ -480,7 +480,7 @@ Phase 1:
 - Hard updates the `.md` after each generated language.
 - stdout/stderr are written both to screen and the current run's log directory.
 - failures are written as structured records to `failures.jsonl`.
-- Core modules have `unittest` coverage under `tests/`.
+- Core modules have `unittest` coverage under `tests/unit/`.
 - Ollama client tests cover the `ollama` package call, three think modes, 100_000 token output limit, and temperature `0.1`.
 - LeetCode 1 / 2 / 4 can pass the formal flow and skip correctly on the second run.
 - Missing fields are skipped.

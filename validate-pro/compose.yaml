@@ -1,0 +1,20 @@
+services:
+  validate-pro:
+    build:
+      context: ..
+      dockerfile: validate-pro/Dockerfile
+    image: leetcode-validate-pro
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+    command: ["python", "validate-pro/run_validation.py", "--repo-root", "/workspace"]
+
+  generate-cases:
+    build:
+      context: ..
+      dockerfile: validate-pro/Dockerfile
+    image: leetcode-validate-pro
+    working_dir: /workspace
+    volumes:
+      - ..:/workspace
+    command: ["python", "validate-pro/generate_cases.py", "--repo-root", "/workspace"]

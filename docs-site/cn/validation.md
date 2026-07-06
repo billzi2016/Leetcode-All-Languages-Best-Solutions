@@ -17,13 +17,13 @@ validate/reports/hard.csv
 在仓库根目录构建：
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
+docker compose -f validate/compose.yaml build
 ```
 
 在仓库根目录运行：
 
 ```bash
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 ## 直接命令

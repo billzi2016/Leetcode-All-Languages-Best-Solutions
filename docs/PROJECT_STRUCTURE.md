@@ -33,15 +33,18 @@ This document describes the recommended project layout and module responsibiliti
 ├── scripts/
 │   └── generate_solutions.py       # CLI entry point
 ├── tests/
-│   ├── test_dataset_loader.py      # dataset loading and sorting tests
-│   ├── test_prompt_builder.py      # prompt construction and missing-field tests
-│   ├── test_markdown_writer.py     # output path, filename, and Markdown format tests
-│   ├── test_resume.py              # resume detection tests
-│   ├── test_logger.py              # stdout/stderr/failures log separation tests
-│   ├── test_ollama_client.py       # ollama library, think mode, and 100_000 limit tests
-│   ├── test_cli.py                 # CLI argument parsing tests
-│   ├── test_generator.py           # main generator orchestration tests
-│   └── test_e2e_selected.py        # LeetCode 1/2/4 formal-flow and skip tests
+│   ├── unit/                       # unit tests for core modules and CLIs
+│   │   ├── test_dataset_loader.py  # dataset loading and sorting tests
+│   │   ├── test_prompt_builder.py  # prompt construction and missing-field tests
+│   │   ├── test_markdown_writer.py # output path, filename, and Markdown format tests
+│   │   ├── test_resume.py          # resume detection tests
+│   │   ├── test_logger.py          # stdout/stderr/failures log separation tests
+│   │   ├── test_ollama_client.py   # ollama library, think mode, and 100_000 limit tests
+│   │   ├── test_cli.py             # CLI argument parsing tests
+│   │   ├── test_generator.py       # main generator orchestration tests
+│   │   └── test_e2e_selected.py    # LeetCode 1/2/4 formal-flow and skip tests
+│   ├── integration/                # reserved for cross-module integration tests
+│   └── smoke/                      # reserved for lightweight environment smoke tests
 ├── logs/                           # runtime logs, not committed to Git
 ├── Leetcode-Easy/                           # generated Easy solutions
 ├── Leetcode-Medium/                         # generated Medium solutions
@@ -61,7 +64,7 @@ This document describes the recommended project layout and module responsibiliti
 
 ## Tests
 
-All unit tests live in `tests/` and use Python's standard `unittest` library.
+All unit tests live in `tests/unit/` and use Python's standard `unittest` library.
 
 Tests should cover:
 

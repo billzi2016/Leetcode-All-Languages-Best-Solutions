@@ -519,8 +519,11 @@ Suggested structure:
 
 ```text
 validate-pro/
-  PRD.md
+  docs/
+    PRD.md
+    PRD.cn.md
   README.md
+  README.cn.md
   Dockerfile
   requirements.txt
   generate_cases.py
@@ -537,19 +540,22 @@ validate-pro/
     reference.py
     report.py
   tests/
-    test_dataset.py
-    test_markdown.py
-    test_prompt_builder.py
-    test_reference_adapters.py
-    test_case_generation.py
-    test_case_retention.py
-    test_report.py
-    test_cli.py
+    unit/
+      test_dataset.py
+      test_markdown.py
+      test_prompt_builder.py
+      test_reference_adapters.py
+      test_case_generation.py
+      test_case_retention.py
+      test_report.py
+      test_cli.py
+    integration/
+    smoke/
 ```
 
-`cases/` and `reports/` should be ignored by Git because they are generated artifacts.
+`cases/`, `reports/`, and `work/` should be ignored by Git because they are generated artifacts.
 
-`tests/` should contain all unit tests for this module. The validate-pro test suite should cover dataset parsing, prompt construction, candidate JSON parsing, reference solver adapters, candidate rejection rules, retained-case persistence, CSV report generation, and CLI argument parsing.
+`tests/unit/` should contain all unit tests for this module. The validate-pro test suite should cover dataset parsing, prompt construction, candidate JSON parsing, reference solver adapters, candidate rejection rules, retained-case persistence, CSV report generation, and CLI argument parsing.
 
 ## 12. CLI Design
 
@@ -580,8 +586,8 @@ python validate-pro/run_validation.py
 Docker entry:
 
 ```bash
-docker build -f validate-pro/Dockerfile -t leetcode-validate-pro .
-docker run --rm -v "$PWD":/workspace leetcode-validate-pro
+docker compose -f validate-pro/compose.yaml build
+docker compose -f validate-pro/compose.yaml run --rm validate-pro
 ```
 
 ## 13. Runtime Controls
@@ -658,5 +664,5 @@ The first usable version should:
 - run generated Markdown solutions in Docker;
 - write `easy.csv`, `medium.csv`, and `hard.csv`;
 - keep all generated case and report artifacts out of Git;
-- include a `validate-pro/tests/` unittest suite for the module's parser, adapter, generation, retention, report, and CLI behavior;
+- include a `validate-pro/tests/unit/` unittest suite for the module's parser, adapter, generation, retention, report, and CLI behavior;
 - preserve the current `validate/` module as the simpler baseline validator.

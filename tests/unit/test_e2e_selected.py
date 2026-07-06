@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 from leetcode_solutions.dataset_loader import find_by_frontend_id, load_questions
 from leetcode_solutions.generator import SolutionGenerator
 
-from tests.test_generator import FakeClient, FakeLogger
+from tests.unit.test_generator import FakeClient, FakeLogger
 
 
 class SelectedProblemsE2ETest(unittest.TestCase):

@@ -22,7 +22,7 @@ Each row is a problem. Each language column uses:
 Run from the repository root:
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
+docker compose -f validate/compose.yaml build
 ```
 
 ## Run
@@ -30,7 +30,7 @@ docker build -f validate/Dockerfile -t leetcode-solutions-validate .
 Run from the repository root:
 
 ```bash
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 The default command writes CSV files under `validate/reports/`.
@@ -57,6 +57,7 @@ Use `validate/` for quick checks and `validate-pro/` for deeper generated-case q
 
 ```text
 validate/
+  compose.yaml
   Dockerfile
   README.md
   README.cn.md

@@ -150,7 +150,7 @@ python -m pip install -r requirements.txt
 ## 运行测试
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests
+PYTHONPATH=src python -m unittest discover -s tests/unit
 ```
 
 测试包含 LeetCode 1 / 2 / 4 的正式流程测试，分别覆盖 Easy、Medium、Hard，并验证第二次运行能正常跳过已生成文件。
@@ -168,8 +168,8 @@ validate/reports/hard.csv
 构建和运行：
 
 ```bash
-docker build -f validate/Dockerfile -t leetcode-solutions-validate .
-docker run --rm -v "$PWD":/workspace leetcode-solutions-validate
+docker compose -f validate/compose.yaml build
+docker compose -f validate/compose.yaml run --rm validate
 ```
 
 验证工具分为三层：

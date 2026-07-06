@@ -33,16 +33,19 @@
 ├── scripts/
 │   └── generate_solutions.py       # CLI 入口
 ├── tests/
-│   ├── test_dataset_loader.py      # dataset 读取和排序测试
-│   ├── test_prompt_builder.py      # prompt 拼接和字段跳过测试
-│   ├── test_markdown_writer.py     # 输出路径、文件名和 Markdown 格式测试
-│   ├── test_resume.py              # 断点续跑检测测试
-│   ├── test_logger.py              # stdout/stderr/failures 日志分流测试
-│   ├── test_ollama_client.py       # ollama 库调用、think 模式和 100_000 限制测试
-│   ├── test_cli.py                 # CLI 参数解析测试
-│   ├── test_warnings.py            # 环境 warning 过滤测试
-│   ├── test_generator.py           # 主流程调度测试
-│   └── test_e2e_selected.py        # LeetCode 1/2/4 正式流程和跳过行为测试
+│   ├── unit/                       # 核心模块和 CLI 单元测试
+│   │   ├── test_dataset_loader.py  # dataset 读取和排序测试
+│   │   ├── test_prompt_builder.py  # prompt 拼接和字段跳过测试
+│   │   ├── test_markdown_writer.py # 输出路径、文件名和 Markdown 格式测试
+│   │   ├── test_resume.py          # 断点续跑检测测试
+│   │   ├── test_logger.py          # stdout/stderr/failures 日志分流测试
+│   │   ├── test_ollama_client.py   # ollama 库调用、think 模式和 100_000 限制测试
+│   │   ├── test_cli.py             # CLI 参数解析测试
+│   │   ├── test_warnings.py        # 环境 warning 过滤测试
+│   │   ├── test_generator.py       # 主流程调度测试
+│   │   └── test_e2e_selected.py    # LeetCode 1/2/4 正式流程和跳过行为测试
+│   ├── integration/                # 预留跨模块集成测试
+│   └── smoke/                      # 预留轻量环境冒烟测试
 ├── logs/                           # 运行日志，不提交 Git
 ├── Leetcode-Easy/                           # 生成的 Easy 题解
 ├── Leetcode-Medium/                         # 生成的 Medium 题解
@@ -64,7 +67,7 @@
 
 ## Tests
 
-所有单元测试统一放在 `tests/` 目录，并使用 Python 标准库 `unittest`。
+所有单元测试统一放在 `tests/unit/` 目录，并使用 Python 标准库 `unittest`。
 
 测试应覆盖：
 
