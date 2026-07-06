@@ -44,6 +44,8 @@ Leetcode-QC/validate-pro/work/
 
 These directories are local generated artifacts.
 
+`reports/adapter_support.md` lists the adapter support matrix for the selected dataset. `reports/generation_audit.md` summarizes retained cases, unsupported problem kinds, rejected candidates, and failure reasons.
+
 ## File Tree
 
 ```text
@@ -62,10 +64,10 @@ Leetcode-QC/
         prompt_builder.py
         reference.py
         report.py
-    tests/
-      unit/
-      integration/
-      smoke/
+  tests/
+    unit/
+    integration/
+    smoke/
     generate_cases.py
     run_validation.py
     Dockerfile

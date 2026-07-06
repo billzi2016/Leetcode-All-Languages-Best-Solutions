@@ -44,6 +44,8 @@ Leetcode-QC/validate-pro/work/
 
 这些目录都是本地生成产物。
 
+`reports/adapter_support.md` 记录所选 dataset 的 adapter 支持矩阵。`reports/generation_audit.md` 汇总保留样例、暂不支持的题型、被拒绝的候选样例和失败原因。
+
 ## 文件树
 
 ```text

@@ -37,11 +37,11 @@ class CaseGenerationTest(unittest.TestCase):
             kind="array_int_target_indices",
         )
 
-        retained = generate_cases.retained_dataset_examples(problem, get_adapter(problem.kind))
+        retained, events = generate_cases.retained_dataset_examples(problem, get_adapter(problem.kind))
 
         self.assertEqual([0, 1], retained[0]["expected"])
+        self.assertEqual("retained", events[0].status)
 
 
 if __name__ == "__main__":
     unittest.main()
-

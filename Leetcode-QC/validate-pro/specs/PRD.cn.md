@@ -156,6 +156,17 @@ CSV 每一行是一道题。每个语言列只使用：
 0 = 未通过全部保留样例
 ```
 
+### 审计报告
+
+Validate Pro 还应写出 Markdown 审计报告：
+
+```text
+Leetcode-QC/validate-pro/reports/adapter_support.md
+Leetcode-QC/validate-pro/reports/generation_audit.md
+```
+
+`adapter_support.md` 列出所选 dataset 中出现的每一种题型 kind，以及是否已经存在 Python 参考 adapter。`generation_audit.md` 汇总保留样例、暂不支持的题型、候选样例拒绝原因和详细失败项。
+
 ## 6. 高层流程
 
 ### Step 1：读取题目
@@ -556,7 +567,11 @@ Leetcode-QC/
 
 `cases/`、`reports/` 和 `work/` 应加入 Git 忽略，因为它们是生成产物。
 
-`tests/unit/` 用于放置该模块的全部 unittest。validate-pro 的测试应覆盖 dataset 解析、prompt 构造、候选 JSON 解析、参考解 adapter、候选样例拒绝规则、保留样例持久化、CSV 报告生成和 CLI 参数解析。
+`tests/unit/` 用于放置该模块的全部 unittest。validate-pro 的测试应覆盖 dataset 解析、prompt 构造、候选 JSON 解析、参考解 adapter、候选样例拒绝规则、保留样例持久化、CSV 报告生成、审计报告生成和 CLI 参数解析。
+
+`tests/integration/` 应覆盖一个很小的 fixture dataset，并验证 no-LLM 生成路径可以保留 dataset examples 且写出审计报告。
+
+`tests/smoke/` 应覆盖命令行 parser 默认值和低成本启动行为。
 
 ## 12. CLI 设计
 

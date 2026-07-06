@@ -156,6 +156,17 @@ Each CSV row is a problem. Each language column is:
 0 = did not pass all retained generated cases
 ```
 
+### Audit Reports
+
+Validate Pro should also write Markdown audit reports:
+
+```text
+Leetcode-QC/validate-pro/reports/adapter_support.md
+Leetcode-QC/validate-pro/reports/generation_audit.md
+```
+
+`adapter_support.md` lists every problem-shape kind discovered in the selected dataset and whether a Python reference adapter exists. `generation_audit.md` summarizes retained cases, unsupported kinds, rejected candidate reasons, and detailed failures.
+
 ## 6. High-Level Pipeline
 
 ### Step 1: Load Problem
@@ -556,7 +567,11 @@ Leetcode-QC/
 
 `cases/`, `reports/`, and `work/` should be ignored by Git because they are generated artifacts.
 
-`tests/unit/` should contain all unit tests for this module. The validate-pro test suite should cover dataset parsing, prompt construction, candidate JSON parsing, reference solver adapters, candidate rejection rules, retained-case persistence, CSV report generation, and CLI argument parsing.
+`tests/unit/` should contain all unit tests for this module. The validate-pro test suite should cover dataset parsing, prompt construction, candidate JSON parsing, reference solver adapters, candidate rejection rules, retained-case persistence, CSV report generation, audit report generation, and CLI argument parsing.
+
+`tests/integration/` should cover a tiny fixture dataset and verify that no-LLM generation can retain dataset examples and write audit reports.
+
+`tests/smoke/` should cover command-line parser defaults and cheap startup behavior.
 
 ## 12. CLI Design
 
