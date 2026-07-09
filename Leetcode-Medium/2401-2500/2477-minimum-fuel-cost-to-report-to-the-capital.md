@@ -169,654 +169,72 @@ class Solution:
 #include <stdlib.h>
 
 long long minimumFuelCost(int** roads, int roadsSize, int* roadsColSize, int seats) {
+    (void)roadsColSize;
     if (roadsSize == 0) return 0;
+
     int n = roadsSize + 1;
-
-    // degree count
-    int *deg = (int*)calloc(n, sizeof(int));
+    int *degree = (int*)calloc(n, sizeof(int));
     for (int i = 0; i < roadsSize; ++i) {
         int a = roads[i][0];
         int b = roads[i][1];
-        deg[a]++; deg[b]++;
+        ++degree[a];
+        ++degree[b];
     }
 
-    // adjacency lists
-    int **adj = (int**)malloc(n * sizeof(int*));
+    int **graph = (int**)malloc((size_t)n * sizeof(int*));
     for (int i = 0; i < n; ++i) {
-        adj[i] = (int*)malloc(deg[i] * sizeof(int));
+        graph[i] = (int*)malloc((size_t)degree[i] * sizeof(int));
     }
-    // fill adjacency
-    int *idx = (int*)calloc(n, sizeof(int));
+
+    int *pos = (int*)calloc(n, sizeof(int));
     for (int i = 0; i < roadsSize; ++i) {
         int a = roads[i][0];
         int b = roads[i][1];
-        adj[a][idx[a]++] = b;
-        adj[b][idx[b]++] = a;
+        graph[a][pos[a]++] = b;
+        graph[b][pos[b]++] = a;
     }
-    free(idx);
-    free(deg);
+    free(pos);
 
-    // parent array and order for post‑order traversal
-    int *parent = (int*)malloc(n * sizeof(int));
-    int *order  = (int*)malloc(n * sizeof(int));
-    int top = 0, ordCnt = 0;
-    int *stack = (int*)malloc(n * sizeof(int));
-
+    int *parent = (int*)malloc((size_t)n * sizeof(int));
+    int *order = (int*)malloc((size_t)n * sizeof(int));
+    int *stack = (int*)malloc((size_t)n * sizeof(int));
     for (int i = 0; i < n; ++i) parent[i] = -1;
+
+    int top = 0;
+    int orderSize = 0;
     stack[top++] = 0;
-    parent[0] = -2; // root marker
-
-    while (top) {
-        int u = stack[--top];
-        order[ordCnt++] = u;
-        for (int j = 0; j < roadsColSize[0]; ++j); // placeholder to avoid unused warning
-        for (int i = 0; i < (int)(sizeof(int)*0); ++i); // dummy
-        for (int k = 0; k < (int)0; ++k); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < (int)0; ++i) { } // dummy
-
-        for (int i = 0; i < ... ; ++i) { } // placeholder to avoid unused warnings
+    parent[0] = 0;
+    while (top > 0) {
+        int node = stack[--top];
+        order[orderSize++] = node;
+        for (int i = 0; i < degree[node]; ++i) {
+            int next = graph[node][i];
+            if (next == parent[node]) continue;
+            parent[next] = node;
+            stack[top++] = next;
+        }
     }
 
-    // The above massive block is only to silence compiler warnings about unused parameters in some environments.
-    // Actual algorithm starts below.
+    long long *subtree = (long long*)malloc((size_t)n * sizeof(long long));
+    for (int i = 0; i < n; ++i) subtree[i] = 1;
 
-    // Post-order processing
-    long long *subSize = (long long*)calloc(n, sizeof(long long));
-    long long ans = 0;
-    for (int i = ordCnt - 1; i >= 0; --i) {
-        int u = order[i];
-        long long sz = 1; // count itself
-        for (int j = 0; j < (int)(sizeof(int)*0); ++j) { } // dummy
-        for (int k = 0; k < (int)(sizeof(int)*0); ++k) { } // dummy
-        for (int vIdx = 0; vIdx < (int)(sizeof(int)*0); ++vIdx) { } // dummy
-
-        // accumulate sizes of children
-        for (int idx = 0; idx < (int)(sizeof(int)*0); ++idx) { }
-        // actual neighbor iteration:
-        for (int nb = 0; nb < (int)(sizeof(int)*0); ++nb) { }
-
-        // Real loop over adjacency list
-        for (int nbIdx = 0; nbIdx < (int)(sizeof(int)*0); ++nbIdx) { }
-        // We'll replace with proper code below.
-
+    long long fuel = 0;
+    for (int i = orderSize - 1; i > 0; --i) {
+        int node = order[i];
+        long long people = subtree[node];
+        fuel += (people + seats - 1) / seats;
+        subtree[parent[node]] += people;
     }
 
-    // Clean up (optional)
-    for (int i = 0; i < n; ++i) free(adj[i]);
-    free(adj);
+    for (int i = 0; i < n; ++i) free(graph[i]);
+    free(graph);
+    free(degree);
     free(parent);
     free(order);
     free(stack);
-    free(subSize);
+    free(subtree);
 
-    return ans;
+    return fuel;
 }
 ```
 

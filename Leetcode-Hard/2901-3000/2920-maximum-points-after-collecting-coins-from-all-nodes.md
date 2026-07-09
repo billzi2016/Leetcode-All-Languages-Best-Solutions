@@ -214,457 +214,85 @@ class Solution:
 
 ```c
 #include <stdlib.h>
-#include <string.h>
 
 int maximumPoints(int** edges, int edgesSize, int* edgesColSize, int* coins, int coinsSize, int k) {
-    const int MAX_T = 15;                 // enough for coin <= 1e4
-    const int DP_COLS = MAX_T + 2;        // extra column for t+1 overflow (always zero)
+    (void)edgesColSize;
 
+    const int MAX_SHIFT = 15;
+    const int DP_COLS = MAX_SHIFT + 2;
     int n = coinsSize;
-    if (n == 0) return 0;
 
-    /* build adjacency list */
-    int *deg = (int*)calloc(n, sizeof(int));
+    int *degree = (int*)calloc(n, sizeof(int));
     for (int i = 0; i < edgesSize; ++i) {
         int a = edges[i][0];
         int b = edges[i][1];
-        deg[a]++; deg[b]++;
+        ++degree[a];
+        ++degree[b];
     }
-    int **adj = (int**)malloc(n * sizeof(int*));
+
+    int **graph = (int**)malloc((size_t)n * sizeof(int*));
     for (int i = 0; i < n; ++i) {
-        adj[i] = (int*)malloc(deg[i] * sizeof(int));
+        graph[i] = (int*)malloc((size_t)degree[i] * sizeof(int));
     }
-    int *cur = (int*)calloc(n, sizeof(int));
+
+    int *pos = (int*)calloc(n, sizeof(int));
     for (int i = 0; i < edgesSize; ++i) {
         int a = edges[i][0];
         int b = edges[i][1];
-        adj[a][cur[a]++] = b;
-        adj[b][cur[b]++] = a;
+        graph[a][pos[a]++] = b;
+        graph[b][pos[b]++] = a;
     }
-    free(cur);
-    free(deg);
+    free(pos);
 
-    /* parent array and order for post‑order traversal */
-    int *parent = (int*)malloc(n * sizeof(int));
-    int *stack = (int*)malloc(n * sizeof(int));
-    int *order = (int*)malloc(n * sizeof(int));
+    int *parent = (int*)malloc((size_t)n * sizeof(int));
+    int *order = (int*)malloc((size_t)n * sizeof(int));
+    int *stack = (int*)malloc((size_t)n * sizeof(int));
     for (int i = 0; i < n; ++i) parent[i] = -2;
-    int top = 0, ordIdx = 0;
+
+    int top = 0;
+    int orderSize = 0;
     stack[top++] = 0;
     parent[0] = -1;
-    while (top) {
-        int u = stack[--top];
-        order[ordIdx++] = u;
-        for (int i = 0; i < cur[u]; ++i); // placeholder to avoid unused warning
-        for (int i = 0; i < (int)(sizeof(int)*0); ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-        for (int i = 0; i < (int)0; ++i); // dummy
-
-        for (int i = 0; i < (int)0; ++i); // placeholder to keep compiler happy
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        for (int i = 0; i < (int)0; ++i); // placeholder
-        for (int i = 0; i < (int)0; ++i); // placeholder
-
-        /* Build children list using parent info */
+    while (top > 0) {
+        int node = stack[--top];
+        order[orderSize++] = node;
+        for (int i = 0; i < degree[node]; ++i) {
+            int next = graph[node][i];
+            if (parent[next] != -2) continue;
+            parent[next] = node;
+            stack[top++] = next;
+        }
     }
 
-    /* dp array: flattened */
     long long *dp = (long long*)calloc((size_t)n * DP_COLS, sizeof(long long));
+    for (int idx = orderSize - 1; idx >= 0; --idx) {
+        int node = order[idx];
+        for (int shift = MAX_SHIFT; shift >= 0; --shift) {
+            long long takeNow = ((long long)coins[node] >> shift) - k;
+            long long halveFirst = (long long)coins[node] >> (shift + 1);
 
-    /* Process nodes in reverse postorder */
-    for (int idx = n - 1; idx >= 0; --idx) {
-        int u = order[idx];
-        /* accumulate sums from children */
-        long long sumSame[MAX_T + 1] = {0};
-        long long sumNext[MAX_T + 1] = {0};
+            for (int i = 0; i < degree[node]; ++i) {
+                int child = graph[node][i];
+                if (parent[child] != node) continue;
+                takeNow += dp[(size_t)child * DP_COLS + shift];
+                halveFirst += dp[(size_t)child * DP_COLS + shift + 1];
+            }
 
-        for (int i = 0; i < (int)(sizeof(int)*0); ++i); // placeholder
-
-        for (int vi = 0; vi < (int)0; ++vi); // placeholder
-
-        for (int j = 0; j < (int)0; ++j); // placeholder
-
-        for (int cIdx = 0; cIdx < (int)0; ++cIdx); // placeholder
-
-        for (int ci = 0; ci < (int)0; ++ci); // placeholder
-
-        for (int childPos = 0; childPos < (int)0; ++childPos); // placeholder
-
-        for (int p = 0; p < (int)0; ++p); // placeholder
-
-        for (int v = 0; v < (int)0; ++v); // placeholder
-
-        for (int it = 0; it < (int)0; ++it); // placeholder
-
-        for (int z = 0; z < (int)0; ++z); // placeholder
-
-        for (int w = 0; w < (int)0; ++w); // placeholder
-
-        for (int q = 0; q < (int)0; ++q); // placeholder
-
-        for (int r = 0; r < (int)0; ++r); // placeholder
-
-        for (int s = 0; s < (int)0; ++s); // placeholder
-
-        for (int t = 0; t < (int)0; ++t); // placeholder
-
-        for (int child = 0; child < (int)0; ++child); // placeholder
-
-        /* iterate actual children */
-        for (int i = 0; i < (int)(sizeof(int)*0); ++i); // placeholder
-
-        for (int ci = 0; ci < (int)0; ++ci); // placeholder
-
-        for (int vi = 0; vi < (int)0; ++vi); // placeholder
-
-        for (int adjIdx = 0; adjIdx < (int)0; ++adjIdx); // placeholder
-
-        for (int nb = 0; nb < (int)0; ++nb); // placeholder
-
-        /* real loop */
-        for (int j = 0; j < (int)(sizeof(int)*0); ++j); // placeholder
-
-        for (int childPos = 0; childPos < (int)0; ++childPos); // placeholder
-
-        for (int c = 0; c < (int)0; ++c); // placeholder
-
-        /* actual children processing */
-        int degU = 0;
-        for (int i = 0; i < (int)(sizeof(int)*0); ++i); // placeholder
-        /* compute degree from adjacency list size stored earlier */
-        /* Since we didn't store degrees after building, recompute using adj array length */
-        /* We'll use the original deg array saved before freeing */
+            dp[(size_t)node * DP_COLS + shift] = takeNow > halveFirst ? takeNow : halveFirst;
+        }
     }
 
-    int result = (int)dp[0 * DP_COLS + 0];
+    int answer = (int)dp[0];
 
-    /* free memory */
-    for (int i = 0; i < n; ++i) free(adj[i]);
-    free(adj);
+    for (int i = 0; i < n; ++i) free(graph[i]);
+    free(graph);
+    free(degree);
     free(parent);
-    free(stack);
     free(order);
+    free(stack);
     free(dp);
-    return result;
+
+    return answer;
 }
 ```
 
