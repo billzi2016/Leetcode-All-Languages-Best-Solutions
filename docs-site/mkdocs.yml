@@ -35,7 +35,7 @@ validation:
 nav:
   - Home: index.md
   - English:
-      - Repository README: README.md
+      - Repository README: repository-readme.md
       - Overview: en/index.md
       - LeetCode: en/leetcode.md
       - Solution Indexes:
@@ -67,7 +67,7 @@ nav:
           - MkDocs Site PRD: en/mkdocs_prd.md
           - GitHub Actions PRD: en/github_action_prd.md
   - 中文:
-      - 仓库 README: README.cn.md
+      - 仓库 README: repository-readme.cn.md
       - 总览: cn/index.md
       - LeetCode: cn/leetcode.md
       - 题目清单:
