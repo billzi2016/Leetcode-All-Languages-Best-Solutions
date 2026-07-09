@@ -1,35 +1,31 @@
 # 0584. Find Customer Referee
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT name
 FROM Customer
 WHERE referee_id <> 2 OR referee_id IS NULL;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT name
 FROM Customer
 WHERE referee_id <> 2 OR referee_id IS NULL;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT name
 FROM Customer
 WHERE referee_id <> 2 OR referee_id IS NULL;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_customer_referee(customer: pd.DataFrame) -> pd.DataFrame:
@@ -37,9 +33,8 @@ def find_customer_referee(customer: pd.DataFrame) -> pd.DataFrame:
     return customer.loc[mask, ["name"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT name
 FROM Customer

@@ -1,8 +1,7 @@
 # 3564. Seasonal Sales Analysis
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH sales_by_season AS (
     SELECT 
@@ -38,9 +37,8 @@ WHERE rn = 1
 ORDER BY season;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH sales_agg AS (
     SELECT 
@@ -85,9 +83,8 @@ ORDER BY CASE season
          END;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH sales_with_season AS (
     SELECT s.*,
@@ -119,9 +116,8 @@ WHERE rn = 1
 ORDER BY season;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def seasonal_sales_analysis(products: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
@@ -156,9 +152,8 @@ def seasonal_sales_analysis(products: pd.DataFrame, sales: pd.DataFrame) -> pd.D
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH sales_category AS (
     SELECT 

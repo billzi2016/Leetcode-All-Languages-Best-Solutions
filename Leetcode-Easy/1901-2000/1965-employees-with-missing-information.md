@@ -1,8 +1,7 @@
 # 1965. Employees With Missing Information
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT employee_id
 FROM Employees
@@ -14,9 +13,8 @@ WHERE employee_id NOT IN (SELECT employee_id FROM Employees)
 ORDER BY employee_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT e.employee_id
 FROM Employees e
@@ -32,9 +30,8 @@ WHERE e.name IS NULL
 ORDER BY employee_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT employee_id
 FROM Employees e
@@ -43,9 +40,8 @@ WHERE e.name IS NULL OR s.salary IS NULL
 ORDER BY employee_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_employees(employees: pd.DataFrame, salaries: pd.DataFrame) -> pd.DataFrame:
@@ -55,9 +51,8 @@ def find_employees(employees: pd.DataFrame, salaries: pd.DataFrame) -> pd.DataFr
     return pd.DataFrame({"employee_id": missing})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     COALESCE(e.employee_id, s.employee_id) AS employee_id

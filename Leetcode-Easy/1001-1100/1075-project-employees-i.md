@@ -1,8 +1,7 @@
 # 1075. Project Employees I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     p.project_id,
     ROUND(AVG(e.experience_years), 2) AS average_years
@@ -11,9 +10,8 @@ JOIN Employee e ON p.employee_id = e.employee_id
 GROUP BY p.project_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     p.project_id,
@@ -23,9 +21,8 @@ JOIN Employee e ON p.employee_id = e.employee_id
 GROUP BY p.project_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     p.project_id,
@@ -35,9 +32,8 @@ JOIN Employee e ON p.employee_id = e.employee_id
 GROUP BY p.project_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def project_employees_i(project: pd.DataFrame, employee: pd.DataFrame) -> pd.DataFrame:
@@ -48,9 +44,8 @@ def project_employees_i(project: pd.DataFrame, employee: pd.DataFrame) -> pd.Dat
     return avg_df
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     p.project_id,

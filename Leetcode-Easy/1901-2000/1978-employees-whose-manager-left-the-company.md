@@ -1,8 +1,7 @@
 # 1978. Employees Whose Manager Left the Company
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT e.employee_id
 FROM Employees e
 LEFT JOIN Employees m ON e.manager_id = m.employee_id
@@ -12,9 +11,8 @@ WHERE e.salary < 30000
 ORDER BY e.employee_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT e.employee_id
 FROM Employees AS e
@@ -25,9 +23,8 @@ WHERE e.salary < 30000
 ORDER BY e.employee_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT employee_id
 FROM Employees e
 WHERE salary < 30000
@@ -39,9 +36,8 @@ WHERE salary < 30000
 ORDER BY employee_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_employees(employees: pd.DataFrame) -> pd.DataFrame:
@@ -57,9 +53,8 @@ def find_employees(employees: pd.DataFrame) -> pd.DataFrame:
     )
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT e.employee_id
 FROM Employees e

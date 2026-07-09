@@ -1,26 +1,23 @@
 # 0577. Employee Bonus
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT e.name, b.bonus
 FROM Employee AS e
 LEFT JOIN Bonus AS b ON e.empId = b.empId
 WHERE b.bonus < 1000 OR b.bonus IS NULL;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT e.name, b.bonus
 FROM Employee AS e
 LEFT JOIN Bonus AS b ON e.empId = b.empId
 WHERE b.bonus < 1000 OR b.bonus IS NULL;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT e.name, b.bonus
 FROM Employee e
@@ -28,9 +25,8 @@ LEFT JOIN Bonus b ON e.empId = b.empId
 WHERE b.bonus < 1000 OR b.bonus IS NULL;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def employee_bonus(employee: pd.DataFrame, bonus: pd.DataFrame) -> pd.DataFrame:
@@ -39,9 +35,8 @@ def employee_bonus(employee: pd.DataFrame, bonus: pd.DataFrame) -> pd.DataFrame:
     return filtered[['name', 'bonus']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT e.name, b.bonus
 FROM Employee e
 LEFT JOIN Bonus b ON e.empId = b.empId

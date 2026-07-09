@@ -1,8 +1,7 @@
 # 1581. Customer Who Visited but Did Not Make Any Transactions
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     v.customer_id,
     COUNT(*) AS count_no_trans
@@ -12,9 +11,8 @@ WHERE t.visit_id IS NULL
 GROUP BY v.customer_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     v.customer_id,
@@ -25,9 +23,8 @@ WHERE t.visit_id IS NULL
 GROUP BY v.customer_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     v.customer_id,
@@ -42,9 +39,8 @@ GROUP BY
     v.customer_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_customers(visits: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataFrame:
@@ -60,9 +56,8 @@ def find_customers(visits: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataF
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     v.customer_id,

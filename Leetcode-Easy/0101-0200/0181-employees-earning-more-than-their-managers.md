@@ -1,8 +1,7 @@
 # 0181. Employees Earning More Than Their Managers
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT e.name AS Employee
 FROM Employee e
@@ -10,9 +9,8 @@ JOIN Employee m ON e.managerId = m.id
 WHERE e.salary > m.salary;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     e.name AS Employee
@@ -24,9 +22,8 @@ WHERE
     e.salary > m.salary;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT e.name AS Employee
 FROM Employee e
@@ -34,9 +31,8 @@ JOIN Employee m ON e.managerId = m.id
 WHERE e.salary > m.salary;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
@@ -52,9 +48,8 @@ def find_employees(employee: pd.DataFrame) -> pd.DataFrame:
     return res.rename(columns={"name": "Employee"})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT e.name AS Employee
 FROM Employee e

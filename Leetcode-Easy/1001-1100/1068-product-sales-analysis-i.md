@@ -1,16 +1,14 @@
 # 1068. Product Sales Analysis I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT p.product_name, s.year, s.price
 FROM Sales s
 JOIN Product p ON s.product_id = p.product_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     p.product_name,
@@ -24,9 +22,8 @@ ON
     s.product_id = p.product_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT p.product_name,
        s.year,
        s.price
@@ -35,9 +32,8 @@ JOIN   Product p
 ON     s.product_id = p.product_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def sales_analysis(sales: pd.DataFrame, product: pd.DataFrame) -> pd.DataFrame:
@@ -45,9 +41,8 @@ def sales_analysis(sales: pd.DataFrame, product: pd.DataFrame) -> pd.DataFrame:
     return merged[["product_name", "year", "price"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT p.product_name, s.year, s.price
 FROM Sales s
 JOIN Product p ON s.product_id = p.product_id;

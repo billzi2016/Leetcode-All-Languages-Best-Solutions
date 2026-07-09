@@ -1,8 +1,7 @@
 # 3617. Find Students with Study Spiral Pattern
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH ordered AS (
     SELECT ss.*,
@@ -53,9 +52,8 @@ JOIN students s ON v.student_id = s.student_id
 ORDER BY v.cycle_length DESC, v.total_study_hours DESC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH ordered AS (
     SELECT ss.*,
@@ -109,9 +107,8 @@ GROUP BY v.student_id, s.student_name, s.major, v.cycle_length
 ORDER BY v.cycle_length DESC, total_study_hours DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH ordered AS (
   SELECT s.student_id,
@@ -158,9 +155,8 @@ ORDER BY c.cycle_length DESC,
          c.total_study_hours DESC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_study_spiral_pattern(students: pd.DataFrame, study_sessions: pd.DataFrame) -> pd.DataFrame:
@@ -210,9 +206,8 @@ def find_study_spiral_pattern(students: pd.DataFrame, study_sessions: pd.DataFra
     return res_df[['student_id', 'student_name', 'major', 'cycle_length', 'total_study_hours']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH ordered AS (
     SELECT ss.student_id,

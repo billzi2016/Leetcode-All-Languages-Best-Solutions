@@ -1,8 +1,7 @@
 # 1587. Bank Account Summary II
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT u.name, SUM(t.amount) AS balance
 FROM Users u
 JOIN Transactions t ON u.account = t.account
@@ -10,9 +9,8 @@ GROUP BY u.account, u.name
 HAVING balance > 10000;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT u.name, SUM(t.amount) AS balance
 FROM Users u
@@ -21,9 +19,8 @@ GROUP BY u.account, u.name
 HAVING SUM(t.amount) > 10000;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT u.name,
        SUM(t.amount) AS balance
@@ -33,9 +30,8 @@ GROUP BY u.name
 HAVING SUM(t.amount) > 10000;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def account_summary(users: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataFrame:
@@ -49,9 +45,8 @@ def account_summary(users: pd.DataFrame, transactions: pd.DataFrame) -> pd.DataF
     return filtered[["name", "balance"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT u.name,
        SUM(t.amount) AS balance

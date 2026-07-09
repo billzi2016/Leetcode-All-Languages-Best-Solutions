@@ -1,8 +1,7 @@
 # 1890. The Latest Login in 2020
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     user_id, 
@@ -15,9 +14,8 @@ GROUP BY
     user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     user_id,
@@ -30,9 +28,8 @@ GROUP BY
     user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT user_id,
        MAX(time_stamp) AS last_stamp
@@ -41,9 +38,8 @@ WHERE EXTRACT(YEAR FROM time_stamp) = 2020
 GROUP BY user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def latest_login(logins: pd.DataFrame) -> pd.DataFrame:
@@ -65,9 +61,8 @@ def latest_login(logins: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     user_id,
     MAX(time_stamp) AS last_stamp

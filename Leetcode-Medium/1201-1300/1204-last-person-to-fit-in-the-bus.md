@@ -1,8 +1,7 @@
 # 1204. Last Person to Fit in the Bus
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT person_name
 FROM (
     SELECT person_name, turn,
@@ -14,9 +13,8 @@ ORDER BY turn DESC
 LIMIT 1;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT TOP 1 person_name
 FROM (
@@ -29,9 +27,8 @@ WHERE cum_weight <= 1000
 ORDER BY turn DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT person_name
 FROM (
@@ -45,9 +42,8 @@ ORDER BY turn DESC
 FETCH FIRST 1 ROW ONLY;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def last_passenger(queue: pd.DataFrame) -> pd.DataFrame:
@@ -60,9 +56,8 @@ def last_passenger(queue: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({'person_name': [last_name]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT person_name
 FROM (

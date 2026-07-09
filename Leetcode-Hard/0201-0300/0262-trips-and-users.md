@@ -1,8 +1,7 @@
 # 0262. Trips and Users
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     t.request_at AS Day,
     ROUND(SUM(CASE WHEN t.status <> 'completed' THEN 1 ELSE 0 END) / COUNT(*), 2) AS `Cancellation Rate`
@@ -14,9 +13,8 @@ GROUP BY t.request_at
 ORDER BY t.request_at;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     t.request_at AS Day,
@@ -29,9 +27,8 @@ GROUP BY t.request_at
 ORDER BY t.request_at;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     t.request_at AS Day,
@@ -47,9 +44,8 @@ GROUP BY t.request_at
 ORDER BY t.request_at;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
@@ -78,9 +74,8 @@ def trips_and_users(trips: pd.DataFrame, users: pd.DataFrame) -> pd.DataFrame:
     return rates
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     t.request_at AS Day,
     ROUND(

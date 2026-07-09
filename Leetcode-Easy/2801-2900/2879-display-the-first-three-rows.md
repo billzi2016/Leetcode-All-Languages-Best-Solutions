@@ -1,8 +1,7 @@
 # 2879. Display the First Three Rows
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:

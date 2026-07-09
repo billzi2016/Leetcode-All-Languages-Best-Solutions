@@ -1,8 +1,7 @@
 # 2890. Reshape Data: Melt
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def meltTable(report: pd.DataFrame) -> pd.DataFrame:

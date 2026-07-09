@@ -1,16 +1,14 @@
 # 1517. Find Users With Valid E-Mails
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT user_id, name, mail
 FROM Users
 WHERE mail REGEXP '^[A-Za-z0-9][A-Za-z0-9._-]*@leetcode\\.com$';
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT user_id, name, mail
 FROM Users
@@ -20,9 +18,8 @@ WHERE LEFT(mail, 1) <> '.'
   AND mail NOT LIKE '%[^a-zA-Z0-9._-]%';
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT user_id,
        name,
@@ -31,9 +28,8 @@ FROM   Users
 WHERE  REGEXP_LIKE(mail, '^[A-Za-z0-9][A-Za-z0-9._-]*@leetcode\.com$');
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
@@ -42,9 +38,8 @@ def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
     return users[mask]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT user_id, name, mail
 FROM Users

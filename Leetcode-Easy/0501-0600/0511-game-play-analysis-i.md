@@ -1,8 +1,7 @@
 # 0511. Game Play Analysis I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     player_id,
     MIN(event_date) AS first_login
@@ -12,9 +11,8 @@ GROUP BY
     player_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T‑SQL query statement below */
 SELECT
     player_id,
@@ -23,9 +21,8 @@ FROM Activity
 GROUP BY player_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     player_id,
@@ -36,9 +33,8 @@ GROUP BY
     player_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
@@ -47,9 +43,8 @@ def game_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     player_id,

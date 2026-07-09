@@ -1,8 +1,7 @@
 # 2891. Method Chaining
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def findHeavyAnimals(animals: pd.DataFrame) -> pd.DataFrame:

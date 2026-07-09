@@ -1,8 +1,7 @@
 # 3586. Find COVID Recovery Patients
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH first_pos AS (
     SELECT patient_id, MIN(test_date) AS pos_date
@@ -27,9 +26,8 @@ JOIN first_neg_after fn ON p.patient_id = fn.patient_id
 ORDER BY recovery_time ASC, patient_name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH first_positive AS (
     SELECT
@@ -59,9 +57,8 @@ JOIN patients pt ON pt.patient_id = p.patient_id
 ORDER BY recovery_time ASC, patient_name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH first_positive AS (
     SELECT patient_id, MIN(test_date) AS pos_date
@@ -86,9 +83,8 @@ JOIN first_negative_after_pos fn ON p.patient_id = fn.patient_id
 ORDER BY recovery_time ASC, p.patient_name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_covid_recovery_patients(patients: pd.DataFrame, covid_tests: pd.DataFrame) -> pd.DataFrame:
@@ -130,9 +126,8 @@ def find_covid_recovery_patients(patients: pd.DataFrame, covid_tests: pd.DataFra
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH pos AS (
     SELECT p.patient_id,

@@ -1,8 +1,7 @@
 # 3451. Find Invalid IP Addresses
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     ip,
     COUNT(*) AS invalid_count
@@ -12,9 +11,8 @@ GROUP BY ip
 ORDER BY invalid_count DESC, ip DESC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH ip_parts AS (
     SELECT
@@ -45,9 +43,8 @@ GROUP BY ip
 ORDER BY invalid_count DESC, ip DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     ip,
@@ -61,9 +58,8 @@ GROUP BY ip
 ORDER BY invalid_count DESC, ip DESC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_invalid_ips(logs: pd.DataFrame) -> pd.DataFrame:
@@ -97,9 +93,8 @@ def find_invalid_ips(logs: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     ip,

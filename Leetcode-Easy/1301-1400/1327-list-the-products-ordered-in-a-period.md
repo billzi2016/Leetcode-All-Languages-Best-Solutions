@@ -1,8 +1,7 @@
 # 1327. List the Products Ordered in a Period
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT p.product_name, SUM(o.unit) AS unit
 FROM Products p
 JOIN Orders o ON p.product_id = o.product_id
@@ -11,9 +10,8 @@ GROUP BY p.product_name
 HAVING SUM(o.unit) >= 100;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT p.product_name,
        SUM(o.unit) AS unit
@@ -24,9 +22,8 @@ GROUP BY p.product_name
 HAVING SUM(o.unit) >= 100;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT p.product_name,
        SUM(o.unit) AS unit
@@ -37,9 +34,8 @@ GROUP BY p.product_name
 HAVING SUM(o.unit) >= 100;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def list_products(products: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
@@ -70,9 +66,8 @@ def list_products(products: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
     return result[['product_name', 'unit']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT p.product_name, SUM(o.unit) AS unit
 FROM Products p
 JOIN Orders o ON p.product_id = o.product_id

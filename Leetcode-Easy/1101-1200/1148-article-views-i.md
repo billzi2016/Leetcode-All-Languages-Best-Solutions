@@ -1,8 +1,7 @@
 # 1148. Article Views I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT DISTINCT author_id AS id
 FROM Views
@@ -10,9 +9,8 @@ WHERE author_id = viewer_id
 ORDER BY id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT DISTINCT author_id AS id
 FROM Views
@@ -20,9 +18,8 @@ WHERE author_id = viewer_id
 ORDER BY id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT DISTINCT author_id AS id
 FROM Views
@@ -30,9 +27,8 @@ WHERE author_id = viewer_id
 ORDER BY id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def article_views(views: pd.DataFrame) -> pd.DataFrame:
@@ -47,9 +43,8 @@ def article_views(views: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT DISTINCT author_id AS id
 FROM Views

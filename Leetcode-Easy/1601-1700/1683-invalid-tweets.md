@@ -1,32 +1,28 @@
 # 1683. Invalid Tweets
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT tweet_id
 FROM Tweets
 WHERE CHAR_LENGTH(content) > 15;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT tweet_id
 FROM Tweets
 WHERE LEN(content) > 15;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT tweet_id
 FROM Tweets
 WHERE LENGTH(content) > 15;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
@@ -34,9 +30,8 @@ def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
     return tweets.loc[mask, ["tweet_id"]].reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT tweet_id
 FROM Tweets

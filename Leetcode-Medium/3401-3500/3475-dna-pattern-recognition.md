@@ -1,8 +1,7 @@
 # 3475. DNA Pattern Recognition
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     sample_id,
     dna_sequence,
@@ -15,9 +14,8 @@ FROM Samples
 ORDER BY sample_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     sample_id,
@@ -31,9 +29,8 @@ FROM Samples
 ORDER BY sample_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     sample_id,
@@ -50,9 +47,8 @@ FROM Samples
 ORDER BY sample_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def analyze_dna_patterns(samples: pd.DataFrame) -> pd.DataFrame:
@@ -65,9 +61,8 @@ def analyze_dna_patterns(samples: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values('sample_id').reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     sample_id,

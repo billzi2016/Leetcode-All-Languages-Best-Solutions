@@ -1,8 +1,7 @@
 # 0627. Swap Salary
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 UPDATE Salary
 SET sex = CASE sex
             WHEN 'm' THEN 'f'
@@ -10,9 +9,8 @@ SET sex = CASE sex
           END;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 UPDATE Salary
 SET sex = CASE sex 
@@ -21,16 +19,14 @@ SET sex = CASE sex
           END;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 UPDATE Salary
 SET sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm' END;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def swap_salary(salary: pd.DataFrame) -> pd.DataFrame:
@@ -39,9 +35,8 @@ def swap_salary(salary: pd.DataFrame) -> pd.DataFrame:
     return salary
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 UPDATE Salary
 SET sex = CASE 

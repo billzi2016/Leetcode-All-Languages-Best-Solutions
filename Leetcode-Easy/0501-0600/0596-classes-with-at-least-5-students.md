@@ -1,17 +1,15 @@
 # 0596. Classes With at Least 5 Students
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT class
 FROM Courses
 GROUP BY class
 HAVING COUNT(*) >= 5;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT class
 FROM Courses
@@ -19,9 +17,8 @@ GROUP BY class
 HAVING COUNT(*) >= 5;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT class
 FROM Courses
@@ -29,9 +26,8 @@ GROUP BY class
 HAVING COUNT(*) >= 5;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
@@ -42,9 +38,8 @@ def find_classes(courses: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT class
 FROM Courses
 GROUP BY class

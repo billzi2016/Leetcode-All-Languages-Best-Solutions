@@ -1,8 +1,7 @@
 # 1179. Reformat Department Table
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT
     id,
@@ -22,9 +21,8 @@ FROM Department
 GROUP BY id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     id,
@@ -44,9 +42,8 @@ FROM Department
 GROUP BY id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     id,
@@ -66,9 +63,8 @@ FROM Department
 GROUP BY id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def reformat_table(department: pd.DataFrame) -> pd.DataFrame:
@@ -79,9 +75,8 @@ def reformat_table(department: pd.DataFrame) -> pd.DataFrame:
     return pivot.reset_index()
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     id,

@@ -1,8 +1,7 @@
 # 2878. Get the Size of a DataFrame
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 from typing import List
 

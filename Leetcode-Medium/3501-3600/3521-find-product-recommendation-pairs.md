@@ -1,8 +1,7 @@
 # 3521. Find Product Recommendation Pairs
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     p1.product_id AS product1_id,
     p2.product_id AS product2_id,
@@ -20,9 +19,8 @@ HAVING COUNT(DISTINCT p1.user_id) >= 3
 ORDER BY customer_count DESC, product1_id ASC, product2_id ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     a.product_id AS product1_id,
@@ -48,9 +46,8 @@ ORDER BY
     product2_id ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     pp1.product_id   AS product1_id,
@@ -76,9 +73,8 @@ ORDER BY
     product2_id ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 from itertools import combinations
 
@@ -138,9 +134,8 @@ def find_product_recommendation_pairs(product_purchases: pd.DataFrame, product_i
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     pp1.product_id AS product1_id,

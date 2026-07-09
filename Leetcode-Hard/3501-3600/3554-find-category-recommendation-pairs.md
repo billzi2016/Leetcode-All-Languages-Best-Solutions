@@ -1,8 +1,7 @@
 # 3554. Find Category Recommendation Pairs
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH user_categories AS (
     SELECT DISTINCT pu.user_id, pi.category
@@ -22,9 +21,8 @@ HAVING COUNT(*) >= 3
 ORDER BY customer_count DESC, category1 ASC, category2 ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH UserCategories AS (
     SELECT DISTINCT pp.user_id, pi.category
@@ -50,9 +48,8 @@ ORDER BY
     category2 ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH user_categories AS (
     SELECT DISTINCT pp.user_id, pi.category
@@ -73,9 +70,8 @@ ORDER BY customer_count DESC,
          category2 ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 import itertools
 
@@ -124,9 +120,8 @@ def find_category_recommendation_pairs(product_purchases: pd.DataFrame, product_
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH user_categories AS (
     SELECT DISTINCT pp.user_id, pi.category

@@ -1,8 +1,7 @@
 # 2885. Rename Columns
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def renameColumns(students: pd.DataFrame) -> pd.DataFrame:

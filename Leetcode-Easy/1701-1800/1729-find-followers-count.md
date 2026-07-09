@@ -1,17 +1,15 @@
 # 1729. Find Followers Count
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT user_id, COUNT(*) AS followers_count
 FROM Followers
 GROUP BY user_id
 ORDER BY user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     user_id,
@@ -21,9 +19,8 @@ GROUP BY user_id
 ORDER BY user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT user_id,
        COUNT(*) AS followers_count
@@ -32,9 +29,8 @@ GROUP BY user_id
 ORDER BY user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def count_followers(followers: pd.DataFrame) -> pd.DataFrame:
@@ -49,9 +45,8 @@ def count_followers(followers: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT user_id, COUNT(*) AS followers_count
 FROM Followers
 GROUP BY user_id

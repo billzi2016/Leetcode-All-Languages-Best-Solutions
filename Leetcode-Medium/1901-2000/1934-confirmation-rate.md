@@ -1,8 +1,7 @@
 # 1934. Confirmation Rate
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     s.user_id,
@@ -18,9 +17,8 @@ LEFT JOIN (
 ) c ON s.user_id = c.user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT s.user_id,
        CAST(COALESCE(ROUND(CAST(c.confirmed AS float) / c.total, 2), 0) AS DECIMAL(10,2)) AS confirmation_rate
@@ -34,9 +32,8 @@ LEFT JOIN (
 ) c ON s.user_id = c.user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT s.user_id,
        CASE 
@@ -53,9 +50,8 @@ LEFT JOIN (
 ) c ON s.user_id = c.user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def confirmation_rate(signups: pd.DataFrame, confirmations: pd.DataFrame) -> pd.DataFrame:
@@ -84,9 +80,8 @@ def confirmation_rate(signups: pd.DataFrame, confirmations: pd.DataFrame) -> pd.
     return df[["user_id", "confirmation_rate"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     s.user_id,

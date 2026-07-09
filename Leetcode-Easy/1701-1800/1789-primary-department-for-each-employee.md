@@ -1,8 +1,7 @@
 # 1789. Primary Department for Each Employee
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT employee_id, department_id
 FROM (
@@ -12,9 +11,8 @@ FROM (
 WHERE cnt = 1 OR primary_flag = 'Y';
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT employee_id, department_id
 FROM (
@@ -24,9 +22,8 @@ FROM (
 WHERE emp_cnt = 1 OR primary_flag = 'Y';
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT employee_id,
        department_id
@@ -38,9 +35,8 @@ FROM (
 WHERE emp_cnt = 1 OR primary_flag = 'Y';
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_primary_department(employee: pd.DataFrame) -> pd.DataFrame:
@@ -48,9 +44,8 @@ def find_primary_department(employee: pd.DataFrame) -> pd.DataFrame:
     return employee[(employee_counts == 1) | (employee['primary_flag'] == 'Y')][['employee_id', 'department_id']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT employee_id,
        department_id

@@ -1,8 +1,7 @@
 # 0601. Human Traffic of Stadium
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH filtered AS (
     SELECT id, visit_date, people,
@@ -23,9 +22,8 @@ WHERE island IN (
 ORDER BY visit_date;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH filtered AS (
     SELECT id, visit_date, people,
@@ -49,9 +47,8 @@ WHERE grp IN (
 ORDER BY visit_date;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH filtered AS (
     SELECT id,
@@ -81,9 +78,8 @@ WHERE island IN (
 ORDER BY visit_date;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 import numpy as np
 
@@ -106,9 +102,8 @@ def human_traffic(stadium: pd.DataFrame) -> pd.DataFrame:
     return result.sort_values('visit_date').reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH qualified AS (
     SELECT *, ROW_NUMBER() OVER (ORDER BY id) AS rn

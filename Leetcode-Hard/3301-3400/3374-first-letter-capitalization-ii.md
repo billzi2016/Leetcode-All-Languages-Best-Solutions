@@ -1,8 +1,7 @@
 # 3374. First Letter Capitalization II
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH RECURSIVE cte AS (
     SELECT 
@@ -37,9 +36,8 @@ FROM cte
 GROUP BY content_id, content_text;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH cte AS (
     SELECT 
@@ -82,9 +80,8 @@ ORDER BY u.content_id
 OPTION (MAXRECURSION 0);
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     content_id,
     content_text AS original_text,
@@ -92,9 +89,8 @@ SELECT
 FROM user_content;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def capitalize_content(user_content: pd.DataFrame) -> pd.DataFrame:
@@ -113,9 +109,8 @@ def capitalize_content(user_content: pd.DataFrame) -> pd.DataFrame:
     return result[["content_id", "original_text", "converted_text"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     content_id,
     content_text AS original_text,

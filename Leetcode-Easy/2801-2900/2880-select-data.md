@@ -1,8 +1,7 @@
 # 2880. Select Data
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def selectData(students: pd.DataFrame) -> pd.DataFrame:

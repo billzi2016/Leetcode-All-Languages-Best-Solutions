@@ -1,8 +1,7 @@
 # 3436. Find Valid Emails
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT user_id, email
 FROM Users
 WHERE email LIKE '%_@_%.__%' 
@@ -10,9 +9,8 @@ WHERE email LIKE '%_@_%.__%'
 ORDER BY user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT user_id, email
 FROM Users
@@ -21,9 +19,8 @@ WHERE email LIKE '%_@_%._%'
 ORDER BY user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT user_id,
        email
@@ -32,9 +29,8 @@ WHERE  REGEXP_LIKE(email, '^[^@]+@[^@]+\.[^@]+$')
 ORDER BY user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_valid_emails(users: pd.DataFrame) -> pd.DataFrame:
@@ -43,9 +39,8 @@ def find_valid_emails(users: pd.DataFrame) -> pd.DataFrame:
     return valid.sort_values('user_id').reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     user_id,
     email

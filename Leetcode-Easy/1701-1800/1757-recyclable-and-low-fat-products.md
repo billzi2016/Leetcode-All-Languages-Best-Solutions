@@ -1,8 +1,7 @@
 # 1757. Recyclable and Low Fat Products
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     product_id
 FROM
@@ -11,36 +10,32 @@ WHERE
     low_fats = 'Y' AND recyclable = 'Y';
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' AND recyclable = 'Y';
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT product_id
 FROM Products
 WHERE low_fats = 'Y' AND recyclable = 'Y';
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_products(products: pd.DataFrame) -> pd.DataFrame:
     return products[(products["low_fats"] == "Y") & (products["recyclable"] == "Y")][["product_id"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     product_id
 FROM

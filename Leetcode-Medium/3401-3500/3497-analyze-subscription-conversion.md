@@ -1,8 +1,7 @@
 # 3497. Analyze Subscription Conversion
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     user_id,
     ROUND(AVG(CASE WHEN activity_type = 'free_trial' THEN activity_duration END), 2) AS trial_avg_duration,
@@ -14,9 +13,8 @@ HAVING COUNT(CASE WHEN activity_type = 'paid' THEN 1 END) > 0
 ORDER BY user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T‑SQL query statement below */
 SELECT
     user_id,
@@ -28,9 +26,8 @@ HAVING SUM(CASE WHEN activity_type = 'paid' THEN 1 ELSE 0 END) > 0
 ORDER BY user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT user_id,
        ROUND(AVG(CASE WHEN activity_type = 'free_trial' THEN activity_duration END), 2) AS trial_avg_duration,
@@ -42,9 +39,8 @@ HAVING COUNT(CASE WHEN activity_type = 'paid' THEN 1 END) > 0
 ORDER BY user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def analyze_subscription_conversion(user_activity: pd.DataFrame) -> pd.DataFrame:
@@ -67,9 +63,8 @@ def analyze_subscription_conversion(user_activity: pd.DataFrame) -> pd.DataFrame
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     user_id,

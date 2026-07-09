@@ -1,8 +1,7 @@
 # 1341. Movie Rating
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH user_cnt AS (
     SELECT user_id, COUNT(*) AS cnt
@@ -40,9 +39,8 @@ UNION ALL
 SELECT title AS results FROM best_movie;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH UserCounts AS (
     SELECT u.name, COUNT(*) AS cnt
@@ -72,9 +70,8 @@ UNION ALL
 SELECT title FROM TopMovie;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH user_counts AS (
     SELECT u.name,
@@ -122,9 +119,8 @@ UNION ALL
 SELECT title FROM top_movie;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def movie_rating(movies: pd.DataFrame, users: pd.DataFrame, movie_rating: pd.DataFrame) -> pd.DataFrame:
@@ -148,9 +144,8 @@ def movie_rating(movies: pd.DataFrame, users: pd.DataFrame, movie_rating: pd.Dat
     return pd.DataFrame({'results': [best_user, best_movie]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH user_counts AS (
     SELECT mr.user_id, COUNT(DISTINCT mr.movie_id) AS cnt

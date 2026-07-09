@@ -1,8 +1,7 @@
 # 0570. Managers with at Least 5 Direct Reports
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT e.name
 FROM Employee e
@@ -15,9 +14,8 @@ JOIN (
 ) AS m ON e.id = m.managerId;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT e.name
 FROM Employee e
@@ -30,9 +28,8 @@ JOIN (
 ) AS m ON e.id = m.managerId;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT e.name
 FROM Employee e
@@ -45,9 +42,8 @@ JOIN (
 ) m ON e.id = m.managerId;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
@@ -60,9 +56,8 @@ def find_managers(employee: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT e.name
 FROM Employee e
 JOIN (

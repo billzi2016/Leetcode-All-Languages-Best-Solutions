@@ -1,8 +1,7 @@
 # 2886. Change Data Type
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def changeDatatype(students: pd.DataFrame) -> pd.DataFrame:

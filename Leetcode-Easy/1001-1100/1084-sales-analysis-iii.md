@@ -1,8 +1,7 @@
 # 1084. Sales Analysis III
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT p.product_id, p.product_name
 FROM Product p
 JOIN Sales s ON p.product_id = s.product_id
@@ -10,9 +9,8 @@ GROUP BY p.product_id, p.product_name
 HAVING MIN(s.sale_date) >= '2019-01-01' AND MAX(s.sale_date) <= '2019-03-31';
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT p.product_id, p.product_name
 FROM Sales s
 JOIN Product p ON p.product_id = s.product_id
@@ -21,9 +19,8 @@ HAVING MIN(s.sale_date) >= '2019-01-01'
    AND MAX(s.sale_date) <= '2019-03-31';
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT p.product_id,
        p.product_name
@@ -34,9 +31,8 @@ HAVING MIN(s.sale_date) >= DATE '2019-01-01'
    AND MAX(s.sale_date) <= DATE '2019-03-31';
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def sales_analysis(product: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
@@ -67,9 +63,8 @@ def sales_analysis(product: pd.DataFrame, sales: pd.DataFrame) -> pd.DataFrame:
     return result[["product_id", "product_name"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT p.product_id, p.product_name
 FROM Product p
 JOIN (

@@ -1,8 +1,7 @@
 # 2881. Create a New Column
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:

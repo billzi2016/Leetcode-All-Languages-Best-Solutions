@@ -1,8 +1,7 @@
 # 1070. Product Sales Analysis III
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     s.product_id,
@@ -17,9 +16,8 @@ WHERE (s.product_id, s.year) IN (
 );
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     s.product_id,
@@ -36,9 +34,8 @@ WHERE
     );
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     s.product_id,
@@ -54,9 +51,8 @@ JOIN (
 ON s.product_id = t.product_id AND s.year = t.min_year;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def sales_analysis(sales: pd.DataFrame) -> pd.DataFrame:
@@ -74,9 +70,8 @@ def sales_analysis(sales: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT s.product_id,
        s.year AS first_year,

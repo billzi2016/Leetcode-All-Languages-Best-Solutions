@@ -1,8 +1,7 @@
 # 1407. Top Travellers
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     u.name,
     COALESCE(SUM(r.distance), 0) AS travelled_distance
@@ -12,9 +11,8 @@ GROUP BY u.id, u.name
 ORDER BY travelled_distance DESC, u.name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     u.name,
@@ -25,9 +23,8 @@ GROUP BY u.id, u.name
 ORDER BY travelled_distance DESC, u.name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     u.name,
@@ -43,9 +40,8 @@ ORDER BY
     u.name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def top_travellers(users: pd.DataFrame, rides: pd.DataFrame) -> pd.DataFrame:
@@ -67,9 +63,8 @@ def top_travellers(users: pd.DataFrame, rides: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     u.name,

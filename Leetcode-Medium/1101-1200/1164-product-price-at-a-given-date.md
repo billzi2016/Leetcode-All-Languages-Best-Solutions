@@ -1,8 +1,7 @@
 # 1164. Product Price at a Given Date
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     p.product_id,
@@ -15,9 +14,8 @@ SELECT
 FROM (SELECT DISTINCT product_id FROM Products) p;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT p.product_id,
        ISNULL(pc.new_price, 10) AS price
@@ -34,9 +32,8 @@ LEFT JOIN (
 ) pc ON p.product_id = pc.product_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT p.product_id,
        COALESCE(l.new_price, 10) AS price
@@ -54,9 +51,8 @@ LEFT JOIN (
 ) l ON p.product_id = l.product_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def price_at_given_date(products: pd.DataFrame) -> pd.DataFrame:
@@ -81,9 +77,8 @@ def price_at_given_date(products: pd.DataFrame) -> pd.DataFrame:
     return result[['product_id', 'price']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH last_change AS (
     SELECT product_id, new_price

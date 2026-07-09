@@ -1,8 +1,7 @@
 # 3570. Find Books with No Available Copies
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     b.book_id,
@@ -20,9 +19,8 @@ HAVING COUNT(*) >= b.total_copies
 ORDER BY current_borrowers DESC, b.title ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     b.book_id,
@@ -48,9 +46,8 @@ ORDER BY
     b.title ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT 
     b.book_id,
@@ -70,9 +67,8 @@ WHERE cnt.current_borrowers = b.total_copies
 ORDER BY cnt.current_borrowers DESC, b.title ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_books_with_no_available_copies(library_books: pd.DataFrame, borrowing_records: pd.DataFrame) -> pd.DataFrame:
@@ -100,9 +96,8 @@ def find_books_with_no_available_copies(library_books: pd.DataFrame, borrowing_r
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     b.book_id,

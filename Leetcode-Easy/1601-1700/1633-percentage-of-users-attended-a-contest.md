@@ -1,8 +1,7 @@
 # 1633. Percentage of Users Attended a Contest
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     r.contest_id,
@@ -13,9 +12,8 @@ GROUP BY r.contest_id
 ORDER BY percentage DESC, contest_id ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     contest_id,
@@ -25,9 +23,8 @@ GROUP BY contest_id
 ORDER BY percentage DESC, contest_id ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     r.contest_id,
@@ -37,9 +34,8 @@ GROUP BY r.contest_id
 ORDER BY percentage DESC, contest_id ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def users_percentage(users: pd.DataFrame, register: pd.DataFrame) -> pd.DataFrame:
@@ -56,9 +52,8 @@ def users_percentage(users: pd.DataFrame, register: pd.DataFrame) -> pd.DataFram
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     r.contest_id,

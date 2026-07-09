@@ -1,8 +1,7 @@
 # 2877. Create a DataFrame from List
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 from typing import List
 

@@ -1,8 +1,7 @@
 # 0178. Rank Scores
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     score,
     DENSE_RANK() OVER (ORDER BY score DESC) AS `rank`
@@ -10,9 +9,8 @@ FROM Scores
 ORDER BY score DESC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     score,
@@ -21,9 +19,8 @@ FROM Scores
 ORDER BY score DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     score,
@@ -32,9 +29,8 @@ FROM Scores
 ORDER BY score DESC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
@@ -44,9 +40,8 @@ def order_scores(scores: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     score,

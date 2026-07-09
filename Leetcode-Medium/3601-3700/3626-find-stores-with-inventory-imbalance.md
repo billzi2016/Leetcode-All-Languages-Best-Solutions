@@ -1,8 +1,7 @@
 # 3626. Find Stores with Inventory Imbalance
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH ranked AS (
     SELECT 
@@ -25,9 +24,8 @@ WHERE max_i.quantity < min_i.quantity
 ORDER BY imbalance_ratio DESC, s.store_name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH MaxPrice AS (
     SELECT i.*,
@@ -53,9 +51,8 @@ ORDER BY imbalance_ratio DESC,
          s.store_name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH max_prod AS (
     SELECT store_id,
@@ -92,9 +89,8 @@ WHERE mp.max_qty < cp.min_qty
 ORDER BY imbalance_ratio DESC, s.store_name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_inventory_imbalance(stores: pd.DataFrame, inventory: pd.DataFrame) -> pd.DataFrame:
@@ -150,9 +146,8 @@ def find_inventory_imbalance(stores: pd.DataFrame, inventory: pd.DataFrame) -> p
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH store_prices AS (
     SELECT 

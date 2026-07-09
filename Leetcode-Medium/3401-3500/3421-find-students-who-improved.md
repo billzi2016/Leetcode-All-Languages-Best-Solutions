@@ -1,8 +1,7 @@
 # 3421. Find Students Who Improved
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH first AS (
     SELECT student_id,
@@ -31,9 +30,8 @@ WHERE f.rn = 1
 ORDER BY f.student_id, f.subject;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH FirstLast AS (
     SELECT
@@ -62,9 +60,8 @@ WHERE s_last.score > s_first.score
 ORDER BY s_first.student_id, s_first.subject;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     student_id,
@@ -83,9 +80,8 @@ ORDER BY
     subject;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_students_who_improved(scores: pd.DataFrame) -> pd.DataFrame:
@@ -113,9 +109,8 @@ def find_students_who_improved(scores: pd.DataFrame) -> pd.DataFrame:
     return improved[['student_id', 'subject', 'first_score', 'latest_score']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH date_bounds AS (
     SELECT

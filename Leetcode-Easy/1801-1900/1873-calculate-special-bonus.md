@@ -1,8 +1,7 @@
 # 1873. Calculate Special Bonus
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     employee_id,
     CASE 
@@ -13,9 +12,8 @@ FROM Employees
 ORDER BY employee_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     employee_id,
@@ -27,9 +25,8 @@ FROM Employees
 ORDER BY employee_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     employee_id,
@@ -39,9 +36,8 @@ FROM Employees
 ORDER BY employee_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
@@ -55,9 +51,8 @@ def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     employee_id,
     CASE 

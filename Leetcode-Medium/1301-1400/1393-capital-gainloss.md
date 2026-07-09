@@ -1,8 +1,7 @@
 # 1393. Capital Gain/Loss
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     stock_name,
@@ -14,9 +13,8 @@ FROM Stocks
 GROUP BY stock_name;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT 
     stock_name,
     SUM(CASE 
@@ -27,9 +25,8 @@ FROM Stocks
 GROUP BY stock_name;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     stock_name,
@@ -38,9 +35,8 @@ FROM Stocks
 GROUP BY stock_name;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 import numpy as np
 
@@ -60,9 +56,8 @@ def capital_gainloss(stocks: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     stock_name,

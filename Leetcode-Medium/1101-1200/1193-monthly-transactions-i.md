@@ -1,8 +1,7 @@
 # 1193. Monthly Transactions I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT DATE_FORMAT(trans_date, '%Y-%m') AS month,
        country,
        COUNT(*) AS trans_count,
@@ -13,9 +12,8 @@ FROM Transactions
 GROUP BY month, country;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     CONVERT(varchar(7), trans_date, 120) AS month,
@@ -30,9 +28,8 @@ GROUP BY
     country;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT TO_CHAR(trans_date, 'YYYY-MM') AS month,
        country,
@@ -44,9 +41,8 @@ FROM Transactions
 GROUP BY TO_CHAR(trans_date, 'YYYY-MM'), country;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def monthly_transactions(transactions: pd.DataFrame) -> pd.DataFrame:
@@ -91,9 +87,8 @@ def monthly_transactions(transactions: pd.DataFrame) -> pd.DataFrame:
     ]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT TO_CHAR(trans_date, 'YYYY-MM') AS month,
        country,

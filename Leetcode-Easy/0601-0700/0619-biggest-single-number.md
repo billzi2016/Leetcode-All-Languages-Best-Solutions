@@ -1,8 +1,7 @@
 # 0619. Biggest Single Number
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT MAX(num) AS num
 FROM (
     SELECT num
@@ -12,9 +11,8 @@ FROM (
 ) AS single_numbers;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT MAX(num) AS num
 FROM (
@@ -25,9 +23,8 @@ FROM (
 ) AS t;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT MAX(num) AS num
 FROM (
@@ -38,9 +35,8 @@ FROM (
 );
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def biggest_single_number(my_numbers: pd.DataFrame) -> pd.DataFrame:
@@ -54,9 +50,8 @@ def biggest_single_number(my_numbers: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({"num": [max_single]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT MAX(num) AS num
 FROM (

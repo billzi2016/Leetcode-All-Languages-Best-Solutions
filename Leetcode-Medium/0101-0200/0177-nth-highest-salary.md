@@ -1,8 +1,7 @@
 # 0177. Nth Highest Salary
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   RETURN (
@@ -12,9 +11,8 @@ BEGIN
 END
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 CREATE FUNCTION getNthHighestSalary(@N INT) RETURNS INT AS
 BEGIN
     RETURN (
@@ -26,9 +24,8 @@ BEGIN
 END
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 CREATE FUNCTION getNthHighestSalary(N IN NUMBER) RETURN NUMBER IS
   result NUMBER;
 BEGIN
@@ -48,9 +45,8 @@ END;
 /
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
@@ -63,9 +59,8 @@ def nth_highest_salary(employee: pd.DataFrame, N: int) -> pd.DataFrame:
     return pd.DataFrame({f"getNthHighestSalary({N})": [val]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 CREATE OR REPLACE FUNCTION NthHighestSalary(N INT) RETURNS TABLE (Salary INT) AS $$
 BEGIN
   RETURN QUERY

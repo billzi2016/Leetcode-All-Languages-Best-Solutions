@@ -1,8 +1,7 @@
 # 0185. Department Top Three Salaries
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH employee_department AS (
     SELECT 
@@ -18,9 +17,8 @@ FROM employee_department
 WHERE rnk <= 3;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH RankedEmployees AS (
     SELECT 
@@ -36,9 +34,8 @@ FROM RankedEmployees
 WHERE rnk <= 3;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT d.name   AS Department,
        e.name   AS Employee,
@@ -52,9 +49,8 @@ JOIN Department d ON e.departmentId = d.id
 WHERE e.rnk <= 3;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def top_three_salaries(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
@@ -67,9 +63,8 @@ def top_three_salaries(employee: pd.DataFrame, department: pd.DataFrame) -> pd.D
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT d.name AS Department,
        e.name AS Employee,
        e.salary AS Salary

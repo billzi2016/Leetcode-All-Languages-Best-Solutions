@@ -1,8 +1,7 @@
 # 0586. Customer Placing the Largest Number of Orders
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT customer_number
 FROM Orders
 GROUP BY customer_number
@@ -10,9 +9,8 @@ ORDER BY COUNT(*) DESC
 LIMIT 1;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT TOP (1) WITH TIES
     customer_number
@@ -21,9 +19,8 @@ GROUP BY customer_number
 ORDER BY COUNT(*) DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT customer_number
 FROM (
@@ -35,9 +32,8 @@ FROM (
 WHERE ROWNUM = 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def largest_orders(orders: pd.DataFrame) -> pd.DataFrame:
@@ -48,9 +44,8 @@ def largest_orders(orders: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT customer_number
 FROM Orders
 GROUP BY customer_number

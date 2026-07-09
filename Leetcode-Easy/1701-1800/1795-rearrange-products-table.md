@@ -1,8 +1,7 @@
 # 1795. Rearrange Products Table
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT product_id, 'store1' AS store, store1 AS price
 FROM Products
 WHERE store1 IS NOT NULL
@@ -16,9 +15,8 @@ FROM Products
 WHERE store3 IS NOT NULL;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT product_id, 'store1' AS store, store1 AS price
 FROM Products
@@ -33,9 +31,8 @@ FROM Products
 WHERE store3 IS NOT NULL;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT product_id,
        'store1' AS store,
@@ -56,9 +53,8 @@ FROM   Products
 WHERE  store3 IS NOT NULL;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def rearrange_products_table(products: pd.DataFrame) -> pd.DataFrame:
@@ -66,9 +62,8 @@ def rearrange_products_table(products: pd.DataFrame) -> pd.DataFrame:
     return result.dropna(subset=["price"]).reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT product_id, 'store1' AS store, store1 AS price
 FROM Products
 WHERE store1 IS NOT NULL

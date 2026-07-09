@@ -1,8 +1,7 @@
 # 0602. Friend Requests II: Who Has the Most Friends
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH all_ids AS (
     SELECT requester_id AS id FROM RequestAccepted
@@ -18,9 +17,8 @@ ORDER BY num DESC
 LIMIT 1;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH all_ids AS (
     SELECT requester_id AS id FROM RequestAccepted
@@ -35,9 +33,8 @@ GROUP BY id
 ORDER BY COUNT(*) DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH all_ids AS (
     SELECT requester_id AS id FROM RequestAccepted
@@ -55,9 +52,8 @@ FROM (
 WHERE rnk = 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def most_friends(request_accepted: pd.DataFrame) -> pd.DataFrame:
@@ -77,9 +73,8 @@ def most_friends(request_accepted: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH all_ids AS (
     SELECT requester_id AS id FROM RequestAccepted

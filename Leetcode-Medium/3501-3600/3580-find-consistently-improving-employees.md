@@ -1,8 +1,7 @@
 # 3580. Find Consistently Improving Employees
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH ranked AS (
     SELECT 
@@ -33,9 +32,8 @@ WHERE l.r_earliest < l.r_mid AND l.r_mid < l.r_latest
 ORDER BY improvement_score DESC, e.name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH ranked AS (
     SELECT
@@ -59,9 +57,8 @@ HAVING COUNT(*) = 3
 ORDER BY improvement_score DESC, name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH ranked AS (
     SELECT e.employee_id,
@@ -92,9 +89,8 @@ WHERE cnt = 3
 ORDER BY improvement_score DESC, name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_consistently_improving_employees(employees: pd.DataFrame, performance_reviews: pd.DataFrame) -> pd.DataFrame:
@@ -133,9 +129,8 @@ def find_consistently_improving_employees(employees: pd.DataFrame, performance_r
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH ranked AS (
     SELECT e.employee_id,

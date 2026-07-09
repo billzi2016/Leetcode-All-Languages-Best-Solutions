@@ -1,8 +1,7 @@
 # 2887. Fill Missing Data
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def fillMissingValues(products: pd.DataFrame) -> pd.DataFrame:

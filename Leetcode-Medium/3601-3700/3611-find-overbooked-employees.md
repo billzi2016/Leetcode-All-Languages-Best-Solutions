@@ -1,8 +1,7 @@
 # 3611. Find Overbooked Employees
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     e.employee_id,
@@ -22,9 +21,8 @@ GROUP BY e.employee_id, e.employee_name, e.department
 ORDER BY meeting_heavy_weeks DESC, e.employee_name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH weekly_meetings AS (
     SELECT 
@@ -55,9 +53,8 @@ ORDER BY
     e.employee_name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH weekly_meetings AS (
     SELECT
@@ -86,9 +83,8 @@ JOIN employees e ON e.employee_id = h.employee_id
 ORDER BY h.meeting_heavy_weeks DESC, e.employee_name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_overbooked_employees(employees: pd.DataFrame, meetings: pd.DataFrame) -> pd.DataFrame:
@@ -135,9 +131,8 @@ def find_overbooked_employees(employees: pd.DataFrame, meetings: pd.DataFrame) -
     return result[["employee_id", "employee_name", "department", "meeting_heavy_weeks"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH weekly_meetings AS (
     SELECT

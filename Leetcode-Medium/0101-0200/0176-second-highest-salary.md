@@ -1,8 +1,7 @@
 # 0176. Second Highest Salary
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT (
     SELECT DISTINCT salary
@@ -12,9 +11,8 @@ SELECT (
 ) AS SecondHighestSalary;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T‑SQL query statement below */
 SELECT
     (SELECT DISTINCT Salary
@@ -23,9 +21,8 @@ SELECT
      OFFSET 1 ROW FETCH NEXT 1 ROW ONLY) AS SecondHighestSalary;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT 
     (SELECT MAX(salary) 
@@ -35,9 +32,8 @@ SELECT
 FROM dual;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
@@ -50,9 +46,8 @@ def second_highest_salary(employee: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({"SecondHighestSalary": [second_highest]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT (
     SELECT DISTINCT salary

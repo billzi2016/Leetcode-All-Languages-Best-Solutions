@@ -1,8 +1,7 @@
 # 1045. Customers Who Bought All Products
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT customer_id
 FROM Customer
@@ -10,9 +9,8 @@ GROUP BY customer_id
 HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(*) FROM Product);
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT c.customer_id
 FROM Customer c
@@ -20,9 +18,8 @@ GROUP BY c.customer_id
 HAVING COUNT(DISTINCT c.product_key) = (SELECT COUNT(*) FROM Product);
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT customer_id
 FROM Customer
@@ -30,9 +27,8 @@ GROUP BY customer_id
 HAVING COUNT(DISTINCT product_key) = (SELECT COUNT(*) FROM Product);
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_customers(customer: pd.DataFrame, product: pd.DataFrame) -> pd.DataFrame:
@@ -55,9 +51,8 @@ def find_customers(customer: pd.DataFrame, product: pd.DataFrame) -> pd.DataFram
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT customer_id
 FROM Customer
 GROUP BY customer_id

@@ -1,17 +1,15 @@
 # 0183. Customers Who Never Order
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT c.name AS Customers
 FROM Customers c
 LEFT JOIN Orders o ON c.id = o.customerId
 WHERE o.customerId IS NULL;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT c.name AS Customers
 FROM Customers c
@@ -19,9 +17,8 @@ LEFT JOIN Orders o ON c.id = o.customerId
 WHERE o.customerId IS NULL;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT name AS Customers
 FROM Customers c
 WHERE NOT EXISTS (
@@ -31,9 +28,8 @@ WHERE NOT EXISTS (
 );
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
@@ -43,9 +39,8 @@ def find_customers(customers: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFram
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT c.name AS Customers
 FROM Customers c

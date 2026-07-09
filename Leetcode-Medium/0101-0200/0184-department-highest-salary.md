@@ -1,8 +1,7 @@
 # 0184. Department Highest Salary
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     d.name AS Department,
     e.name AS Employee,
@@ -16,9 +15,8 @@ WHERE e.salary = (
 );
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     d.name AS Department,
@@ -33,9 +31,8 @@ JOIN Department d ON e.departmentId = d.id
 WHERE e.rnk = 1;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT d.name   AS Department,
        e.name   AS Employee,
@@ -47,9 +44,8 @@ JOIN Department d ON e.departmentId = d.id
 WHERE e.rnk = 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) -> pd.DataFrame:
@@ -62,9 +58,8 @@ def department_highest_salary(employee: pd.DataFrame, department: pd.DataFrame) 
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT d.name AS Department,
        e.name AS Employee,

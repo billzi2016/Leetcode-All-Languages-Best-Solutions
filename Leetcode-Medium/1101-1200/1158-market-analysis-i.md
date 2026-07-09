@@ -1,8 +1,7 @@
 # 1158. Market Analysis I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     u.user_id AS buyer_id,
     u.join_date,
@@ -14,9 +13,8 @@ LEFT JOIN Orders o
 GROUP BY u.user_id, u.join_date;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     u.user_id AS buyer_id,
@@ -28,9 +26,8 @@ LEFT JOIN Orders o
 GROUP BY u.user_id, u.join_date;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT 
     u.user_id AS buyer_id,
@@ -47,9 +44,8 @@ ORDER BY
     u.user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def market_analysis(users: pd.DataFrame, orders: pd.DataFrame, items: pd.DataFrame) -> pd.DataFrame:
@@ -85,9 +81,8 @@ def market_analysis(users: pd.DataFrame, orders: pd.DataFrame, items: pd.DataFra
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     u.user_id AS buyer_id,
     u.join_date,

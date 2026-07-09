@@ -1,8 +1,7 @@
 # 1741. Find Total Time Spent by Each Employee
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     event_day AS day,
     emp_id,
@@ -11,9 +10,8 @@ FROM Employees
 GROUP BY event_day, emp_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     event_day AS day,
@@ -23,9 +21,8 @@ FROM Employees
 GROUP BY event_day, emp_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT event_day AS day,
        emp_id,
        SUM(out_time - in_time) AS total_time
@@ -33,9 +30,8 @@ FROM Employees
 GROUP BY event_day, emp_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def total_time(employees: pd.DataFrame) -> pd.DataFrame:
@@ -49,9 +45,8 @@ def total_time(employees: pd.DataFrame) -> pd.DataFrame:
     return result[["day", "emp_id", "total_time"]]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     event_day AS day,

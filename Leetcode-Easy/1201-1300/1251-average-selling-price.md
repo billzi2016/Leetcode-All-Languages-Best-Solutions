@@ -1,8 +1,7 @@
 # 1251. Average Selling Price
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT p.product_id,
        IFNULL(ROUND(s.total_rev / s.total_units, 2), 0) AS average_price
@@ -19,9 +18,8 @@ LEFT JOIN (
 ) s ON p.product_id = s.product_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH SalesAgg AS (
     SELECT 
@@ -44,9 +42,8 @@ FROM (SELECT DISTINCT product_id FROM Prices) p
 LEFT JOIN SalesAgg sa ON p.product_id = sa.product_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH sales AS (
     SELECT u.product_id,
@@ -69,9 +66,8 @@ FROM all_products ap
 LEFT JOIN sales s ON ap.product_id = s.product_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def average_selling_price(prices: pd.DataFrame, units_sold: pd.DataFrame) -> pd.DataFrame:
@@ -110,9 +106,8 @@ def average_selling_price(prices: pd.DataFrame, units_sold: pd.DataFrame) -> pd.
     return result[['product_id', 'average_price']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH revenue AS (
     SELECT us.product_id,

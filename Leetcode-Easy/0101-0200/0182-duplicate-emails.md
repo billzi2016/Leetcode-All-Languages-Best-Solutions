@@ -1,8 +1,7 @@
 # 0182. Duplicate Emails
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     email AS Email
 FROM
@@ -13,9 +12,8 @@ HAVING
     COUNT(*) > 1;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT email AS Email
 FROM Person
@@ -23,9 +21,8 @@ GROUP BY email
 HAVING COUNT(*) > 1;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT email AS Email
 FROM Person
@@ -33,9 +30,8 @@ GROUP BY email
 HAVING COUNT(*) > 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
@@ -43,9 +39,8 @@ def duplicate_emails(person: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({'Email': duplicated})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT email AS Email
 FROM Person
 GROUP BY email

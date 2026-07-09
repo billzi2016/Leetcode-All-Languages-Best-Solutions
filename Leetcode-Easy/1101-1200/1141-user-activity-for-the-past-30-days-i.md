@@ -1,8 +1,7 @@
 # 1141. User Activity for the Past 30 Days I
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     activity_date AS day,
@@ -12,9 +11,8 @@ WHERE activity_date BETWEEN DATE_SUB('2019-07-27', INTERVAL 29 DAY) AND '2019-07
 GROUP BY activity_date;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     activity_date AS day,
@@ -27,9 +25,8 @@ GROUP BY
     activity_date;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     activity_date AS day,
@@ -39,9 +36,8 @@ WHERE activity_date BETWEEN DATE '2019-06-28' AND DATE '2019-07-27'
 GROUP BY activity_date;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def user_activity(activity: pd.DataFrame) -> pd.DataFrame:
@@ -59,9 +55,8 @@ def user_activity(activity: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     activity_date AS day,
     COUNT(DISTINCT user_id) AS active_users

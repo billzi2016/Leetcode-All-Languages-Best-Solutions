@@ -1,8 +1,7 @@
 # 1321. Restaurant Growth
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH daily AS (
     SELECT visited_on, SUM(amount) AS amount
@@ -26,9 +25,8 @@ WHERE rn >= 7
 ORDER BY visited_on;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH daily AS (
     SELECT visited_on,
@@ -51,9 +49,8 @@ WHERE rn >= 7
 ORDER BY visited_on;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 WITH daily AS (
     SELECT visited_on,
@@ -77,9 +74,8 @@ WHERE cnt = 7
 ORDER BY visited_on;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def restaurant_growth(customer: pd.DataFrame) -> pd.DataFrame:
@@ -103,9 +99,8 @@ def restaurant_growth(customer: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH daily AS (
     SELECT visited_on,

@@ -1,16 +1,14 @@
 # 1527. Patients With a Condition
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT patient_id, patient_name, conditions
 FROM Patients
 WHERE conditions LIKE 'DIAB1%' OR conditions LIKE '% DIAB1%';
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT patient_id,
        patient_name,
@@ -20,9 +18,8 @@ WHERE  conditions LIKE 'DIAB1%'      -- starts with DIAB1
     OR conditions LIKE '% DIAB1%';   -- contains DIAB1 after a space
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT patient_id,
        patient_name,
@@ -32,9 +29,8 @@ WHERE  conditions LIKE 'DIAB1%'
     OR conditions LIKE '% DIAB1%';
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
@@ -47,9 +43,8 @@ def find_patients(patients: pd.DataFrame) -> pd.DataFrame:
     return patients[mask]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT patient_id, patient_name, conditions
 FROM Patients
 WHERE conditions LIKE 'DIAB1%' 

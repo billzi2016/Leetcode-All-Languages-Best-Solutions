@@ -1,8 +1,7 @@
 # 0196. Delete Duplicate Emails
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 DELETE p1 
 FROM Person p1
@@ -11,9 +10,8 @@ JOIN Person p2
  AND p1.id > p2.id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 ;WITH CTE AS (
     SELECT id,
@@ -26,9 +24,8 @@ JOIN CTE ON p.id = CTE.id
 WHERE CTE.rn > 1;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 DELETE FROM Person p
 WHERE EXISTS (
@@ -38,9 +35,8 @@ WHERE EXISTS (
 );
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def delete_duplicate_emails(person: pd.DataFrame) -> None:
@@ -48,9 +44,8 @@ def delete_duplicate_emails(person: pd.DataFrame) -> None:
     person.drop_duplicates(subset=['email'], keep='first', inplace=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 DELETE FROM Person
 WHERE id NOT IN (
     SELECT MIN(id)

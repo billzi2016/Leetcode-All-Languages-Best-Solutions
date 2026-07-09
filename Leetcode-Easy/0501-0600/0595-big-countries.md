@@ -1,8 +1,7 @@
 # 0595. Big Countries
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT
     name,
@@ -14,18 +13,16 @@ WHERE
     area >= 3000000 OR population >= 25000000;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT name, population, area
 FROM World
 WHERE area >= 3000000 OR population >= 25000000;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT name,
        population,
@@ -35,9 +32,8 @@ WHERE  area >= 3000000
     OR population >= 25000000;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def big_countries(world: pd.DataFrame) -> pd.DataFrame:
@@ -45,9 +41,8 @@ def big_countries(world: pd.DataFrame) -> pd.DataFrame:
     return result[['name', 'population', 'area']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     name,

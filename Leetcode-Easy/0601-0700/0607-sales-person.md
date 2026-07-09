@@ -1,8 +1,7 @@
 # 0607. Sales Person
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT sp.name
 FROM SalesPerson AS sp
@@ -15,9 +14,8 @@ WHERE NOT EXISTS (
 );
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT s.name
 FROM SalesPerson AS s
@@ -30,9 +28,8 @@ WHERE NOT EXISTS (
 );
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT s.name
 FROM SalesPerson s
@@ -45,9 +42,8 @@ WHERE NOT EXISTS (
 );
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def sales_person(sales_person: pd.DataFrame, company: pd.DataFrame, orders: pd.DataFrame) -> pd.DataFrame:
@@ -57,9 +53,8 @@ def sales_person(sales_person: pd.DataFrame, company: pd.DataFrame, orders: pd.D
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT s.name
 FROM SalesPerson s

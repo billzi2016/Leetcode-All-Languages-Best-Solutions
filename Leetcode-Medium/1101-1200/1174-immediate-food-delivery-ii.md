@@ -1,8 +1,7 @@
 # 1174. Immediate Food Delivery II
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT ROUND(
     100 * SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) / COUNT(*),
     2
@@ -18,9 +17,8 @@ FROM (
 ) t;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH FirstOrders AS (
     SELECT
@@ -39,9 +37,8 @@ FROM FirstOrders
 WHERE rn = 1;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT ROUND(
          SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END) * 100 / COUNT(*),
@@ -55,9 +52,8 @@ FROM (
 WHERE rn = 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def immediate_food_delivery(delivery: pd.DataFrame) -> pd.DataFrame:
@@ -77,9 +73,8 @@ def immediate_food_delivery(delivery: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({"immediate_percentage": [perc]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT ROUND(
          (SUM(CASE WHEN order_date = customer_pref_delivery_date THEN 1 ELSE 0 END)::numeric * 100) 

@@ -1,8 +1,7 @@
 # 1731. The Number of Employees Which Report to Each Employee
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     mgr.employee_id,
     mgr.name,
@@ -14,9 +13,8 @@ GROUP BY mgr.employee_id, mgr.name
 ORDER BY mgr.employee_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     mgr.employee_id,
@@ -32,9 +30,8 @@ ORDER BY
     mgr.employee_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     mgr.employee_id,
@@ -50,9 +47,8 @@ ORDER BY
     mgr.employee_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def count_employees(employees: pd.DataFrame) -> pd.DataFrame:
@@ -80,9 +76,8 @@ def count_employees(employees: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     mgr.employee_id,

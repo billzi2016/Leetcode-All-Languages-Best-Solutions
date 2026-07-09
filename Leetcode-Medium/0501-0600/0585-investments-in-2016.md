@@ -1,8 +1,7 @@
 # 0585. Investments in 2016
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     ROUND(COALESCE(SUM(tiv_2016), 0), 2) AS tiv_2016
 FROM Insurance
@@ -20,9 +19,8 @@ WHERE tiv_2015 IN (
     );
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH CTE AS (
     SELECT 
@@ -36,9 +34,8 @@ FROM CTE
 WHERE cnt_tiv > 1 AND cnt_loc = 1;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT ROUND(SUM(tiv_2016), 2) AS tiv_2016
 FROM (
@@ -51,9 +48,8 @@ WHERE cnt_tiv > 1
   AND cnt_loc = 1;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_investments(insurance: pd.DataFrame) -> pd.DataFrame:
@@ -64,9 +60,8 @@ def find_investments(insurance: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({'tiv_2016': [total]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     CAST(ROUND(SUM(tiv_2016), 2) AS DECIMAL(10,2)) AS tiv_2016

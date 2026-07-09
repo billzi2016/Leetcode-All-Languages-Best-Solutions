@@ -1,8 +1,7 @@
 # 0610. Triangle Judgement
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     x,
     y,
@@ -14,9 +13,8 @@ SELECT
 FROM Triangle;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     x,
@@ -29,9 +27,8 @@ SELECT
 FROM Triangle;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     x,
     y,
@@ -43,9 +40,8 @@ SELECT
 FROM Triangle;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def triangle_judgement(triangle: pd.DataFrame) -> pd.DataFrame:
@@ -59,9 +55,8 @@ def triangle_judgement(triangle: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     x,
     y,

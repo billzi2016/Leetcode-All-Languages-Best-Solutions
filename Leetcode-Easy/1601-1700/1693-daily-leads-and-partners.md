@@ -1,8 +1,7 @@
 # 1693. Daily Leads and Partners
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT date_id,
        make_name,
        COUNT(DISTINCT lead_id)   AS unique_leads,
@@ -11,9 +10,8 @@ FROM DailySales
 GROUP BY date_id, make_name;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     date_id,
@@ -26,9 +24,8 @@ GROUP BY
     make_name;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT
     date_id,
@@ -39,9 +36,8 @@ FROM DailySales
 GROUP BY date_id, make_name;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
@@ -53,9 +49,8 @@ def daily_leads_and_partners(daily_sales: pd.DataFrame) -> pd.DataFrame:
     )
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     date_id,
     make_name,

@@ -1,8 +1,7 @@
 # 2883. Drop Missing Data
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def dropMissingData(students: pd.DataFrame) -> pd.DataFrame:

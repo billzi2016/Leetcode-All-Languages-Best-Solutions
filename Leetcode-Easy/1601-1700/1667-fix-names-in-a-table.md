@@ -1,8 +1,7 @@
 # 1667. Fix Names in a Table
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     user_id,
     CONCAT(UPPER(LEFT(name, 1)), LOWER(SUBSTRING(name, 2))) AS name
@@ -10,9 +9,8 @@ FROM Users
 ORDER BY user_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT
     user_id,
     CONCAT(UPPER(LEFT(name, 1)), LOWER(SUBSTRING(name, 2, LEN(name)))) AS name
@@ -20,9 +18,8 @@ FROM Users
 ORDER BY user_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     user_id,
     UPPER(SUBSTR(name, 1, 1)) || LOWER(SUBSTR(name, 2)) AS name
@@ -30,9 +27,8 @@ FROM Users
 ORDER BY user_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def fix_names(users: pd.DataFrame) -> pd.DataFrame:
@@ -41,9 +37,8 @@ def fix_names(users: pd.DataFrame) -> pd.DataFrame:
     return df.sort_values("user_id").reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     user_id,
     UPPER(LEFT(name, 1)) || LOWER(SUBSTRING(name FROM 2)) AS name

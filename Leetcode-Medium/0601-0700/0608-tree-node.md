@@ -1,8 +1,7 @@
 # 0608. Tree Node
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     t.id,
     CASE
@@ -15,9 +14,8 @@ LEFT JOIN Tree c ON c.p_id = t.id
 GROUP BY t.id, t.p_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     t.id,
@@ -34,9 +32,8 @@ LEFT JOIN (
 ) c ON t.id = c.p_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT t.id,
        CASE
@@ -47,9 +44,8 @@ SELECT t.id,
 FROM   Tree t;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 import numpy as np
 
@@ -72,9 +68,8 @@ def tree_node(tree: pd.DataFrame) -> pd.DataFrame:
     return result[['id', 'type']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT 
     t.id,

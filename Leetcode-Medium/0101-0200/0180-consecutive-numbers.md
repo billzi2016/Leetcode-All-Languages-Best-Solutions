@@ -1,8 +1,7 @@
 # 0180. Consecutive Numbers
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT DISTINCT
     l1.num AS ConsecutiveNums
@@ -17,9 +16,8 @@ WHERE
     AND l2.num = l3.num;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT DISTINCT l1.Num AS ConsecutiveNums
 FROM Logs l1
@@ -29,9 +27,8 @@ WHERE l1.Num = l2.Num
   AND l2.Num = l3.Num;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT DISTINCT l1.num AS ConsecutiveNums
 FROM Logs l1
@@ -41,9 +38,8 @@ WHERE l1.num = l2.num
   AND l2.num = l3.num;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
@@ -53,9 +49,8 @@ def consecutive_numbers(logs: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT DISTINCT
     l1.num AS ConsecutiveNums

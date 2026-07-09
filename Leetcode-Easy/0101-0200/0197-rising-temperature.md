@@ -1,8 +1,7 @@
 # 0197. Rising Temperature
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT w1.id
 FROM Weather w1
 JOIN Weather w2
@@ -10,9 +9,8 @@ JOIN Weather w2
 WHERE w1.temperature > w2.temperature;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     w_cur.id
@@ -25,9 +23,8 @@ WHERE
     w_cur.temperature > w_prev.temperature;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT w1.id
 FROM Weather w1
@@ -35,9 +32,8 @@ JOIN Weather w2 ON w1.recordDate = w2.recordDate + 1
 WHERE w1.temperature > w2.temperature;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
@@ -50,9 +46,8 @@ def rising_temperature(weather: pd.DataFrame) -> pd.DataFrame:
     return df.loc[mask, ['id']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT w2.id
 FROM Weather w1

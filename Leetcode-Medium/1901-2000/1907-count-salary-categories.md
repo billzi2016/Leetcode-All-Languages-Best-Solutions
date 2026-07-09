@@ -1,8 +1,7 @@
 # 1907. Count Salary Categories
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 'Low Salary' AS category, COUNT(*) AS accounts_count
 FROM Accounts
@@ -17,9 +16,8 @@ FROM Accounts
 WHERE income > 70000;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT cat.category,
        COALESCE(cnt.accounts_count, 0) AS accounts_count
@@ -43,9 +41,8 @@ LEFT JOIN (
 ON cat.category = cnt.category;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT 'Low Salary' AS category,
        COUNT(*) AS accounts_count
@@ -67,9 +64,8 @@ FROM   Accounts
 WHERE  income > 70000;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 import numpy as np
 
@@ -97,9 +93,8 @@ def count_salary_categories(accounts: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH categorized AS (
     SELECT CASE

@@ -1,8 +1,7 @@
 # 1211. Queries Quality and Percentage
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     query_name,
     ROUND(AVG(rating / position), 2) AS quality,
@@ -11,9 +10,8 @@ FROM Queries
 GROUP BY query_name;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 SELECT
     query_name,
     ROUND(AVG(CAST(rating AS float) / position), 2) AS quality,
@@ -22,9 +20,8 @@ FROM Queries
 GROUP BY query_name;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     query_name,
     ROUND(AVG(rating / position), 2) AS quality,
@@ -33,9 +30,8 @@ FROM Queries
 GROUP BY query_name;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def queries_stats(queries: pd.DataFrame) -> pd.DataFrame:
@@ -55,9 +51,8 @@ def queries_stats(queries: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     query_name,
     ROUND(AVG(rating::numeric / position), 2) AS quality,

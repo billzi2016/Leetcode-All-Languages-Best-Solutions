@@ -1,8 +1,7 @@
 # 0620. Not Boring Movies
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT *
 FROM Cinema
 WHERE id % 2 = 1
@@ -10,9 +9,8 @@ WHERE id % 2 = 1
 ORDER BY rating DESC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT *
 FROM Cinema
@@ -21,9 +19,8 @@ WHERE id % 2 = 1
 ORDER BY rating DESC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT *
 FROM Cinema
@@ -32,9 +29,8 @@ WHERE MOD(id, 2) = 1
 ORDER BY rating DESC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def not_boring_movies(cinema: pd.DataFrame) -> pd.DataFrame:
@@ -42,9 +38,8 @@ def not_boring_movies(cinema: pd.DataFrame) -> pd.DataFrame:
     return filtered.sort_values(by='rating', ascending=False)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT *
 FROM Cinema
 WHERE id % 2 = 1

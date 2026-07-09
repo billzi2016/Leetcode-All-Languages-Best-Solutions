@@ -1,8 +1,7 @@
 # 3601. Find Drivers with Improved Fuel Efficiency
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT 
     d.driver_id,
     d.driver_name,
@@ -26,9 +25,8 @@ WHERE s.avg_eff > f.avg_eff
 ORDER BY efficiency_improvement DESC, driver_name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH driver_eff AS (
     SELECT d.driver_id,
@@ -54,9 +52,8 @@ ORDER BY efficiency_improvement DESC,
          driver_name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT driver_id,
        driver_name,
@@ -82,9 +79,8 @@ WHERE improvement > 0
 ORDER BY improvement DESC, driver_name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def find_improved_efficiency_drivers(drivers: pd.DataFrame, trips: pd.DataFrame) -> pd.DataFrame:
@@ -120,9 +116,8 @@ def find_improved_efficiency_drivers(drivers: pd.DataFrame, trips: pd.DataFrame)
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH driver_eff AS (
     SELECT

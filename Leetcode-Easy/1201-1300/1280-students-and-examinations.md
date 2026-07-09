@@ -1,8 +1,7 @@
 # 1280. Students and Examinations
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     s.student_id,
@@ -19,9 +18,8 @@ LEFT JOIN (
 ORDER BY s.student_id, sub.subject_name;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     s.student_id,
@@ -42,9 +40,8 @@ ON s.student_id = e.student_id AND sub.subject_name = e.subject_name
 ORDER BY s.student_id, sub.subject_name;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT s.student_id,
        s.student_name,
@@ -59,9 +56,8 @@ GROUP BY s.student_id, s.student_name, sub.subject_name
 ORDER BY s.student_id, sub.subject_name;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def students_and_examinations(students: pd.DataFrame, subjects: pd.DataFrame, examinations: pd.DataFrame) -> pd.DataFrame:
@@ -84,9 +80,8 @@ def students_and_examinations(students: pd.DataFrame, subjects: pd.DataFrame, ex
     return result[['student_id', 'student_name', 'subject_name', 'attended_exams']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     s.student_id,
     s.student_name,

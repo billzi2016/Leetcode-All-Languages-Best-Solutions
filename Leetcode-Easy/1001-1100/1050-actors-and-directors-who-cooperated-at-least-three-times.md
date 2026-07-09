@@ -1,17 +1,15 @@
 # 1050. Actors and Directors Who Cooperated At Least Three Times
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT actor_id, director_id
 FROM ActorDirector
 GROUP BY actor_id, director_id
 HAVING COUNT(*) >= 3;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     actor_id,
@@ -25,9 +23,8 @@ HAVING
     COUNT(*) >= 3;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT actor_id,
        director_id
 FROM   ActorDirector
@@ -35,9 +32,8 @@ GROUP BY actor_id, director_id
 HAVING COUNT(*) >= 3;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:
@@ -51,9 +47,8 @@ def actors_and_directors(actor_director: pd.DataFrame) -> pd.DataFrame:
     return result.reset_index(drop=True)
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT
     actor_id,

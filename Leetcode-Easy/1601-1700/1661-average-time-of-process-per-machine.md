@@ -1,8 +1,7 @@
 # 1661. Average Time of Process per Machine
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     a.machine_id,
@@ -16,9 +15,8 @@ WHERE a.activity_type = 'start'
 GROUP BY a.machine_id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT 
     a.machine_id,
@@ -32,9 +30,8 @@ WHERE a.activity_type = 'start'
 GROUP BY a.machine_id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT a.machine_id,
        ROUND(AVG(b.timestamp - a.timestamp), 3) AS processing_time
@@ -47,9 +44,8 @@ WHERE a.activity_type = 'start'
 GROUP BY a.machine_id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def get_average_time(activity: pd.DataFrame) -> pd.DataFrame:
@@ -80,9 +76,8 @@ def get_average_time(activity: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     a.machine_id,
     ROUND(AVG(b.timestamp - a.timestamp), 3) AS processing_time

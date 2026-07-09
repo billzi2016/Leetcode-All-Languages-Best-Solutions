@@ -1,8 +1,7 @@
 # 3482. Analyze Organization Hierarchy
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 WITH RECURSIVE hierarchy AS (
     SELECT
@@ -37,9 +36,8 @@ GROUP BY h.employee_id, h.employee_name, h.lvl
 ORDER BY level ASC, budget DESC, employee_name ASC;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH LevelCTE AS (
     SELECT
@@ -89,9 +87,8 @@ GROUP BY a.anc, l.employee_name, l.lvl
 ORDER BY level ASC, budget DESC, employee_name ASC;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT e.employee_id,
        e.employee_name,
@@ -110,9 +107,8 @@ CONNECT BY PRIOR e.employee_id = e.manager_id
 ORDER BY level ASC, budget DESC, employee_name ASC;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def analyze_organization_hierarchy(employees: pd.DataFrame) -> pd.DataFrame:
@@ -180,9 +176,8 @@ def analyze_organization_hierarchy(employees: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 WITH RECURSIVE ancestors AS (
     SELECT employee_id AS anc,

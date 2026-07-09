@@ -1,16 +1,14 @@
 # 1378. Replace Employee ID With The Unique Identifier
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT u.unique_id, e.name
 FROM Employees AS e
 LEFT JOIN EmployeeUNI AS u ON e.id = u.id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT u.unique_id, e.name
 FROM Employees AS e
@@ -18,9 +16,8 @@ LEFT JOIN EmployeeUNI AS u
     ON e.id = u.id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     u.unique_id,
     e.name
@@ -28,9 +25,8 @@ FROM Employees e
 LEFT JOIN EmployeeUNI u ON e.id = u.id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def replace_employee_id(employees: pd.DataFrame, employee_uni: pd.DataFrame) -> pd.DataFrame:
@@ -38,9 +34,8 @@ def replace_employee_id(employees: pd.DataFrame, employee_uni: pd.DataFrame) -> 
     return merged[['unique_id', 'name']]
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 -- Write your PostgreSQL query statement below
 SELECT u.unique_id,
        e.name

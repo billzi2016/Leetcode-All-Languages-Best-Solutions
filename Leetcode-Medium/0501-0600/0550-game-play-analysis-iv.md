@@ -1,8 +1,7 @@
 # 0550. Game Play Analysis IV
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT ROUND(
     COUNT(a1.player_id) / (SELECT COUNT(DISTINCT player_id) FROM Activity),
@@ -16,9 +15,8 @@ WHERE (a1.player_id, DATE_SUB(a1.event_date, INTERVAL 1 DAY)) IN (
 );
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH first_logins AS (
     SELECT player_id, MIN(event_date) AS first_login
@@ -36,9 +34,8 @@ SELECT ROUND(CAST(COUNT(cp.player_id) AS float) / (SELECT COUNT(*) FROM first_lo
 FROM consecutive_players cp;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT ROUND(
     (SELECT COUNT(DISTINCT a.player_id)
@@ -54,9 +51,8 @@ SELECT ROUND(
 FROM dual;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
@@ -72,9 +68,8 @@ def gameplay_analysis(activity: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({'fraction': [fraction]})
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 WITH first_logins AS (
     SELECT player_id, MIN(event_date) AS first_login
     FROM Activity

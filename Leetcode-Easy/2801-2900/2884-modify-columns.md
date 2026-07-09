@@ -1,8 +1,7 @@
 # 2884. Modify Columns
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:

@@ -1,8 +1,7 @@
 # 0626. Exchange Seats
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 # Write your MySQL query statement below
 SELECT 
     id,
@@ -14,9 +13,8 @@ FROM Seat
 ORDER BY id;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 WITH MaxIdCTE AS (
     SELECT MAX(id) AS max_id FROM Seat
@@ -33,9 +31,8 @@ CROSS JOIN MaxIdCTE m
 ORDER BY id;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 /* Write your PL/SQL query statement below */
 SELECT id,
        CASE 
@@ -52,9 +49,8 @@ FROM (
 ORDER BY id;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def exchange_seats(seat: pd.DataFrame) -> pd.DataFrame:
@@ -68,9 +64,8 @@ def exchange_seats(seat: pd.DataFrame) -> pd.DataFrame:
     return df
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT 
     id,
     CASE 

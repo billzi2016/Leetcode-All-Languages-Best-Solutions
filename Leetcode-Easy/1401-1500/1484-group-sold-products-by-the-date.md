@@ -1,8 +1,7 @@
 # 1484. Group Sold Products By The Date
 
-## Mysql
-
-```mysql
+## MySQL
+```sql
 SELECT
     sell_date,
     COUNT(DISTINCT product) AS num_sold,
@@ -12,9 +11,8 @@ GROUP BY sell_date
 ORDER BY sell_date;
 ```
 
-## Mssql
-
-```mssql
+## MSSQL
+```sql
 /* Write your T-SQL query statement below */
 SELECT
     sell_date,
@@ -25,9 +23,8 @@ GROUP BY sell_date
 ORDER BY sell_date;
 ```
 
-## Oraclesql
-
-```oraclesql
+## OracleSQL
+```sql
 SELECT
     sell_date,
     COUNT(*) AS num_sold,
@@ -40,9 +37,8 @@ GROUP BY sell_date
 ORDER BY sell_date;
 ```
 
-## Pythondata
-
-```pythondata
+## PythonData
+```python
 import pandas as pd
 
 def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
@@ -61,9 +57,8 @@ def categorize_products(activities: pd.DataFrame) -> pd.DataFrame:
     return result
 ```
 
-## Postgresql
-
-```postgresql
+## PostgreSQL
+```sql
 SELECT
     sell_date,
     COUNT(DISTINCT product) AS num_sold,
