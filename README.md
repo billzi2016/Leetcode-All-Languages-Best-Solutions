@@ -8,29 +8,35 @@ Documentation site:
 
 ## Supported Languages
 
-The project covers every language that appears in the LeetCode dataset with starter code. The signature examples below come from LeetCode 1, `Two Sum`.
+The project covers every language that appears in the LeetCode dataset with starter code. Algorithm-language examples come from LeetCode 1, `Two Sum`; database and Pandas examples come from LeetCode 175, `Combine Two Tables`; the Bash example comes from LeetCode 192, `Word Frequency`.
 
-| Language | Short Description | LeetCode Signature Example |
+| Language | Short Description | Starter Code Example |
 | --- | --- | --- |
-| C | Good for low-level array and pointer work. | `int* twoSum(int* nums, int numsSize, int target, int* returnSize)` |
-| C++ | Good for STL containers and algorithmic implementations. | `class Solution { public: vector<int> twoSum(vector<int>& nums, int target) }` |
-| Java | Good for strongly typed object-oriented solutions. | `class Solution { public int[] twoSum(int[] nums, int target) }` |
-| Python | Good for concise algorithm expression. | `class Solution(object): def twoSum(self, nums, target)` |
-| Python3 | Good for modern Python with type annotations. | `class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]` |
-| C# | Good for .NET-style strongly typed solutions. | `public class Solution { public int[] TwoSum(int[] nums, int target) }` |
-| JavaScript | Good for dynamic function submissions. | `var twoSum = function(nums, target)` |
-| TypeScript | Good for JavaScript-style solutions with type constraints. | `function twoSum(nums: number[], target: number): number[]` |
-| PHP | Good for class-method submissions. | `class Solution { function twoSum($nums, $target) }` |
-| Swift | Good for strongly typed Apple ecosystem code. | `class Solution { func twoSum(_ nums: [Int], _ target: Int) -> [Int] }` |
-| Kotlin | Good for modern strongly typed JVM code. | `class Solution { fun twoSum(nums: IntArray, target: Int): IntArray }` |
-| Dart | Good for Dart ecosystem syntax. | `class Solution { List<int> twoSum(List<int> nums, int target) }` |
-| Go | Good for concise function submissions. | `func twoSum(nums []int, target int) []int` |
-| Ruby | Good for script-style expression. | `def two_sum(nums, target)` |
-| Scala | Good for mixed functional and object-oriented JVM code. | `object Solution { def twoSum(nums: Array[Int], target: Int): Array[Int] }` |
-| Rust | Good for memory-safe and high-performance implementations. | `impl Solution { pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> }` |
-| Racket | Good for functional solutions with contracts. | `(define/contract (two-sum nums target) ...)` |
-| Erlang | Good for functional concurrent-language style. | `-spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].` |
-| Elixir | Good for functional pipeline and pattern-matching style. | `defmodule Solution do ... def two_sum(nums, target) do ... end` |
+| C | Systems programming language for operating systems, embedded software, database kernels, and performance-critical libraries. Shows pointer handling, array lengths, returned-buffer allocation, and low-level boundary control. | `int* twoSum(int* nums, int numsSize, int target, int* returnSize)` |
+| C++ | Performance-oriented language for game engines, trading systems, graphics, infrastructure, and competitive programming. Uses `class Solution` with STL containers and advanced data structures. | `class Solution { public: vector<int> twoSum(vector<int>& nums, int target) }` |
+| Java | Strongly typed object-oriented language for enterprise backends, server systems, and Android. Uses stable class-based entries and mature collections. | `class Solution { public int[] twoSum(int[] nums, int target) }` |
+| Python | Dynamic language for scripting, automation, data processing, and fast prototypes. Concise for algorithms, with attention needed for older Python behavior and performance limits. | `class Solution(object): def twoSum(self, nums, target)` |
+| Python3 | Mainstream Python for backend scripts, machine learning, data analysis, automation, and algorithm prototypes. Usually includes type annotations and modern standard-library usage. | `class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]` |
+| C# | .NET language for enterprise applications, desktop tools, game development, backend services, and cloud systems. Uses strong typing, generics, and .NET collections. | `public class Solution { public int[] TwoSum(int[] nums, int target) }` |
+| JavaScript | Core language for web frontends, Node.js backends, automation scripts, and full-stack applications. Uses flexible arrays and objects, with dynamic typing and numeric precision considerations. | `var twoSum = function(nums, target)` |
+| TypeScript | Typed JavaScript for large frontend projects, Node.js services, and maintainable full-stack systems. Makes array, object, return-value, and helper-structure types explicit. | `function twoSum(nums: number[], target: number): number[]` |
+| PHP | Server-side language for web backends, CMS platforms, ecommerce systems, and traditional page-serving applications. Uses class-method submissions and flexible arrays. | `class Solution { function twoSum($nums, $target) }` |
+| Swift | Apple's modern language for iOS, macOS, watchOS, and tvOS. Uses strongly typed arrays and class-method entries with safe collection handling. | `class Solution { func twoSum(_ nums: [Int], _ target: Int) -> [Int] }` |
+| Kotlin | Modern JVM language for Android, backend services, and Java-adjacent application code. Offers concise entries, null-safety, data classes, and expressive collections. | `class Solution { fun twoSum(nums: IntArray, target: Int): IntArray }` |
+| Dart | Main Flutter language for cross-platform mobile, desktop, and web apps. Uses class-method entries and clear list/map APIs. | `class Solution { List<int> twoSum(List<int> nums, int target) }` |
+| Go | Language for cloud-native systems, backend services, network programs, command-line tools, and concurrent infrastructure. Uses compact functions with slices, maps, structs, and readable imperative code. | `func twoSum(nums []int, target int) []int` |
+| Ruby | Dynamic language for scripting, web applications, and fast business iteration. Expressive for strings, arrays, hashes, enumeration, and simulation problems. | `def two_sum(nums, target)` |
+| Scala | JVM language combining functional and object-oriented programming, common in Spark, Flink, Akka, and distributed data systems. Supports both functional collection transformations and imperative algorithms. | `object Solution { def twoSum(nums: Array[Int], target: Int): Array[Int] }` |
+| Rust | Modern systems language for performance-sensitive services, infrastructure, blockchain, compilers, browser components, and safety-critical code. Uses ownership, borrowing, and precise boundary handling. | `impl Solution { pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> }` |
+| Racket | Lisp/Scheme-family language for functional programming, teaching, language experiments, and DSL construction. Keeps contracts and naturally expresses recursion and list processing. | `(define/contract (two-sum nums target) ...)` |
+| Erlang | Functional language for highly concurrent, fault-tolerant, distributed systems. Uses specs, pattern matching, recursion, immutable data, and list processing. | `-spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].` |
+| Elixir | Modern functional language on the Erlang VM for Phoenix web services, realtime systems, messaging, and high-concurrency applications. Uses modules, pattern matching, recursion, pipes, and immutable collections. | `defmodule Solution do ... def two_sum(nums, target) do ... end` |
+| MySQL | Relational database dialect used in web applications and operational systems. Covers joins, grouping, filtering, window functions, aggregation, and MySQL-specific syntax. | LeetCode 175: `# Write your MySQL query statement below` |
+| MS SQL Server | Microsoft's T-SQL dialect for SQL Server, common in enterprise reporting, analytics, and backend data systems. Preserves SQL Server starter comments and dialect syntax. | LeetCode 175: `/* Write your T-SQL query statement below */` |
+| Oracle SQL | Oracle SQL and PL/SQL environment for enterprise database systems, finance, telecom, and large legacy data platforms. Requires PL/SQL-oriented starter code and dialect details. | LeetCode 175: `/* Write your PL/SQL query statement below */` |
+| PostgreSQL | Feature-rich open-source relational database used for backend systems, analytics, geospatial workloads, and data platforms. Uses PostgreSQL SQL syntax, window functions, CTEs, dates, and aggregation. | LeetCode 175: `-- Write your PostgreSQL query statement below` |
+| Pandas | Python tabular data-analysis library for DataFrame cleaning, joins, grouping, filtering, reshaping, and analytics workflows. Uses a typed DataFrame function rather than `class Solution`. | LeetCode 175: `def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFrame` |
+| Bash | Shell scripting language for Unix command-line automation, text processing, pipelines, and operational scripts. Reads files or stdin and composes tools such as `awk`, `sort`, `uniq`, and `sed`. | LeetCode 192: `# Read from the file words.txt and output the word frequency list to stdout.` |
 
 ## Output Layout Example
 

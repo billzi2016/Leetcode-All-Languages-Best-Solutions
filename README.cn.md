@@ -8,29 +8,35 @@
 
 ## 支持语言
 
-本项目覆盖 LeetCode 数据集中提供 starter code 的全部语言。下面的代码头示例来自 LeetCode 1 `Two Sum`。
+本项目覆盖 LeetCode 数据集中提供 starter code 的全部语言。算法语言示例来自 LeetCode 1 `Two Sum`；数据库和 Pandas 示例来自 LeetCode 175 `Combine Two Tables`；Bash 示例来自 LeetCode 192 `Word Frequency`。
 
-| 语言 | 简介 | LeetCode 代码头示例 |
+| 语言 | 简介 | Starter Code 示例 |
 | --- | --- | --- |
-| C | 适合底层数组和指针操作。 | `int* twoSum(int* nums, int numsSize, int target, int* returnSize)` |
-| C++ | 适合使用 STL 容器和算法。 | `class Solution { public: vector<int> twoSum(vector<int>& nums, int target) }` |
-| Java | 适合强类型面向对象实现。 | `class Solution { public int[] twoSum(int[] nums, int target) }` |
-| Python | 适合简洁表达算法逻辑。 | `class Solution(object): def twoSum(self, nums, target)` |
-| Python3 | 适合类型标注和现代 Python 写法。 | `class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]` |
-| C# | 适合 .NET 风格强类型实现。 | `public class Solution { public int[] TwoSum(int[] nums, int target) }` |
-| JavaScript | 适合动态类型函数提交。 | `var twoSum = function(nums, target)` |
-| TypeScript | 适合带类型约束的 JavaScript 写法。 | `function twoSum(nums: number[], target: number): number[]` |
-| PHP | 适合类方法形式提交。 | `class Solution { function twoSum($nums, $target) }` |
-| Swift | 适合 Apple 生态强类型实现。 | `class Solution { func twoSum(_ nums: [Int], _ target: Int) -> [Int] }` |
-| Kotlin | 适合 JVM 上的现代强类型写法。 | `class Solution { fun twoSum(nums: IntArray, target: Int): IntArray }` |
-| Dart | 适合 Dart 生态语法。 | `class Solution { List<int> twoSum(List<int> nums, int target) }` |
-| Go | 适合简洁函数式提交。 | `func twoSum(nums []int, target int) []int` |
-| Ruby | 适合脚本风格表达。 | `def two_sum(nums, target)` |
-| Scala | 适合 JVM 上的函数式和面向对象混合写法。 | `object Solution { def twoSum(nums: Array[Int], target: Int): Array[Int] }` |
-| Rust | 适合强安全约束和高性能实现。 | `impl Solution { pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> }` |
-| Racket | 适合函数式表达和 contract 定义。 | `(define/contract (two-sum nums target) ...)` |
-| Erlang | 适合函数式并发语言风格。 | `-spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].` |
-| Elixir | 适合函数式管道和模式匹配风格。 | `defmodule Solution do ... def two_sum(nums, target) do ... end` |
+| C | 面向系统编程、嵌入式、数据库内核和高性能基础库，能展示指针、数组长度、返回数组分配和底层边界控制。 | `int* twoSum(int* nums, int numsSize, int target, int* returnSize)` |
+| C++ | 面向性能敏感工程、游戏引擎、交易系统、图形计算和竞赛算法，常用 `class Solution`、STL 容器和复杂数据结构。 | `class Solution { public: vector<int> twoSum(vector<int>& nums, int target) }` |
+| Java | 面向企业后端、服务端系统和 Android 生态，提交入口稳定，集合库成熟，适合标准工程风格算法实现。 | `class Solution { public int[] twoSum(int[] nums, int target) }` |
+| Python | 面向脚本、自动化、数据处理和快速原型开发，表达简洁，但旧版入口需要注意迭代器、整数除法和性能边界。 | `class Solution(object): def twoSum(self, nums, target)` |
+| Python3 | 当前主流 Python 版本，常用于后端脚本、机器学习、数据分析、自动化和算法原型，通常带类型标注。 | `class Solution: def twoSum(self, nums: List[int], target: int) -> List[int]` |
+| C# | 面向 .NET 平台、企业应用、桌面工具、游戏开发、后端服务和云系统，使用强类型、泛型和 .NET 集合。 | `public class Solution { public int[] TwoSum(int[] nums, int target) }` |
+| JavaScript | Web 前端、Node.js 后端、自动化脚本和全栈开发核心语言，数组和对象灵活，但要注意动态类型和数字精度。 | `var twoSum = function(nums, target)` |
+| TypeScript | JavaScript 的类型增强版本，常用于大型前端、Node.js 服务和可维护全栈项目，能明确数组、对象、返回值和辅助结构类型。 | `function twoSum(nums: number[], target: number): number[]` |
+| PHP | 常见于 Web 后端、CMS、电商系统和传统服务端页面开发，使用类方法提交，数组可同时承担列表和映射角色。 | `class Solution { function twoSum($nums, $target) }` |
+| Swift | Apple 平台开发语言，主要用于 iOS、macOS、watchOS 和 tvOS，使用强类型数组和类方法入口。 | `class Solution { func twoSum(_ nums: [Int], _ target: Int) -> [Int] }` |
+| Kotlin | 面向 JVM、Android 和服务端开发的现代强类型语言，入口简洁，具备空安全、数据类和友好的集合 API。 | `class Solution { fun twoSum(nums: IntArray, target: Int): IntArray }` |
+| Dart | Flutter 主要开发语言，常用于跨平台移动端、桌面端和 Web 应用，使用类方法入口和清晰的 list/map API。 | `class Solution { List<int> twoSum(List<int> nums, int target) }` |
+| Go | 面向云原生、后端服务、网络服务、命令行工具和并发系统，使用切片、map、结构体和可读性强的命令式代码。 | `func twoSum(nums []int, target int) []int` |
+| Ruby | 面向脚本、Web 应用和快速业务迭代，数组、哈希、枚举和字符串处理表达力强。 | `def two_sum(nums, target)` |
+| Scala | JVM 上的函数式和面向对象混合语言，常见于 Spark、Flink、Akka 和分布式大数据系统。 | `object Solution { def twoSum(nums: Array[Int], target: Int): Array[Int] }` |
+| Rust | 面向系统编程、性能敏感服务、区块链、编译器、浏览器组件和安全基础设施，强调所有权、借用和内存安全。 | `impl Solution { pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> }` |
+| Racket | Lisp/Scheme 家族语言，常用于函数式编程、教学、语言实验和 DSL 构建，入口保留 contract。 | `(define/contract (two-sum nums target) ...)` |
+| Erlang | 面向高并发、高可用和分布式系统的函数式语言，使用 spec、模式匹配、递归、不可变数据和列表处理。 | `-spec two_sum(Nums :: [integer()], Target :: integer()) -> [integer()].` |
+| Elixir | 构建在 Erlang VM 上的现代函数式语言，常用于 Phoenix Web 服务、实时系统、消息处理和高并发应用。 | `defmodule Solution do ... def two_sum(nums, target) do ... end` |
+| MySQL | 常见关系型数据库方言，广泛用于 Web 应用和业务系统，题目主要考察 join、group by、聚合、过滤、窗口函数和 MySQL 语法。 | LeetCode 175: `# Write your MySQL query statement below` |
+| MS SQL Server | Microsoft SQL Server 的 T-SQL 方言，常见于企业报表、数据分析和后端数据系统，需要保留 SQL Server starter comment 和方言语法。 | LeetCode 175: `/* Write your T-SQL query statement below */` |
+| Oracle SQL | Oracle 数据库的 SQL / PL-SQL 环境，常见于金融、电信和大型企业数据平台，需要处理 PL-SQL 风格入口和 Oracle 方言差异。 | LeetCode 175: `/* Write your PL/SQL query statement below */` |
+| PostgreSQL | 功能完整的开源关系型数据库，常用于后端系统、分析平台、地理数据和复杂查询场景，常见 CTE、窗口函数、日期处理和聚合。 | LeetCode 175: `-- Write your PostgreSQL query statement below` |
+| Pandas | Python 数据分析生态中的表格数据处理库，用于 DataFrame 清洗、join、groupby、筛选、重塑和统计分析，入口是带类型标注的 DataFrame 函数。 | LeetCode 175: `def combine_two_tables(person: pd.DataFrame, address: pd.DataFrame) -> pd.DataFrame` |
+| Bash | Unix shell 脚本语言，常用于命令行自动化、文本处理、管道组合和运维脚本，题目通常读取文件或标准输入并组合 `awk`、`sort`、`uniq`、`sed` 等工具。 | LeetCode 192: `# Read from the file words.txt and output the word frequency list to stdout.` |
 
 ## 输出目录示例
 
